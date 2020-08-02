@@ -3,6 +3,10 @@ Sweet Care/SmartSugr/Health Smart/
 
 Purpose: Provide users with an app that provides feedback(or advice?) regarding their sugar level(s) in a supportive manner to promote good health habits and better self-knowledge of  self endocrine response in relation to variables (good vs. bad elements of diet or lifestyle).
 
+## Todos
+-C&Pasted primitive.css (SASS) into index.css; consider alternatives
+-See how to config w/ Rails backend
+
 ## User Stories
 -As a user, I want to have the landing page display on load
 -As a user, I want to be able to enter a single sugar reading into the input field and receive immediate feedback based off value
