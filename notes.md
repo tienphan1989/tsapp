@@ -62,3 +62,29 @@ Vaccination_record: {
 }
 belongs to user
 belongs to vaccine
+
+        ├── Components
+        │   └── Header
+        │   |   ├── Homepage icon 
+        │   |   ├── Learn More/Resources
+        │   |   ├── Contact Page
+        │   |   ├── User Profile
+        │   |   |	└── My Profile
+		|	|		|__Check Progress
+		|	|		|__Logout
+		|	|
+        │   ── Main Container
+        │       ├── TopDesigndiv
+        │       ├── MiddleDiv
+        │       	├── 1st Modal(Sugar)
+        │       	├── 2nd Modal(BP)
+        │       	├── 3rd Modal(Vaccine Form)
+        │       	└── BottomDivDesign
+        ├── |___Div
+		|	|	|___InformationDiv(Science)
+			|	|___InformationDiv(How to Change)
+            ├── Footer
+            	└── Creator Github link
+                ├── (Browse other materials??)
+                ├── Contact/Help Page
+                └── Terms/Conditions

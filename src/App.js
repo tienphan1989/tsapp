@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Form from "./Form";
+import Basic from "./Form";
 import Header from "./Header";
-import Apidata from "./Apidata";
+//import { CssBaseline } from '@material-ui/core';
+import StyledButton from './StyledButton'
 
 
 class App extends Component {
@@ -11,8 +12,8 @@ class App extends Component {
             <div>
                 <div className="container">
                     <Header/>
-                    <h3>(New user sign up)</h3>
-                    <Form handleSubmit={this.handleSubmit} />
+                    <StyledButton>(New user sign up)</StyledButton>
+                    <Basic handleSubmit={this.handleSubmit} />
                 </div>
             </div>
         );

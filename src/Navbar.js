@@ -1,13 +1,14 @@
 import React from "react";
-import { Toolbar, Button } from "@material-ui/core/";
+import StyledButton from './StyledButton'
+import { Toolbar } from "@material-ui/core/";
 
 const Navbar = () => {
   return (
     <Toolbar>
       Tien's App
       <div>
-        <Button>Contact Us</Button>
-        <Button>Get Started</Button>
+        <StyledButton>Contact Us</StyledButton>
+        <StyledButton>Get Started</StyledButton>
       </div>
     </Toolbar>
   );
