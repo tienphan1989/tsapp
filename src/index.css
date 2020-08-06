@@ -35,7 +35,9 @@
  * Remove default margin.
  */
 body {
-  margin: 0; }
+  margin: 0; 
+  text-align:center;
+      }
 
 /* HTML5 display definitions
    ========================================================================== */

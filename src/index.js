@@ -3,4 +3,14 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import './index.css'
 
+
+// import Components from "views/Components/Components.js";
+// import LandingPage from "views/LandingPage/LandingPage.js";
+// import ProfilePage from "views/ProfilePage/ProfilePage.js";
+// import LoginPage from "views/LoginPage/LoginPage.js";
+// import resourcesPage from "views/ResourcePage/ResourcePage.js";
+// import contactPage from "views/ContactPage/ContactPage.js";
+// import helpPage from "views/HelpPage/HelpPage.js";
+// import discoverPage from "views/DiscoverPage/DiscoverPage.js";
+
 ReactDOM.render(<App />, document.getElementById('root'))
