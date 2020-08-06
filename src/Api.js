@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
-class App extends Component {
-    state = {
-        data: []
-    };
-    
+class Apidata extends Component {
     componentDidMount() {
         const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=Seona+Dancing&format=json&origin=*&limit=1";
 
@@ -29,4 +25,32 @@ class App extends Component {
     }
 }
 
-export default App;
+export { Apidata }
+
+function search(query, cb) {
+    return fetch(`localhost:3001/food?q=${query}`, {
+      accept: "application/json"
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(cb);
+}
+  
+function checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+      return response;
+    }
+    const error = new Error(`HTTP Error ${response.statusText}`);
+    error.status = response.statusText;
+    error.response = response;
+    console.log(error); // eslint-disable-line no-console
+    throw error;
+}
+  
+function parseJSON(response) {
+    return response.json();
+}
+
+export { search };
+export { checkStatus };
+

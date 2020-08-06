@@ -39,7 +39,7 @@ class Form extends Component {
                     id="name"
                     value={name} 
                     onChange={this.handleChange} />
-                <label for="job">Job</label>
+                <label for="job">Email</label>
                 <input 
                     type="text" 
                     name="job" 
@@ -47,7 +47,7 @@ class Form extends Component {
                     value={job} 
                     onChange={this.handleChange} />
                 <button type="submit">
-                    Submit
+                    Submit User Registration
                 </button>
             </form>
         );

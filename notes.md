@@ -4,8 +4,7 @@ HealthCheckr/Sweet Care/SmartSugr/Health Smart/My Health Status
 Purpose: Provide users with an app that provides feedback(or advice?) regarding their sugar level(s)/blood pressure reading(s) in a supportive manner to promote good health habits and better self-knowledge of self endocrine response in relation to variables {good vs. bad elements of diet or lifestyle}.  (Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.) 
 
 ## Todos
--Finish vaccine models/migration &  start all associations
--C&Pasted primitive.css (SASS) into index.css; consider alternatives
+-Do React components overlay Header/Navbar/3 Column or 3 row center container
 -Client.js file has fetch skeleton for GET request from rails api; need to update endpoints
 
 ## User Stories
@@ -14,6 +13,8 @@ Purpose: Provide users with an app that provides feedback(or advice?) regarding 
 -As a user, I want to be able to enter a single blood pressure reading into the input field and receive immediate feedback based off value
 -As a user, I want to be able to sign up and login
 -(As a user, I want to be able to submit a form and see if vaccinations are complete/incomplete)
+
+## Components
 
 ## Models/Associations
 Users: {
