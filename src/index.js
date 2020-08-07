@@ -1,10 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import App from './components/App/App'
 import './index.css'
 
-
-// import Components from "views/Components/Components.js";
 // import LandingPage from "views/LandingPage/LandingPage.js";
 // import ProfilePage from "views/ProfilePage/ProfilePage.js";
 // import LoginPage from "views/LoginPage/LoginPage.js";

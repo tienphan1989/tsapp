@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import StyledButton from './StyledButton'
+import StyledButton from '../StyledButton/StyledButton'
 
 const Basic = () => (
   <div>

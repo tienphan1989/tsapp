@@ -88,3 +88,182 @@ belongs to vaccine
                 ├── (Browse other materials??)
                 ├── Contact/Help Page
                 └── Terms/Conditions
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.flex-item {
+  background: tomato;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+<ul class="flex-container">
+  <li class="flex-item">1</li>
+  <li class="flex-item">2</li>
+  <li class="flex-item">3</li>
+  <li class="flex-item">4</li>
+  <li class="flex-item">5</li>
+  <li class="flex-item">6</li>
+</ul>
+
+	/* Vertical align */
+
+	.d-flex-vertical {
+
+		/* Tell flexbox to start vertically from the center */
+		align-items:center;
+
+		display:flex;
+
+		/* I'm also aligning it horizontally */
+		justify-content:center;
+
+	}
+	/* all the child element needs is to be a flex item */
+	.d-flex-vertical > div {
+
+		display:flex;
+
+	}
+
+/* Equal height columns */
+	.d-flex-parent {
+
+		display:flex;
+		align-items:stretch;
+
+	}
+	.d-flex-child {
+
+		display:flex;
+	}
+
+Create a flex container
+.flexcontainer {
+   display: flex;
+}
+
+Put flex items into a row
+.flexcontainer {
+   display: flex;
+   flex-direction: row;
+}
+
+Center everything
+.flexcontainer {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4fc;
+  height: 500px;
+}
+
+.Aligner-item {
+  background: #34d;
+  max-width: 50%;
+}
+
+<div class="Aligner">
+   <div class="Aligner-item Aligner-item--fixed">
+     <div class="Demo">
+       <h3>I'm Centered!</h3>
+       <p contenteditable="true">This box is both vertically and horizontally centered. Even if the text in this box changes to make it wider or taller, the box will still be centered. Go ahead, give it a try. Just click to edit the text.</p
+     </div>
+  </div>
+</div>
+
+div#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* for better viewing */
+body, html {
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: white;
+}
+div#container {
+  background-color: #e9e9e9;
+  height: 100%;
+  width: 100%;
+}
+div#container > div {
+  background-color: #57797f;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+<div id="container">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+div#container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* for better viewing */
+body, html {
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: white;
+}
+div#container {
+  background-color: #e9e9e9;
+  height: 100%;
+  width: 100%;
+}
+div#container > div {
+  background-color: #57797f;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+<div id="container">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

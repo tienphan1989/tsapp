@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Apidata extends Component {
+class Api extends Component {
     componentDidMount() {
         const url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=Seona+Dancing&format=json&origin=*&limit=1";
 
@@ -25,7 +25,7 @@ class Apidata extends Component {
     }
 }
 
-export { Apidata }
+export { Api }
 
 function search(query, cb) {
     return fetch(`localhost:3001/food?q=${query}`, {
