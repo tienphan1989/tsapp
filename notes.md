@@ -70,10 +70,9 @@ belongs to vaccine
         │   |   ├── Contact Page
         │   |   ├── User Profile
         │   |   |	└── My Profile
-		|	|		|__Check Progress
-		|	|		|__Logout
-		|	|
-        │   ── Main Container
+		        |	  |	|__Check Progress
+		        |	  |	|__Logout
+        │      Main Container
         │       ├── TopDesigndiv
         │       ├── MiddleDiv
         │       	├── 1st Modal(Sugar)
@@ -84,10 +83,10 @@ belongs to vaccine
 		|	|	|___InformationDiv(Science)
 			|	|___InformationDiv(How to Change)
             ├── Footer
-            	└── Creator Github link
-                ├── (Browse other materials??)
-                ├── Contact/Help Page
-                └── Terms/Conditions
+            	└── Privacy Policy & Terms/Conditions
+              ├── Contact/Help Page
+              └── Made By Tien Phan Github linkedinlink
+              
 .flex-container {
   /* We first create a flex layout context */
   display: flex;

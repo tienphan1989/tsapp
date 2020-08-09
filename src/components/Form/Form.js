@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import StyledButton from '../StyledButton/StyledButton'
+import Button from './Buttons/Button'
 
 const Basic = () => (
   <div>
@@ -52,9 +52,9 @@ const Basic = () => (
             value={values.password}
           />
           {errors.password && touched.password && errors.password}
-          <button type="submit" disabled={isSubmitting}>
-          <StyledButton>(New user sign up)</StyledButton>
-          </button>
+          <Button type="submit" disabled={isSubmitting}>
+          <Button>(New user sign up)</Button>
+          </Button>
         </form>
       )}
     </Formik>
