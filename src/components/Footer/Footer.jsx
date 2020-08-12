@@ -11,7 +11,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 export default class Footer extends Component {
     render() {
         return (
-            <Toolbar>
+            <Toolbar className='footer'>
                 <div>
                     <Button color="primary">
                         <Link href="#"/>
