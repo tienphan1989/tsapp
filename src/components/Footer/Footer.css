@@ -1,0 +1,12 @@
+/* footer */
+
+.footer {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    width: 100%;
+    color:white;
+  }
+  
+  .privacy-link {
+    align-items: baseline;
+  }

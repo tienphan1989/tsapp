@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import IntroDiv from "./IntroDiv";
 import TagDiv from "./TagDiv";
-import StartButton from "../Buttons/StartButton";
+import "./HeroContainer.css"
 
 export default class HeroContainer extends Component {
     render() {
@@ -10,7 +10,6 @@ export default class HeroContainer extends Component {
                 <>
                     <IntroDiv/>
                     <TagDiv/>
-                    <StartButton/>
                 </>
             </div>
         )

@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
 import {
     IconButton,
-    Toolbar,
-    Link,
-    Button,
+    Toolbar
 } from "@material-ui/core";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import "./Footer.css"
 
 export default class Footer extends Component {
     render() {
         return (
             <Toolbar className='footer'>
                 <div>
-                    <Button color="primary">
-                        <Link href="#"/>
-                        Privacy Policy & Terms/Conditions
-                    </Button>
+                    <p>
+                        ©2020 HealthCheckr, Made by Tien Phan
+                    </p>
                 </div>
                 <div> 
                     <IconButton>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import glucometer from "./glucometer.png";
+import "./InformationContainer.css"
 
 export default class InformationContainer extends Component {
   render() {

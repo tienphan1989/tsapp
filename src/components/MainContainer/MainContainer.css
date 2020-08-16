@@ -1,0 +1,32 @@
+/* Body Container */
+.box-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    display:flex;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    background-color: #22ADE2;
+  }
+
+  .main-row-1 {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .main-column-1 {
+    align-items: center;
+    flex: 50%;
+    padding: 5px;
+  }
+  
+  .bp-box, .sugar-box, .vaccine-box {  
+    text-align: center;
+    padding: 3px;
+    margin: 3px;
+  }
+
+  .info-images {
+    width: 20%;
+    height: auto;
+  }

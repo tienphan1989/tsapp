@@ -9,6 +9,8 @@ import {
   Button,
 } from "@material-ui/core";
 import logo  from "./logo.png";
+import mainLogo from "./logo4.png";
+import "./Header.css"
 
 export default class Header extends Component {
     constructor(props) {
@@ -30,15 +32,18 @@ export default class Header extends Component {
                 <IconButton>
                   <img src={logo} alt="logo" className="main-logo"/>
                 </IconButton>
+                <div className='title-div'>
+                <img src={mainLogo} alt="logo" className="title"/>
+                </div>
                 <div>
-                  <Button color="primary" variant="contained">
-                    <Link href="#" className='nav-link'>Resources</Link>
+                  <Button className="top-button">
+                    <Link href="#" className='nav-link' color="white">Resources</Link>
                   </Button>
-                  <Button color="primary" variant="contained">
+                  {/* <Button className="top-button">
                     <Link href="#" className='nav-link'>LOGIN</Link>
-                  </Button>
-                  <Button color="primary" variant="contained" onClick={this.handleClick}>
-                  <Link href="#" className='nav-link'>MY PROFILE</Link>
+                  </Button> */}
+                  <Button className="top-button" onClick={this.handleClick}>
+                  <Link href="#" className='nav-link' color="white">Login</Link>
                   </Button>
                   <Menu
                     getContentAnchorEl={null}

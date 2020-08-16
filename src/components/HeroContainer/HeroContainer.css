@@ -1,0 +1,27 @@
+/* Hero Container */
+
+.hero-div {
+    padding: 4rem;
+    margin: 6rem;
+    align-items: center;
+  }
+  
+  .intro-div {
+    color:white;
+      padding: 30px;
+    margin: 15px;
+    font-size: 34px;
+  }
+  
+  .tagline-div {
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+  }
+  
+  .demo-button {
+    color: white;
+    padding: 30px;
+    margin: 15px;
+    font-size: 18px;
+  }

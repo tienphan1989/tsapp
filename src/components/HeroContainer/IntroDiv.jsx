@@ -1,9 +1,10 @@
 import React from 'react'
+import "./HeroContainer.css"
 
 const IntroDiv = () => {
     return (
-        <div>
-            
+        <div className="intro-div">
+            Health is Wealth
         </div>
     )
 }

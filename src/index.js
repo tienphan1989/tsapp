@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
 import './index.css'
+import App from './App'
+
 
 // import LandingPage from "views/LandingPage/LandingPage.js";
 // import ProfilePage from "views/ProfilePage/ProfilePage.js";
