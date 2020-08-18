@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./MainContainer.css"
 import vaccine from "./profession.svg";
+import Button from '@material-ui/core/Button';
 
 export default class VaccineContainer extends Component {
     render() {
@@ -13,6 +14,9 @@ export default class VaccineContainer extends Component {
                 <p>Answer some quick questions and I'll let you know
                     if your up to date on your vaccines so you can stay protected! 
                 </p>
+                <Button variant="contained" color="secondary">
+                    Click to start
+                </Button> 
             </section>
         )
     }

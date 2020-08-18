@@ -1,0 +1,37 @@
+.invalid-feedback {
+    display: block !important;
+}
+
+.container {
+    width: 600px;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 20px;
+    outline: 1px solid #036cdb!important;
+    display: flex;
+    justify-content: center;
+}
+
+.form-div  {
+    display: flex;
+}
+
+.bp-form-title {
+    padding: 5px;
+    margin: 2px;
+    text-decoration: underline
+}
+
+.bp-username {
+    margin-bottom: 5px;
+}
+
+.bp-gender {
+    display: flex;
+    padding: 5px;
+    margin: 2px;
+}
+
+
+  

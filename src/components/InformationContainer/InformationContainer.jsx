@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import glucometer from "./glucometer.png";
 import "./InformationContainer.css"
 
 export default class InformationContainer extends Component {
@@ -7,11 +6,17 @@ export default class InformationContainer extends Component {
     return (
       <div>
         <div className="features-outside">
+          <h1>Redefine your health with our insight!</h1>
           <div className="features-inside">
-            <img src={glucometer} alt="glucometer" className="image-glucometer"/>
+            <div className="benefits-div">
+              <h3>LEARN.</h3>
+              <p>Get instant insight to improve diabetes management.</p>
+              <h3>PRECISE AND PERSONALIZED.</h3>
+              <p>Feedback becomes specific to the individual over time and provide meaningful and actionable insights.</p>
+              <h3>ACTIONABLE.</h3>
+              <p>Designed to prompt action or learning at moments that matter.</p>
+            </div>
           </div>
-          <h3>Additional Info.</h3>
-          <h3>Explain benefits of being adherent & knowledgeable</h3>
         </div>
       </div>
     );
