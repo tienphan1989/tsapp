@@ -15,6 +15,7 @@ Botticelli: #C8D7E0,
 }
 
 ## Fonts
+Carter One
 Work Sans
 Metropolis
 IBM Plex Sans
@@ -125,4 +126,46 @@ import { Link } from "react-router-dom"
 <Route exact path="/bpindex" component={BloodPressure} />
 <Route exact path="/sugarindex" component={Sugar} />
 <Route exact path="/vaccine" component={Vaccine} /> 
+
+// import LandingPage from "views/LandingPage/LandingPage.js";
+// import ProfilePage from "views/ProfilePage/ProfilePage.js";
+// import LoginPage from "views/LoginPage/LoginPage.js";
+// import resourcesPage from "views/ResourcePage/ResourcePage.js";
+// import contactPage from "views/ContactPage/ContactPage.js";
+// import helpPage from "views/HelpPage/HelpPage.js";
+// import discoverPage from "views/DiscoverPage/DiscoverPage.js";
+
+## Code below will create link to home/page
+import {Link} from 'react-router-dom'
+goHome = () => {
+        this.props.history.push("/paintings")
+}
+<Link to="/paintings">
+HOME
+</Link>
+
+## Log out
+let logout = () => {
+        localStorage.clear()
+}
+
+<Link to="/signup" style={{color: "black"}}>SignUp</Link>
+<Link to="/login" style={{color: "black"}}>Login</Link>
+
+## Code below will get user.bpResults
+  getBpResults = () => {
+      fetch("http://localhost:3000/api/v1/paintings",{
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.token}` // send token back to server
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+          console.log(data)
+          this.setState({
+            paintings: data
+          })
+      })
+  }
 

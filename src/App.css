@@ -1,0 +1,13 @@
+.App {
+    text-align: center;
+}
+
+* {
+    font-family: 'Carter One', cursive;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(to top, #8ec9fc 0%, #dffffe 100%);
+}

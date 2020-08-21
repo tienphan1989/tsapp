@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "../Login/Login.jsx";
+import Login from "../Login/LoginFormik.jsx";
 import useModal from '../Login/useModal';
 import {
   AppBar,
@@ -60,3 +60,9 @@ export const Header = () => {
 }
 
 export default Header;
+
+<div className="right menu">
+<div className="item menu-item" onClick={(e) => {props.logOut(e)}}>Log Out</div>
+</div>
+<a className="item menu-item" href="/login">Log In</a>
+<a className="item menu-item" href="/signup">Sign Up</a>

@@ -5,6 +5,7 @@ import { Formik } from "formik";
 import useForm from "./useForm";
 
 const Login = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
+  
   <React.Fragment>
   <div class="login">
     <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
