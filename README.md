@@ -1,69 +1,33 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hey class, its finally that time! :yayfox: We've gone ahead and deployed the Mod 5 Handbook!!! :penguin-dance: 
+You can find it under Module 4 - Web Development Immersive 2.1 ~> Mod 5 Handbook. 
+There will be a Mod 5 Expectations talk later to help answer any questions and set the ground rules for how Mod 5 will run. :yes:
+IN ADDITION: Here are the minimum requirements you will need to meet to pass Mod 5.
+PROJECT REQUIREMENTS  
+Backend 
 
-## Available Scripts
+- Validations
+- Unit tests
+- Authentication
+- At least 1 API that is not your Rails backend 
+( connect to the API using your Rails server!!! )
+- Multiple has_many_through relationships
+- Custom controller & model methods
+- You can use this guide here to help you setup your backend
 
-In the project directory, you can run:
+Frontend  :react: + :redux:
+- Custom CSS and/or CSS Framework
+- Routing + Custom Routes
+- Redux
+- Authentication
+- ( Optional ) Hooks
 
-### `yarn start`
+PROPOSAL REQUIREMENTS  :meow_popcorn:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# tsapp
+- List of your models & relationships 
+( must use https://dbdiagram.io/home or another equivalent )
+- A drawn out draft of your component hierarchy
+- Have at least 5 wireframes that help us walk through your user stories. 
+( Wireframe tools: https://www.mockflow.com/, https://wireframe.cc/ )
+- Have a list of the Tools and Libraries you’ll be using
+- Have a clear idea of your MVP
+- Have a well thought out Development Timeline

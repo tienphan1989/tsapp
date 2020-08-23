@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 import Login from "../Login/LoginFormik.jsx";
 import useModal from '../Login/useModal';
 import {
@@ -21,12 +22,14 @@ export const Header = () => {
 
     const handleClose = () => this.setState({ userMenuOpen: !this.state.userMenuOpen });
 
-
+    const loginLogout= () => {
+      return props.loggedIn? "Logout" : "Login"; 
+    }
         return (
         <AppBar position="sticky" className="header-a">
             <Toolbar className="nav-container">
                 <IconButton>
-                  <img src={logo} alt="logo" className="main-logo"/>
+                <NavLink to="/home" ><img src={logo} alt="logo" className="main-logo"/></NavLink>
                 </IconButton>
                 <div className='title-div'>
                 <img src={mainLogo} alt="logo" className="title"/>
@@ -38,7 +41,7 @@ export const Header = () => {
                   {/* <Button className="top-button">
                     <Link href="#" className='nav-link'>LOGIN</Link>
                   </Button> */}
-                  <button className="button-default" onClick={toggle}>Login</button>
+                  <NavLink to="/login" onClick={() => props.handleLogin()}><button className="button-default">Login</button></NavLink>
                   <Login
                     isShowing={isShowing}
                     hide={toggle}
@@ -60,9 +63,3 @@ export const Header = () => {
 }
 
 export default Header;
-
-<div className="right menu">
-<div className="item menu-item" onClick={(e) => {props.logOut(e)}}>Log Out</div>
-</div>
-<a className="item menu-item" href="/login">Log In</a>
-<a className="item menu-item" href="/signup">Sign Up</a>
