@@ -1,30 +1,72 @@
 import React from 'react';
+import "./Register.css";
+import useForm from "./useForm";
 
 const Register = (props) => {
+    const { values, handleChange } = useForm({
+        username: '', 
+        password: '',
+        age: null,
+        diabetic: null,
+        hypertensive: null,
+        email: ''
+    }, signUp);
+
+    function signUp(event) {
+      props.signup(event, values)
+    }
+
     return (
-        <div>
-            <form onSubmit={(e) => props.signUp(e)}>
-
-                <div>
-                    <label>Username</label>
-                    <input placeholder="Username" name="username" onChange={(e) => props.setUsername(e)}/>
+    <div className="login">
+        <div className="login-container">
+          <div className="login-header">
+            <div>
+              <p className='login-header'>New user</p>
+              <form onSubmit={(e) => signUp(e)}>
+                <div className="field">
+                  <label className="login">Username</label>
+                    <div className="control">
+                        <input placeholder="username..." type='text' name="username" onChange={handleChange} value={values.username} required/> 
+                    </div>
                 </div>
 
-                <div>
-                    <label>Password</label>
-                    <input placeholder="Password" name="password" onChange={(e) => props.setPassword(e)} />
+                <div className="field">
+                  <label className="login">Email</label>
+                  <div className="control">
+                  <input placeholder="email..." type='email' name="email" onChange={handleChange} value={values.email} required />
+                  </div>
                 </div>
 
-                {/* <div>
-                    <label>
-                        <input type="checkbox" name="diabetic" checked={null} onChange={(e) => props.setDiabetic(e)} />
-                        Have you been diagnosed with Diabetes?
-                    </label>
-                </div> */}
+                <div className="field">
+                  <label className="login">Password</label>
+                  <div className="control">
+                  <input placeholder="password..." type='password' name="password" onChange={handleChange} value={values.password} required />
+                  </div>
+                </div>
 
-                <button type="submit">Submit</button> 
-            </form>
+                <div className="field">
+                  <label className="login">Age: </label>
+                    <div className="control">
+                        <input placeholder="age..." type='number' name="age" onChange={handleChange} value={values.age} required/> 
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label className="login">Have you been diagnosed with Diabetes?</label>
+                    <input type="checkbox" name="diabetic" checked={null} onChange={handleChange} />
+                </div>
+
+                <div className="field">
+                    <label className="login">Have you been diagnosed with high blood pressure?</label>
+                    <input type="checkbox" name="hypertensive" checked={null} onChange={handleChange} />
+                </div>
+
+                <button type="submit" className="login submit-button">Create account</button>
+              </form>
+            </div>
+          </div>
         </div>
+    </div>
     )
 }
 

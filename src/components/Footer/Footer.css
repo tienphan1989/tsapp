@@ -1,13 +1,18 @@
 /* footer */
 
 .footer {
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 20px;
-    padding-bottom: 15px;
+    position:absolute;
+    bottom:0;
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
     color:white;
-  }
+    background-color: #78CAE8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow:  -2px 0px 2px 2px black
+}
   
-  .privacy-link {
+.privacy-link {
     align-items: baseline;
-  }
+}

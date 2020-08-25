@@ -1,51 +1,55 @@
 import React from "react";
+import "./Header.css";
 import { NavLink } from 'react-router-dom';
-import Login from "../Login/LoginFormik.jsx";
-import useModal from '../Login/useModal';
 import {
   AppBar,
   IconButton,
   Toolbar,
-  Link,
   Menu,
   MenuItem,
   Button,
 } from "@material-ui/core";
 import logo  from "./logo.png";
 import mainLogo from "./logo4.png";
-import "./Header.css"
 
-export const Header = () => {
-  const {isShowing, toggle} = useModal();
+
+export const Header = (props) => {
   
-    let handleClick = () => this.setState({ userMenuOpen: !this.state.userMenuOpen });
+  const handleClick = () => this.setState({ userMenuOpen: !this.state.userMenuOpen });
 
-    const handleClose = () => this.setState({ userMenuOpen: !this.state.userMenuOpen });
+  const handleClose = () => this.setState({ userMenuOpen: !this.state.userMenuOpen });
 
-    const loginLogout= () => {
-      return props.loggedIn? "Logout" : "Login"; 
-    }
-        return (
+  const loginLogout = () => props.loggedIn? "Logout" : "Login"; 
+
+    return (
         <AppBar position="sticky" className="header-a">
             <Toolbar className="nav-container">
+
                 <IconButton>
-                <NavLink to="/home" ><img src={logo} alt="logo" className="main-logo"/></NavLink>
+                <NavLink to="/hero" ><img src={logo} alt="logo" className="main-logo"/></NavLink>
                 </IconButton>
+
                 <div className='title-div'>
-                <img src={mainLogo} alt="logo" className="title"/>
+                  <img src={mainLogo} alt="logo" className="title"/>
                 </div>
+
                 <div>
                   <Button className="top-button">
-                    <Link href="#" className='nav-link' color="white">Learn More</Link>
+                    <NavLink to="/main" className='nav-link' color="white">Screenings</NavLink>
                   </Button>
-                  {/* <Button className="top-button">
-                    <Link href="#" className='nav-link'>LOGIN</Link>
-                  </Button> */}
-                  <NavLink to="/login" onClick={() => props.handleLogin()}><button className="button-default">Login</button></NavLink>
-                  <Login
-                    isShowing={isShowing}
-                    hide={toggle}
-                  />
+
+                  <Button className="top-button">
+                    <NavLink to="/info" className='nav-link' color="white">Learn More</NavLink>
+                  </Button>
+
+                  <Button className="top-button">
+                    <NavLink to="/register" className='nav-link' color="white">Register</NavLink>
+                  </Button>
+
+                  <Button className="top-button">
+                    <NavLink to="/login" className='nav-link' color="white">{loginLogout()}</NavLink>
+                  </Button>
+
                   <Menu
                     getContentAnchorEl={null}
                     anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -54,12 +58,12 @@ export const Header = () => {
                   >
                     <MenuItem onClick={handleClose}>Edit Profile</MenuItem>
                     <MenuItem onClick={handleClose}>See Progress</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleClose}><Button onClick={() => props.logOut()}>Logout</Button></MenuItem>
                   </Menu>
                 </div>
             </Toolbar>
         </AppBar>
-        );
+    );
 }
 
 export default Header;

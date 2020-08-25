@@ -26,9 +26,9 @@ IBM Plex Sans
 
 ## User Stories
 -As a user, I want to have the landing page display on load
+-As a user, I want to be able to sign up and login
 -As a user, I want to be able to enter a single sugar reading into the input field and receive immediate feedback based off value
 -As a user, I want to be able to enter a single blood pressure reading into the input field and receive immediate feedback based off value
--As a user, I want to be able to sign up and login
 -(As a user, I want to be able to submit a form and see if vaccinations are complete/incomplete)
 
 ## Stretch Goals

@@ -1,163 +1,121 @@
 import React from "react";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import './App.css'
+import CssBaseline from "@material-ui/core/CssBaseline";
+import "./App.css";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Header from "./components/Header/Header.jsx";
 import HeroContainer from "./components/HeroContainer/HeroContainer";
-import MainContainer from './components/MainContainer/MainContainer';
-import InformationContainer from './components/InformationContainer/InformationContainer';
+import MainContainer from "./components/MainContainer/MainContainer";
+import InformationContainer from "./components/InformationContainer/InformationContainer";
 import BloodPressureForm from "./components/BloodPressureForm/BloodPressureForm";
+import SugarForm from "./components/SugarForm/SugarForm";
+import VaccineForm from "./components/VaccineForm/VaccineForm";
 import Footer from "./components/Footer/Footer";
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import Register from "./components/Register/Register.jsx";
 import UserHome from "./components/UserHome/UserHome.jsx";
+import Login from "./components/Login/Login.jsx";
+import Register from "./components/Register/Register.jsx";
+import configObj from "./helpers/configObj.js";
 
-import Form from './components/Login/Form';
-import Login from "./components/Login/LoginFormik.jsx";
-
-
-export default class App extends React.Component{
+class App extends React.Component {
   state = {
-    username: "",
-    password: "",
-    loggedIn: false
-  }
+    loggedIn: false,
+  };
 
-  setUsername= (e) => {
-    this.setState({
-      username: e.target.value
-    })
-  }
+  signUp = (event, newUser) => {
+    event.preventDefault();
+    const { username, password, age, email, diabetic, hypertensive } = newUser;
 
-  setPassword = (e) => {
-    this.setState({
-      password: e.target.value
-    })
-  }
-
-  signUp = (e) => {
-    e.preventDefault()
-
-    const newUser = {
-      username: this.state.username,
-      password: this.state.password
-    }
-
-    let options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accepts": "application/json"
-      }, 
-      body: JSON.stringify({newUser})
-    }
-
-    fetch("http://localhost:3000/api/v1/users", options)
-    .then(response => response.json())
-    .then(data => {
-      localStorage.setItem("token", data.token)
-      localStorage.setItem("userId", data.user.id)
-      this.setState({ loggedIn: true, userId: data.user.id })
-    })
-    .catch(error => alert(error))
-  }
-
-  handleLogin = (data) => {
-    console.log('data: ', data);
-    localStorage.token = data.token;
-    localStorage.current = data.user.id
-    this.setState({
-      loggedIn: true,
-      current_user: data.user
-    });
-  }
- 
-
-  logOut = () => {
-    localStorage.clear()
-    this.setState({
-      loggedIn: false,
-      current_user: null
-    })
-  }
-
-  logIn = (e) => {
-    e.preventDefault()
-    let options = {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accepts': 'application/json'
-      },
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password
+    fetch("http://localhost:3000/api/v1/register", configObj("POST", true, { username, password, age, email, diabetic, hypertensive }))
+    .then((response) => response.json())
+    .then((user) => {
+      localStorage.setItem("token", user.token);
+      localStorage.setItem("userId", user.user.id);
+      //  localStorage.token = user.token;
+      //  localStorage.current = user.user.id
+      this.setState({
+            loggedIn: true
+          },
+          <Redirect to="/home" />
+        );
       })
-    }
+      .catch((error) => alert(error));
+  };
 
-    fetch("http://localhost:3000/api/v1/login", options)
-    .then(response => response.json())
-    .then(data => {
-      localStorage.setItem("token", data.token)
-      localStorage.setItem("userId", data.user.id)
-      this.setState({loggedIn: true})
+  handleLogin = (event, user) => {
+    event.preventDefault();
+    const { username, password } = user;
+
+    fetch("http://localhost:3000/api/v1/login", configObj("POST", true, { username, password }))
+    .then((r) => r.json())
+    .then((user) => {
+      localStorage.token = user.token;
+      //  localStorage.setItem("token", user.token);
+      //  localStorage.setItem("userId", user.user.id);
+      //  localStorage.current = user.user.id
+      this.setState({
+          loggedIn: true,
+      });
     })
-  }
+    .catch((error) => alert(error));
+  };
 
   logOut = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    localStorage.clear();
     this.setState({
-      username: "",
-      password: "",
-      loggedIn: false,
-      userId: ""
-    }, localStorage.clear(), alert("You have been logged out!"), <Redirect to="/" />)
-  }
+        loggedIn: false
+    },
+    alert("Successful logout!"),
+    <Redirect to="/hero" />
+    );
+  };
 
-  showHeader = () => {
-    if (this.state.loggedIn) {
-      return (
-        <Header logOut={this.logOut} />
-      )
-    } else {
-      return (
-        <Header loginCheck={this.loginCheck}/>
-      )
-    }
-  }
-
-  loginCheck = () => {
-    alert("Sorry! You must be logged in.")
-  }
-
-  render(){
-  return(
-    <BrowserRouter>
-      <div className="App">
-      {/* <Header logOut={this.logOut} logIn={this.logIn} loggedIn={this.state.loggedIn} /> */}
-        <CssBaseline/>
-        {this.showHeader()}
-        <Switch>
-
-          <Route path="/login" render={(routeProps) => (this.state.loggedIn) ? <Redirect to="/" /> : 
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <CssBaseline/>
+          <Header loggedIn={this.state.loggedIn} logOut={this.logOut} />
+          <Switch>
+            <Route
+              path="/login"
+              render={(routeProps) => (
+                <Login
+                  handleLogin={this.handleLogin}
+                  loggedIn={this.state.loggedIn}
+                  {...routeProps}
+                />
+              )}
+            />
+            {/* <Route path="/login" render={(routeProps) => (this.state.loggedIn) ? <Redirect to="/" /> : 
           <Login setUsername={this.setUsername} setPassword={this.setPassword}
-          {...routeProps} logIn={this.logIn} /> }/>
+          {...routeProps} logIn={this.logIn} /> }/> */}
 
-          <Route path="/register" render={(routeProps) => (this.state.loggedIn) ? <Redirect to="/" /> :
+            <Route
+              path="/register"
+              render={(routeProps) => (
+                <Register signUp={this.signUp} {...routeProps} />
+              )}
+            />
+            {/* <Route path="/register" render={(routeProps) => (this.state.loggedIn) ? <Redirect to="/" /> :
           <Register setUsername={this.setUsername} setPassword={this.setPassword}
-          signUp={this.signUp} {...routeProps} /> } />
+          signUp={this.signUp} {...routeProps} /> } /> */}
 
-          <Route path="/home" render={(routeProps) => <UserHome {...routeProps}/>} />
-
-
-          <Route path="/bpscreening" component={BloodPressureForm}/>
-          <Route path="/index" component={HeroContainer}/>
-          <Header />
-          <MainContainer/> 
-          <InformationContainer/>
-          <Footer/>
-        </Switch>
-      </div>
-    </BrowserRouter>
-    )
+            <Route
+              path="/home"
+              render={(routeProps) => <UserHome {...routeProps} />}
+            />
+            <Route path="/bpscreen" component={BloodPressureForm} />
+            <Route path="/sugarscreen" component={SugarForm} />
+            <Route path="/vaccinescreen" component={VaccineForm} />
+            <Route path="/hero" component={HeroContainer} />
+            <Route path="/main" component={MainContainer} />
+            <Route path="/info" component={InformationContainer} />
+          </Switch>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    );
   }
-};
+}
+
+export default App;

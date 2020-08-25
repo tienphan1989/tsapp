@@ -4,7 +4,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     padding: 12px;
-    margin-top: 70px;
+    margin-top: 30px;
     box-shadow:  -1px 0px 1px 1px black;
     background: linear-gradient(60deg, #22ADE2, #78CAE8,#50C4EA, #C8D7E0);
     position: relative;
@@ -18,9 +18,7 @@
   }
 
   .benefits-div {
-    padding: 10px;
-    margin: 8px;
+    padding: 5px;
+    margin: 3px;
     border-style: bold;
   }
-  
-  

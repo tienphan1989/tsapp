@@ -1,15 +1,15 @@
 /* Hero Container */
 
 .hero-div {
-    padding: 4rem;
-    margin: 6rem;
+    padding: 30px;
+    margin: 20px;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
   }
   
   .intro-div {
     color:white;
-      padding: 30px;
+    padding: 30px;
     margin: 15px;
     font-size: 34px;
   }
