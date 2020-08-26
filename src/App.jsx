@@ -16,57 +16,58 @@ import Register from "./components/Register/Register.jsx";
 import configObj from "./helpers/configObj.js";
 
 class App extends React.Component {
+
   state = {
+    currentUser: {},
     loggedIn: false,
   };
 
-  signUp = (event, newUser) => {
-    event.preventDefault();
-    const { username, password, age, email, diabetic, hypertensive } = newUser;
-
-    fetch("http://localhost:3000/api/v1/register", configObj("POST", true, { username, password, age, email, diabetic, hypertensive }))
-    .then((response) => response.json())
-    .then((user) => {
-      localStorage.setItem("token", user.token);
-      localStorage.setItem("userId", user.user.id);
-      //  localStorage.token = user.token;
-      //  localStorage.current = user.user.id
+  componentDidMount() {
+    if(localStorage.token) {
       this.setState({
-            loggedIn: true
-          },
-          <Redirect to="/home" />
-        );
+        loggedIn: true
       })
-      .catch((error) => alert(error));
-  };
+    }
+  }
 
   handleLogin = (event, user) => {
     event.preventDefault();
     const { username, password } = user;
 
-    fetch("http://localhost:3000/api/v1/login", configObj("POST", true, { username, password }))
-    .then((r) => r.json())
-    .then((user) => {
-      localStorage.token = user.token;
-      //  localStorage.setItem("token", user.token);
-      //  localStorage.setItem("userId", user.user.id);
-      //  localStorage.current = user.user.id
-      this.setState({
-          loggedIn: true,
-      });
-    })
+    fetch('http://localhost:3000/api/v1/login', configObj("POST", true, { username, password }))
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.token = data.token
+      localStorage.userName = data.user.username
+      localStorage.current = data.user.id
+      this.setState({ loggedIn: true });
+      })
     .catch((error) => alert(error));
   };
 
-  logOut = (e) => {
-    e.preventDefault();
+  handleRegister = (event, newUser) => {
+    event.preventDefault();
+    const { username, password, age, email, diabetic, hypertensive } = newUser;
+
+    fetch('http://localhost:3000/api/v1/register', configObj("POST", true, { username, password, age, email, diabetic, hypertensive }))
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.token = data.token
+      localStorage.userName = data.user.username
+      localStorage.userID = data.user.id
+      this.setState({ loggedIn: true });
+      })
+    .catch((error) => alert(error));
+  };
+
+
+  logOut = (event) => {
+    event.preventDefault();
     localStorage.clear();
     this.setState({
         loggedIn: false
     },
-    alert("Successful logout!"),
-    <Redirect to="/hero" />
-    );
+    alert("Successful logout!"));
   };
 
   render() {
@@ -76,42 +77,27 @@ class App extends React.Component {
           <CssBaseline/>
           <Header loggedIn={this.state.loggedIn} logOut={this.logOut} />
           <Switch>
-            <Route
-              path="/login"
-              render={(routeProps) => (
-                <Login
-                  handleLogin={this.handleLogin}
-                  loggedIn={this.state.loggedIn}
-                  {...routeProps}
-                />
-              )}
-            />
-            {/* <Route path="/login" render={(routeProps) => (this.state.loggedIn) ? <Redirect to="/" /> : 
-          <Login setUsername={this.setUsername} setPassword={this.setPassword}
-          {...routeProps} logIn={this.logIn} /> }/> */}
 
-            <Route
-              path="/register"
-              render={(routeProps) => (
-                <Register signUp={this.signUp} {...routeProps} />
-              )}
+            <Route path="/login" render={(routeProps) => (this.state.loggedIn) ? <Redirect to='/home'/> :
+            <Login handleLogin={this.handleLogin} {...routeProps} />} 
             />
-            {/* <Route path="/register" render={(routeProps) => (this.state.loggedIn) ? <Redirect to="/" /> :
-          <Register setUsername={this.setUsername} setPassword={this.setPassword}
-          signUp={this.signUp} {...routeProps} /> } /> */}
 
-            <Route
-              path="/home"
-              render={(routeProps) => <UserHome {...routeProps} />}
+            <Route path="/register" render={(routeProps) => (this.state.loggedIn) ? <Redirect to='/home' /> :
+            <Register handleRegister={this.handleRegister} {...routeProps} />}
             />
-            <Route path="/bpscreen" component={BloodPressureForm} />
-            <Route path="/sugarscreen" component={SugarForm} />
-            <Route path="/vaccinescreen" component={VaccineForm} />
-            <Route path="/hero" component={HeroContainer} />
-            <Route path="/main" component={MainContainer} />
-            <Route path="/info" component={InformationContainer} />
+
+            <Route path="/home" render={(routeProps) => (this.state.loggedIn) ? <UserHome logOut={this.logOut} {...routeProps} /> :
+            <Redirect to='/login' /> } />
+
+            <Route path="/bpscreen" component={BloodPressureForm}/>
+            <Route path="/sugarscreen" component={SugarForm}/>
+            <Route path="/vaccinescreen" component={VaccineForm}/>
+            <Route exact path="/" component={HeroContainer}/>
+            <Route path="/main" component={MainContainer}/>
+            <Route path="/info" component={InformationContainer}/>
+
           </Switch>
-          <Footer />
+          <Footer/>
         </div>
       </BrowserRouter>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@material-ui/core";
-import "./HeroContainer.css"
+import "./HeroContainer.css";
+import { NavLink } from 'react-router-dom';
 
 const TagDiv = () => {
     return (
@@ -8,7 +9,7 @@ const TagDiv = () => {
             <div className="tagline-div">
                 <p>No registration required!</p>
                 <Button variant="contained">
-                    Click to Start
+                    <NavLink to="/main">Click to get started</NavLink>
                 </Button>
             </div>
         </div>

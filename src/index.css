@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Work+Sans&display=swap');
 body {
   min-height: 100vh;
   position: relative;
@@ -7,7 +7,8 @@ body {
   border: 0;
   font-size: 100%;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,6 +46,10 @@ body {
   height: 100vh;
   z-index: -1;
   opacity: 0.2;
+}
+
+body {
+  background-image: linear-gradient(to top, #8ec9fc 0%, #dffffe 100%);
 }
 
 /* Material UI Custom */

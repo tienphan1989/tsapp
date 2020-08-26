@@ -2,7 +2,7 @@
   width: 400px;
   margin: 16px auto;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* Reset top and bottom margins from certain elements */
@@ -58,7 +58,7 @@
 }
 
 .login input[type="submit"] {
-  background: #78CAE8;
+  background: #f50057;
   border-color: transparent;
   color: #fff;
   cursor: pointer;
@@ -75,7 +75,7 @@
 
 .submit-button {
   width: -webkit-fill-available;
-  background: #78CAE8;
+  background: #f50057 !important;
   border-color: white;
   color: #fff;
   cursor: pointer;

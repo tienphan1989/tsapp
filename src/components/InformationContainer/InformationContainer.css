@@ -1,24 +1,24 @@
 /* Additional Info Container */
 
 .features-outside {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 18px;
     padding: 12px;
     margin-top: 30px;
     box-shadow:  -1px 0px 1px 1px black;
     background: linear-gradient(60deg, #22ADE2, #78CAE8,#50C4EA, #C8D7E0);
     position: relative;
-  }
+}
 
-  .features-inside {
+.features-inside {
     padding:12px;
     margin: 5px;
     display: flex;
     justify-content: space-evenly;
-  }
+}
 
-  .benefits-div {
+.benefits-div {
     padding: 5px;
     margin: 3px;
     border-style: bold;
-  }
+}

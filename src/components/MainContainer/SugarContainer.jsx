@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import "./MainContainer.css"
+import React, { Component } from 'react';
+import "./MainContainer.css";
 import glucometer from "./diabetes (1).svg";
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 
 export default class SugarContainer extends Component {
     render() {
@@ -11,11 +12,11 @@ export default class SugarContainer extends Component {
                     <img src={glucometer} alt="finger-sample" className="info-images"/>
                 </div>
                 <h2>Blood Sugar Screening</h2>
-                <p>Submit a sugar reading here
+                <p>Answer some quick questions
                     and I'll let you know how your doing! 
                 </p>
                 <Button variant="contained" color="secondary">
-                    Click to start
+                    <NavLink to="/sugarscreen" className='sugar-screen'>Click to start</NavLink>
                 </Button> 
             </section>
         )

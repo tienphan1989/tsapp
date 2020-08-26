@@ -1,9 +1,10 @@
 import React from "react";
 import "./Login.css";
 import useForm from "./useForm";
+import { Link } from 'react-router-dom';
 
 const Login = (props) => {
-  const { values, handleChange } = useForm({ name: "", password: "" }, login);
+  const { values, handleChange } = useForm({ username: "", password: "" }, login);
 
   function login(event) {
     props.handleLogin(event, values);
@@ -22,9 +23,9 @@ const Login = (props) => {
                   <input
                     className="login"
                     type="text"
-                    name="name"
+                    name="username"
                     onChange={handleChange}
-                    value={values.name}
+                    value={values.username}
                     required
                   />
                 </div>
@@ -44,6 +45,9 @@ const Login = (props) => {
               </div>
               <button type="submit" className="login submit-button">
                 Login
+              </button>
+              <button>
+                Want to register? <Link to='/register'>Sign Up</Link>
               </button>
             </form>
           </div>

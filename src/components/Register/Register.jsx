@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Register.css";
 import useForm from "./useForm";
+import { Link } from 'react-router-dom';
 
 const Register = (props) => {
     const { values, handleChange } = useForm({
@@ -10,10 +11,10 @@ const Register = (props) => {
         diabetic: null,
         hypertensive: null,
         email: ''
-    }, signUp);
+    }, handleRegister);
 
-    function signUp(event) {
-      props.signup(event, values)
+    function handleRegister(event) {
+      props.handleRegister(event, values)
     }
 
     return (
@@ -22,7 +23,7 @@ const Register = (props) => {
           <div className="login-header">
             <div>
               <p className='login-header'>New user</p>
-              <form onSubmit={(e) => signUp(e)}>
+              <form onSubmit={(e) => handleRegister(e)}>
                 <div className="field">
                   <label className="login">Username</label>
                     <div className="control">
@@ -62,6 +63,9 @@ const Register = (props) => {
                 </div>
 
                 <button type="submit" className="login submit-button">Create account</button>
+                <button>
+                  Already a member? <Link to='/login'>Login Page</Link>
+                </button>
               </form>
             </div>
           </div>

@@ -14,8 +14,8 @@ class UserHome extends React.Component {
     render() {
         return (
             <div className="ui left aligned container">
-                <h1>{this.state.user.username}</h1>
-                <h1>My progress...</h1>
+                <h1>{localStorage.user.username}</h1>
+                <h1>My progress...and...things</h1>
             </div>
         )
     }
