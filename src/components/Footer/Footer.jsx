@@ -9,7 +9,7 @@ export default class Footer extends Component {
         return (
             <div className='footer'>
                 <div className='privacy-statement'>
-                    <p>Privacy Statement</p>
+                    <p>All rights reserved; Privacy Statement</p>
                 </div>
 
                 <div>

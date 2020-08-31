@@ -1,0 +1,43 @@
+.user-home-container {
+    width: 800px;
+    height: 500px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.welcome-container {
+    color:white;
+    font: bold;
+}
+
+.sidebar-listings-div {
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    justify-content: space-between;
+    width: max;
+}
+
+.sidebar-div {
+    border-style: solid;
+    border-color: black;
+    width: 30%;
+    height: 400px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.listings-div {
+    border-style: solid;
+    border-color: black;
+    width: 65%;
+    margin: 10px;
+    padding: 5px;
+}
+
+.sample-div {
+    border-style: solid;
+    border-color: black;
+    padding: 1px;
+    margin: 1px;
+
+}

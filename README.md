@@ -29,17 +29,7 @@ PROPOSAL REQUIREMENTS  :meow_popcorn:
 - Have a clear idea of your MVP
 - Have a well thought out Development Timeline
 
-Behavioral Expectations
-You will show up by 9:00 and leave no sooner than 6:00
-You will actively participate in stand-ups, retros, and check-ins
-You will complete your MVP by the date it is due
-You will adhere to the project decisions made by leads/project managers
-You will communicate issues with your project manager
-You will be courteous to your classmates, and work together to solve problems
-You will have properly researched and debugged before escalating to your project leads.
-You will not begin work on your project until you have pitched your MVP and been approved
-
-Week 1
+<!-- Week 1
 Day 1 - Initial Project Pitches
 
 This is when you get to pitch whatever pie in the sky things you want. We’re not yet worried about what your MVP is or whether your idea is practical - just come up with ideas. You won’t be starting on your project until Day 3, so think of this as your research and development phase. Learn Auth, learn Redux, learn how to use complex APIs and libraries. Your SECs will give you an idea of what is and isn’t practical, and some guidance on the technologies you’re looking at.
@@ -52,7 +42,7 @@ Day 5 - Retro
 
 In addition to doing stand-ups every morning, you’ll be taking part in a retro every Friday. This will be the time to talk about what went right, what went wrong, what roadblocks you’re still up against and your plan of attack for getting over them.
 
-Day 5 will also be the first of your mandatory check-ins with your assigned project manager. You’ll have two of these leading up to your MVP presentation. After that, office hours will be available to sign-up for, but will not be mandatory.
+Day 5 will also be the first of your mandatory check-ins with your assigned project manager. You’ll have two of these leading up to your MVP presentation. After that, office hours will be available to sign-up for, but will not be mandatory. -->
 
 Week 2
 Day 3 - MVP Presentations

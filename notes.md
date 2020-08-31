@@ -1,20 +1,23 @@
+Problems:
+-when browser is shrunk sideways, the nav icons overlap the title
+
 ## Capstone title(s): HealthChecker/Sweet Care/SmartSugr/Health Smart/Health Screener
 
-Purpose: Provide users with an app that provides feedback(or advice?) regarding their sugar level(s)/blood pressure reading(s) in a supportive manner to promote good health habits and better self-knowledge of self endocrine response in relation to variables {good vs. bad elements of diet or lifestyle}. (Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.)
+Purpose: Provide users with an app that provides feedback(or advice?) regarding their sugar level(s)/blood pressure reading(s) in a supportive manner to promote good health habits and better self-knowledge of self endocrine response in relation to variables {good vs. bad elements of diet or lifestyle}. Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.  Can also request dietary practices and bookmark diets.  Can access exercises. Can create goals todo like in user home page.
 
 ## Color Palette
-main color:     #78CAE8
-CuriousBlue:    #22ADE2
-AquaSpring:     #EDFAFA
-Seagull:        #78CAE8
-PictonBlue:     #50C4EA
-Botticelli:     #C8D7E0
-secondaryGray:  #57797f
-secondaryRed:   #f50057
+main color: #78CAE8
+CuriousBlue: #22ADE2
+AquaSpring: #EDFAFA
+Seagull: #78CAE8
+PictonBlue: #50C4EA
+Botticelli: #C8D7E0
+secondaryGray: #57797f
+secondaryRed: #f50057
 
 ## Fonts
-raleway (headers 1-5)
-Work Sans (paragraphs)
+raleway (BIG fonts)
+Work Sans (small fonts)
 
 ## User Stories
 -As a user, I want to have the landing page display on load
@@ -31,7 +34,6 @@ Work Sans (paragraphs)
 -testimonials
 
 ## Models/Associations
-
 Users: {
 Name/UserName: string
 BMI: integer
@@ -102,37 +104,42 @@ belongs to vaccine
                 └── Made By (Tien Phan) Github linkedinlink
 
 ## ROUTER INFO
+
 ## Code below will create link to home/page
+
 import {Link} from 'react-router-dom'
 goHome = () => {
-        this.props.history.push("/paintings")
+this.props.history.push("/paintings")
 }
+
 <Link to="/paintings">
 HOME
 </Link>
 
-
 ## Code below will get user.bpResults
-  getBpResults = () => {
-      fetch("http://localhost:3000/api/v1/paintings",{
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.token}` // send token back to server
-        }
-      })
-      .then(res => res.json())
-      .then(data => {
-          console.log(data)
-          this.setState({
-            paintings: data
-          })
-      })
-  }
 
-1) PostGresql for windows setup
-2) How to start with redux when all static components are created?
-3) Better to conditional render login/logout or go off
-loggedIn?
-4) How API through rails?
-5) Authentication persisting
+getBpResults = () => {
+fetch("http://localhost:3000/api/v1/paintings",{
+method: "GET",
+headers: {
+Authorization: `Bearer ${localStorage.token}` // send token back to server
+}
+})
+.then(res => res.json())
+.then(data => {
+console.log(data)
+this.setState({
+paintings: data
+})
+})
+}
+
+1- Start postrgres server -> /home/linuxbrew/.linuxbrew/Cellar/postgresql/12.4/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
+stop to end server
+2- pg_ctl -D /home/linuxbrew/.linuxbrew/var/postgres start
+3-a)sudo service postgresql start
+b)sudo /etc/init.d/postgresql restart
+
+
+
 

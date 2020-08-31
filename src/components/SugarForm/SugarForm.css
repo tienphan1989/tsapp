@@ -1,0 +1,67 @@
+.sugar-container {
+    font-family: 'Raleway', sans-serif;
+    justify-content: center;
+    display: flex;
+    width: 600px;
+    font-size: 18px;
+    margin: auto;
+}
+
+.sugar-form-title {
+    padding: 10px;
+    margin: 5px;
+    text-decoration: underline;
+    font-size: 24px;
+}
+
+.sugar-form-div {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    border-width: 1px;
+    border-style: solid;
+    background: lightskyblue;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.age-input{
+    width: 75px;
+}
+
+.sugar-input-field {
+    padding: 5px;
+    width: 80px;
+}
+
+.sugar-fasting {
+    margin: 10px;
+    padding: 5px;
+}
+
+.sugar-value {
+    margin: 10px;
+    padding: 5px;
+}
+
+.age-value {
+    margin: 10px;
+    padding: 5px;
+}
+
+.sugar-submit-button {
+    padding: 10px;
+}
+
+.terms-condition {
+    padding: 5px;
+}
+
+.sugar-query-div{
+    padding-top: 5px;
+}
+
+.sugar-query-p{
+    font-size: 14px;
+    margin: 0;
+}

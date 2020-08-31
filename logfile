@@ -1,0 +1,8 @@
+2020-08-27 11:37:46.469 EDT [3441] LOG:  starting PostgreSQL 12.4 on x86_64-pc-linux-gnu, compiled by gcc-5 (Ubuntu 5.4.0-6ubuntu1~16.04.12) 5.4.0 20160609, 64-bit
+2020-08-27 11:37:46.489 EDT [3441] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-08-27 11:37:46.596 EDT [3441] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-08-27 11:37:46.815 EDT [3442] LOG:  database system was shut down at 2020-08-27 11:36:51 EDT
+2020-08-27 11:37:46.938 EDT [3441] LOG:  database system is ready to accept connections
+2020-08-28 00:44:59.507 EDT [3446] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2020-08-28 00:51:48.718 EDT [3446] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2020-08-28 01:34:43.947 EDT [3446] LOG:  using stale statistics instead of current ones because stats collector is not responding

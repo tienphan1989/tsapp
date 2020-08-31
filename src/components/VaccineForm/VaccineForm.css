@@ -1,0 +1,50 @@
+.vaccine-form-container {
+    font-family: 'Raleway', sans-serif;
+    justify-content: center;
+    display: flex;
+    width: 750px;
+    margin: auto;
+}
+
+.vaccine-form-title {
+    padding: 3px;
+    margin: 3px;
+    text-decoration: underline;
+    font-size: 24px;
+}
+
+.vaccine-form-div {
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    border-width: 1px;
+    border-style: solid;
+    background: lightskyblue;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.age-input{
+    width: 90px;
+}
+
+.age-value {
+    margin: 3px;
+    padding: 3px;
+}
+
+.vaccine-question {
+    display: flex;
+    margin: 3px;
+    padding: 3px;
+}
+
+.vaccine-question-column {
+    padding: 5px;
+    display: flex;
+}
+
+.vaccine1-radio {
+    padding: 0.5px;
+    margin: 5px;
+}

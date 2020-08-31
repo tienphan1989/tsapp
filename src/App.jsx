@@ -39,7 +39,7 @@ class App extends React.Component {
     .then((data) => {
       localStorage.token = data.token
       localStorage.userName = data.user.username
-      localStorage.current = data.user.id
+      localStorage.userID = data.user.id
       this.setState({ loggedIn: true });
       })
     .catch((error) => alert(error));
@@ -60,12 +60,11 @@ class App extends React.Component {
     .catch((error) => alert(error));
   };
 
-
   logOut = (event) => {
     event.preventDefault();
     localStorage.clear();
     this.setState({
-        loggedIn: false
+    loggedIn: false
     },
     alert("Successful logout!"));
   };
@@ -85,9 +84,10 @@ class App extends React.Component {
             <Route path="/register" render={(routeProps) => (this.state.loggedIn) ? <Redirect to='/home' /> :
             <Register handleRegister={this.handleRegister} {...routeProps} />}
             />
-
-            <Route path="/home" render={(routeProps) => (this.state.loggedIn) ? <UserHome logOut={this.logOut} {...routeProps} /> :
-            <Redirect to='/login' /> } />
+            
+            <Route exact path="/home" component={UserHome}/>
+            {/* <Route exact path="/home" render={(routeProps) => (this.state.loggedIn) ? <UserHome logOut={this.logOut} {...routeProps} /> :
+            <Redirect to='/login' /> } /> */}
 
             <Route path="/bpscreen" component={BloodPressureForm}/>
             <Route path="/sugarscreen" component={SugarForm}/>
