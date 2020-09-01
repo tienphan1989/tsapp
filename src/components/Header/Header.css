@@ -4,14 +4,8 @@
     width: auto;
     height: 52px;
   }
-
-  .title {
-    width: 125%;
-    height: auto;
-  }
   
   .title-div {
-    font-size: 34px;
     margin: auto;
     position: absolute;
     top: 50%;

@@ -4,13 +4,17 @@ import UserGoals from "./UserGoals.jsx";
 
 class UserHome extends React.Component {
     state = {
-        user: {}
+        value: 'bp'
     }
 
-    componentDidMount() {
-        fetch('http://localhost:3000/api/v1/users/' + localStorage.userId)
-        .then(response => response.json())
-        .then(user => this.setState({user}))
+    // componentDidMount() {
+    //     fetch('http://localhost:3000/api/v1/users/' + localStorage.userId)
+    //     .then(response => response.json())
+    //     .then(user => this.setState({user}))
+    // }
+
+    handleChange = (event)=> {
+        this.setState({value: event.target.value});
     }
 
     render() {
@@ -29,7 +33,18 @@ class UserHome extends React.Component {
                             </div>
 
                             <div className='listings-div'>
-                                <div><h2>My results</h2></div>
+                                <div className='listings-filter'>
+                                <form onSubmit={this.handleSubmit}>
+                                    <label>My results</label>
+                                        <select value={this.state.filter} onChange={this.handleChange}>
+                                            <option>view</option>
+                                            <option value="bp">Blood pressure results</option>
+                                            <option value="sugar">Blood sugar results</option>
+                                            <option value="vaccine">Vaccine status</option>
+                                        </select>                                  
+                                    <input type="submit" value="Submit" />
+                                </form>
+                                </div>
                                 <div className='sample-div'>
                                     <p>Blood Pressure</p>
                                 </div>

@@ -21,17 +21,22 @@ export default function BloodPressureForm() {
   return (
     <Formik
       initialValues={{
-        age: "",
+        Age: "",
+        SystolicPressure: '',
+        DiastolicPressure: '',
+        TermsConditions: ''
       }}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
         setTimeout(() => {
           console.log(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 400);
+        resetForm({values: ''});
       }}
     >
       {({ errors, touched, isValidating }) => (
-        <div className="container">
+        <div className="bp-container">
+          <div className="form-div">
           <Form>
             <h3 className='bp-form-title'>Blood Pressure Screen</h3>
               <div className="form-group">
@@ -52,7 +57,7 @@ export default function BloodPressureForm() {
                   className="form-control"
                   type="number"
                   placeholder="Systolic Pressure"
-                  name="Systolic Pressure"
+                  name="SystolicPressure"
                 />
               </div>
 
@@ -61,7 +66,7 @@ export default function BloodPressureForm() {
                   className="form-control"
                   type="number"
                   placeholder="Diastolic Pressure"
-                  name="Diastolic Pressure"
+                  name="DiastolicPressure"
                 />
               </div>
               
@@ -80,6 +85,7 @@ export default function BloodPressureForm() {
               </Button> 
               </div>
             </Form>
+            </div>
         </div>
       )}
     </Formik>    

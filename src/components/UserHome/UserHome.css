@@ -1,6 +1,6 @@
 .user-home-container {
-    width: 800px;
-    height: 500px;
+    display: block;
+    justify-content: center;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -13,15 +13,16 @@
     display: flex;
     border-style: solid;
     border-color: black;
-    justify-content: space-between;
-    width: max;
+    justify-content: space-evenly;
+    background: lightskyblue;
+    color:white;
+    font-size: 18px;
 }
 
 .sidebar-div {
     border-style: solid;
     border-color: black;
     width: 30%;
-    height: 400px;
     margin: 10px;
     padding: 5px;
 }
@@ -30,7 +31,7 @@
     border-style: solid;
     border-color: black;
     width: 65%;
-    margin: 10px;
+    margin: 5px;
     padding: 5px;
 }
 
@@ -39,5 +40,8 @@
     border-color: black;
     padding: 1px;
     margin: 1px;
+}
 
+.listings.filter {
+    margin: 0;
 }

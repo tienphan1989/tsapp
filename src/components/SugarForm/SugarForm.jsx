@@ -4,12 +4,20 @@ import "./SugarForm.css";
 
 export default class SugarForm extends Component {
     //if user is !logged in or state.loggedIn === false, evaluate form values and render feedback
-    renderFeedback = () => {
+    state = {
+        sugarResults: [],
 
     }
 
+    handleChange = (e) => {
+        const input = e.target;
+        const name = input.name;
+        const value = input.type === 'checkbox' ? input.checked : input.value;
+        this.setState({ [name]: value });
+    };
+
     //if user is logged in or state.loggedIn === true, POST new record
-    postSugarData = (event) => {
+    handleUserSubmit = (event) => {
         event.preventDefault();
         fetch('http://localhost:3000/api/v1/sugarscreens', {
             method: "POST",
@@ -26,20 +34,41 @@ export default class SugarForm extends Component {
         .then(console.log)
     }
 
+    handleGuestSubmit = (event) => {
+        event.preventDefault();
+        const sugarResults = this.state.sugarResults.concat(this.state);
+        this.setState({
+            sugarResults
+        });
+    }
+
+    feedback = () => {
+        const bloodSugar = this.state.result;
+        if(bloodSugar < 120){
+            return "Good"
+        } else if(bloodSugar > 120 && bloodSugar < 151){
+            return "OK"
+        } else if(bloodSugar > 152 && bloodSugar < 200){
+            return "BAD"
+        }
+    }
+
     render() {
     return (
+    <React.Fragment>
     <div className="sugar-container">
         <div className='sugar-form-div'>
-            <form onSubmit={this.postSugarData}>
+            <form onSubmit={this.handleGuestSubmit}>
                 <div className="age-value">
                     <h3 className='sugar-form-title'>Sugar Screen</h3>
                     <label htmlFor='age'>Age: </label>
                     <input
-                    className="age-input"
-                    type="number"
-                    placeholder="age..."
-                    name="age"
-                    id='age'
+                        className="age-input"
+                        type="number"
+                        placeholder="age..."
+                        name="age"
+                        id='age'
+                        onChange={this.handleChange}
                     />
                 </div>
 
@@ -51,7 +80,7 @@ export default class SugarForm extends Component {
                             placeholder="mg/DL"
                             name="result"
                             id="result"
-                            onClick={(e) => console.log(e.target.value, e.target.id)}
+                            onChange={this.handleChange}
                         />
                 </div>
 
@@ -63,7 +92,7 @@ export default class SugarForm extends Component {
                             name="fasting"
                             value="yes"
                             id="fasting"
-                            onClick={(e) => console.log(e.target.value, e.target.id)}
+                            onChange={this.handleChange}
                             />
                         <label>No</label>
                             <input
@@ -71,7 +100,7 @@ export default class SugarForm extends Component {
                             name="fasting"
                             value="no"
                             id="notFasting"
-                            onClick={(e) => console.log(e.target.value, e.target.id)}
+                            onChange={this.handleChange}
                             />
                 </div>
 
@@ -83,7 +112,7 @@ export default class SugarForm extends Component {
                         name="TermsConditions"
                         value="yes"
                         id="agreeTerms"
-                        onClick={(e) => console.log(e.target.value, e.target.id)}
+                        onChange={this.handleChange}
                     />
                 </div>
 
@@ -96,4 +125,10 @@ export default class SugarForm extends Component {
             </form>
         </div>
     </div>
+
+    {this.state.sugarResults.length > 0 ? 
+    this.feedback() 
+    : null}
+
+    </React.Fragment>
 )}}
