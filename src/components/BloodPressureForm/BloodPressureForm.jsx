@@ -2,6 +2,7 @@ import React from 'react';
 import "./BloodPressureForm.css";
 import { Formik, Form, Field } from 'formik';
 import Button from '@material-ui/core/Button';
+import configObj from '../../../src/helpers/configObj';
 
 export default function BloodPressureForm() {
   const required = "This field is required";
@@ -26,11 +27,17 @@ export default function BloodPressureForm() {
         DiastolicPressure: '',
         TermsConditions: ''
       }}
+
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        setTimeout(() => {
-          console.log(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        const { SystolicPressure, DiastolicPressure } = values;
+        fetch('http://localhost:3000/api/v1/bpscreen', configObj("POST", true, {bp: {
+          user_id: localStorage.userID,
+          systolic_pressure: SystolicPressure,
+          diastolic_pressure: DiastolicPressure
+          }}))
+        .then((response) => response.json())
+        .then(console.log)
+        setSubmitting(false);
         resetForm({values: ''});
       }}
     >
@@ -39,6 +46,7 @@ export default function BloodPressureForm() {
           <div className="form-div">
           <Form>
             <h3 className='bp-form-title'>Blood Pressure Screen</h3>
+              {!localStorage.token ? 
               <div className="form-group">
                 <Field
                   className="form-control"
@@ -50,7 +58,8 @@ export default function BloodPressureForm() {
                 {errors.Age &&
                   touched.Age &&
                   errorMessage(errors.Age)}
-              </div>
+              </div> 
+              : null}
 
               <div className="form-group">
                 <Field
@@ -81,7 +90,7 @@ export default function BloodPressureForm() {
               </div>
               <div className="form-group">
               <Button variant="contained" color="secondary" type="submit">
-                  Get my results!
+                  submit
               </Button> 
               </div>
             </Form>

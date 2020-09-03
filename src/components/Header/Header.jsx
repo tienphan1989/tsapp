@@ -11,9 +11,6 @@ import logo  from "./logo.png";
 import mainLogo from "./logo4.png";
 
 const Header = (props) => {
-  
-  const loginLogout = () => props.loggedIn? "Logout" : "Login"; 
-
     return (
       <AppBar position="sticky" className="header-a">
         <Toolbar className="nav-container">
@@ -34,13 +31,21 @@ const Header = (props) => {
               <NavLink to="/info" className='nav-link' color="white">Learn More</NavLink>
             </Button>
 
+            {!props.loggedIn ? 
             <Button className="top-button">
               <NavLink to="/register" className='nav-link' color="white">Register</NavLink>
             </Button>
+            : null}
 
+            {props.loggedIn ? 
+            <Button className="top-button" onClick={props.logOut}>
+              <NavLink to="/" className='nav-link' color="white">Logout</NavLink>
+            </Button> 
+            :
             <Button className="top-button">
-              <NavLink to="/login" className='nav-link' color="white">{loginLogout()}</NavLink>
-            </Button>
+              <NavLink to="/login" className='nav-link' color="white">Login</NavLink>
+            </Button>}
+            
           </div>
         </Toolbar>
       </AppBar>

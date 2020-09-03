@@ -2,20 +2,39 @@ import React from 'react';
 import "./Register.css";
 import useForm from "./useForm";
 import { Link } from 'react-router-dom';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+import { makeStyles } from '@material-ui/core/styles';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const Register = (props) => {
     const { values, handleChange } = useForm({
         username: '', 
         password: '',
         age: null,
-        diabetic: null,
-        hypertensive: null,
         email: ''
     }, handleRegister);
 
     function handleRegister(event) {
       props.handleRegister(event, values)
     }
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+      setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+    };
 
     return (
     <div className="login">
@@ -52,18 +71,14 @@ const Register = (props) => {
                     </div>
                 </div>
 
-                <div className="field">
-                    <label className="login">Have you been diagnosed with Diabetes?</label>
-                    <input type="checkbox" name="diabetic" checked={null} onChange={handleChange} />
-                </div>
-
-                <div className="field">
-                    <label className="login">Have you been diagnosed with high blood pressure?</label>
-                    <input type="checkbox" name="hypertensive" checked={null} onChange={handleChange} />
-                </div>
-
-                <button type="submit" className="login submit-button">Create account</button>
+                <button type="submit" className="login submit-button" onClick={handleClick}>Create account</button>
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                  <Alert onClose={handleClose} severity="success">
+                    Successful registration!
+                  </Alert>
+                </Snackbar>
                 <button>
+
                   Already a member? <Link to='/login'>Login Page</Link>
                 </button>
               </form>

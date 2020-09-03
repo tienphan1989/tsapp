@@ -17,13 +17,13 @@ export default class Footer extends Component {
                     <p className='made-by'>©2020 HealthCheckr, Made by Tien Phan</p></a>
                 </div>
 
-                <div> 
+                <div > 
                     <IconButton>
-                        <a href='https://www.linkedin.com/in/tien-phan-dc/' target="_blank" rel="noopener noreferrer">
+                        <a href='https://www.linkedin.com/in/tien-phan-dc/' target="_blank" rel="noopener noreferrer" className='made-by'>
                         <LinkedInIcon fontSize="large"/></a>
                     </IconButton>
                     <IconButton>
-                        <a href='https://github.com/tienphan1989' target="_blank" rel="noopener noreferrer">
+                        <a href='https://github.com/tienphan1989' target="_blank" rel="noopener noreferrer" className='made-by'>
                         <GitHubIcon fontSize="large"/></a>
                     </IconButton>
                 </div>

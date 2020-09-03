@@ -5,12 +5,12 @@
     width: 600px;
     font-size: 18px;
     margin: auto;
+    color:white;
 }
 
 .sugar-form-title {
     padding: 10px;
     margin: 5px;
-    text-decoration: underline;
     font-size: 24px;
 }
 
@@ -64,4 +64,16 @@
 .sugar-query-p{
     font-size: 14px;
     margin: 0;
+}
+
+.feedback-div2 {
+    display: grid;
+}
+
+.feedback-div {
+    align-self: end;
+    padding: 20px;
+    margin: 10px;
+    background: lightskyblue;
+    width: 500px;
 }

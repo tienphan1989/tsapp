@@ -4,17 +4,17 @@ export default class UserGoals extends Component {
     state = {goals: []};
     
     createUI(){
-        return this.state.goals.map((el, i) => 
-            <div key={i}>
-              <input type="text" value={el||''} onChange={(event) => this.handleChange(event, i)} />
-              <input type='button' value='remove goal' onClick={(event) => this.removeClick(event, i)}/>
+        return this.state.goals.map((goal, index) => 
+            <div key={index}>
+              <input type="text" value={goal||''} onChange={(event) => this.handleChange(event, index)} />
+              <input type='button' value='remove goal' onClick={(event) => this.removeClick(event, index)}/>
             </div>          
         )
     }
 
-    handleChange = (i, event) => {
+    handleChange = (index, event) => {
         let goals = [...this.state.goals];
-        goals[i] = event.target.value;
+        goals[index] = event.target.value;
         this.setState({ goals });
     }
 
@@ -22,9 +22,9 @@ export default class UserGoals extends Component {
       this.setState(prevState => ({ goals: [...prevState.goals, '']}))
     }
 
-    removeClick = (i) => {
+    removeClick = (index) => {
         let goals = [...this.state.goals];
-        goals.splice(i,1);
+        goals.splice(index,1);
         this.setState({ goals });
     }
 

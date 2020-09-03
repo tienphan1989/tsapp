@@ -13,7 +13,7 @@
 }
 
 .login-header {
-  background: #78CAE8;
+  background: lightskyblue;
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
@@ -58,7 +58,7 @@
 }
 
 .login input[type="submit"] {
-  background: #78CAE8;
+  background: lightskyblue;
   border-color: transparent;
   color: #fff;
   cursor: pointer;
@@ -75,7 +75,7 @@
 
 .submit-button {
   width: -webkit-fill-available;
-  background: #78CAE8;
+  background: lightskyblue;
   border-color: white;
   color: #fff;
   cursor: pointer;

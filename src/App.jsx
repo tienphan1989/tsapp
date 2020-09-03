@@ -14,6 +14,7 @@ import UserHome from "./components/UserHome/UserHome.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import configObj from "./helpers/configObj.js";
+import SugarFeedback from './components/SugarForm/SugarFeedback';
 
 class App extends React.Component {
 
@@ -34,7 +35,7 @@ class App extends React.Component {
     event.preventDefault();
     const { username, password } = user;
 
-    fetch('http://localhost:3000/api/v1/login', configObj("POST", true, { username, password }))
+    fetch('http://localhost:3000/api/v1/login', configObj("POST", true, {username, password }))
     .then((response) => response.json())
     .then((data) => {
       localStorage.token = data.token
@@ -46,10 +47,12 @@ class App extends React.Component {
   };
 
   handleRegister = (event, newUser) => {
-    event.preventDefault();
-    const { username, password, age, email, diabetic, hypertensive } = newUser;
 
-    fetch('http://localhost:3000/api/v1/register', configObj("POST", true, { username, password, age, email, diabetic, hypertensive }))
+    const newUserAge = parseInt(newUser.age, 10);
+    event.preventDefault();
+    const { username, password, email } = newUser;
+
+    fetch('http://localhost:3000/api/v1/register', configObj("POST", true, {user: { username, password, newUserAge, email }}))
     .then((response) => response.json())
     .then((data) => {
       localStorage.token = data.token
@@ -77,7 +80,7 @@ class App extends React.Component {
           <Header loggedIn={this.state.loggedIn} logOut={this.logOut} />
           <Switch>
 
-            <Route path="/login" render={(routeProps) => (this.state.loggedIn) ? <Redirect to='/home'/> :
+            <Route exact path="/login" render={(routeProps) => (this.state.loggedIn) ? <Redirect to='/home'/> :
             <Login handleLogin={this.handleLogin} {...routeProps} />} 
             />
 
@@ -85,14 +88,13 @@ class App extends React.Component {
             <Register handleRegister={this.handleRegister} {...routeProps} />}
             />
             
-            <Route exact path="/home" component={UserHome}/>
-            {/* <Route exact path="/home" render={(routeProps) => (this.state.loggedIn) ? <UserHome logOut={this.logOut} {...routeProps} /> :
-            <Redirect to='/login' /> } /> */}
-
+            <Route exact path="/home" render={(routeProps) => (this.state.loggedIn) ? <UserHome logOut={this.logOut} {...routeProps} /> :
+            <Redirect to='/login' /> } />
+            
+            <Route exact path="/" component={HeroContainer}/>
             <Route path="/bpscreen" component={BloodPressureForm}/>
             <Route path="/sugarscreen" component={SugarForm}/>
             <Route path="/vaccinescreen" component={VaccineForm}/>
-            <Route exact path="/" component={HeroContainer}/>
             <Route path="/main" component={MainContainer}/>
             <Route path="/info" component={InformationContainer}/>
 

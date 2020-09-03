@@ -4,12 +4,12 @@
     display: flex;
     width: 750px;
     margin: auto;
+    color:white;
 }
 
 .vaccine-form-title {
     padding: 3px;
     margin: 3px;
-    text-decoration: underline;
     font-size: 24px;
 }
 
@@ -47,4 +47,16 @@
 .vaccine1-radio {
     padding: 0.5px;
     margin: 5px;
+}
+
+.feedback-div2 {
+    display: grid;
+}
+
+.feedback-div {
+    align-self: end;
+    padding: 20px;
+    margin: 10px;
+    background: lightskyblue;
+    width: 500px;
 }

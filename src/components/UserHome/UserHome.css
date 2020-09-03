@@ -11,32 +11,26 @@
 
 .sidebar-listings-div {
     display: flex;
-    border-style: solid;
-    border-color: black;
     justify-content: space-evenly;
-    background: lightskyblue;
     color:white;
     font-size: 18px;
 }
 
 .sidebar-div {
-    border-style: solid;
-    border-color: black;
+    background: lightskyblue;
+    box-shadow: -1px 0px 3px 1px black;
     width: 30%;
-    margin: 10px;
     padding: 5px;
 }
 
 .listings-div {
-    border-style: solid;
-    border-color: black;
+    background: lightskyblue;
+    box-shadow: -1px 0px 3px 1px black;
     width: 65%;
-    margin: 5px;
     padding: 5px;
 }
 
 .sample-div {
-    border-style: solid;
     border-color: black;
     padding: 1px;
     margin: 1px;

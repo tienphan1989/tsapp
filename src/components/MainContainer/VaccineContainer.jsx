@@ -13,7 +13,7 @@ export default class VaccineContainer extends Component {
                 </div>
                 <h2>Vaccine Screening</h2>
                 <p>Answer some quick questions and I'll let you know
-                    if your up to date on your vaccines so you can stay protected! 
+                    if you are up to date on your vaccines so you can stay protected! 
                 </p>
                 <Button variant="contained" color="secondary">
                     <NavLink to="/vaccinescreen" className='vaccine-screen'>Click to start</NavLink>

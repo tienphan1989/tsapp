@@ -6,7 +6,7 @@ export default class InformationContainer extends Component {
     return (
       <div>
         <div className="features-outside">
-          <h1>Redefine your health with our insight!</h1>
+          <h1>Redefine your health!</h1>
           <div className="features-inside">
             <div className="benefits-div">
               <h3>LEARN.</h3>

@@ -55,7 +55,7 @@ body {
 /* Material UI Custom */
 
 .MuiToolbar-root {
-  background-color: #78CAE8;
+  background-color: lightskyblue;
   display: flex;
   justify-content: space-between;
   align-items: center;

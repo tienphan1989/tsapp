@@ -1,28 +1,31 @@
 /* Header */
 
 .main-logo {
-    width: auto;
-    height: 52px;
-  }
-  
-  .title-div {
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .nav-buttons {
-    margin: 5px;
-  }
-  
-  .header-a {
-    padding:1.5px;
-  }
-  
-  .nav-container, .start, .nav-link, .alink {
-    font-size: 18px;
-    color: white;
-    background-color: #78CAE8;
-  }
+  width: auto;
+  height: 52px;
+}
+
+.title-div {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-buttons {
+  margin: 5px;
+}
+
+.header-a {
+  padding: 1.5px;
+}
+
+.nav-container,
+.start,
+.nav-link,
+.alink {
+  font-size: 18px;
+  color: white;
+  background-color: lightskyblue;
+}

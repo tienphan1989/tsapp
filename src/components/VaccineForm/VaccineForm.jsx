@@ -1,104 +1,119 @@
 import React, { Component } from 'react';
 import "./VaccineForm.css";
-//import { vaccineQuestions, under65VaccineQuestions } from "../../../src/helpers/VaccineQuestions.js";
+import { Button } from "@material-ui/core";
 
 export default class VaccineForm extends Component {
     state = {
+        currentUser: {},
         age: '',
-        guestResults: []
+        display: false
     };
 
-    //find first question with answer=no and stop rendering new questions based off slice
-    // lastQuestion = () => {
-    //     const firstFalse = this.state.questions.findIndex(question => question.answer === 'No');
-    //     console.log(firstFalse)
-    //     return this.state.questions.slice(0, firstFalse);
-    // }
+    componentDidMount() {
+        (localStorage.token && localStorage.token !== undefined)  &&
+        fetch(`http://localhost:3000/api/v1/users/${localStorage.userID}`)
+        .then(response => response.json())
+        .then(user => this.setState({
+            currentUser: user
+        }))
+    };
 
-    //map through questions and map through radio buttons 
-    // renderQuestions = () => {
-    //     return this.state.questions.map((question, index) =>
-    //     <div key={index} className="vaccine-question">
-    //         <div className='vaccine-question-column'>
-    //             <label>{question.question}</label></div>
-    //             <div className="vaccine1-radio">
-    //                                 <label>Yes</label>
-    //                                     <input
-    //                                         type="radio"
-    //                                         name= {this.state.questions[index].answer}
-    //                                         value="yes"
-    //                                         id='condition1'
-    //                                         checked={this.state.questions[index].answer === "yes"}
-    //                                         onChange={(event) => this.handleChange(event, index)}
-    //                                     />
-    //                                 <label>No/not sure</label>
-    //                                     <input
-    //                                         type="radio"
-    //                                         name= {this.state.questions[index].answer}
-    //                                         value="no"
-    //                                         id='condition1'
-    //                                         checked={this.state.questions[index].answer === "no"}
-    //                                         onChange={(event) => this.handleChange(event, index)}
-    //                                     />
-    //                             </div>
-    //     </div>
-    // )}
-
-    handleIndexChange = (event, index) => {
-        const questionIndex = this.state.questions.findIndex(question => question.id === index);
-        let questions = [...this.state.questions];
-        questions[questionIndex] = {...questions[questionIndex], answer: event.target.value};
-        this.setState({
-            questions
-        });
-    }
 
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
-    }
+    };
 
-    handleSubmit = (event) => {
+    handleSubmit = (event, record) => {
+        console.log(record)
+        debugger
+        const { condition1, condition2, condition3, condition4 } = record;
         event.preventDefault();
-        console.log(this.state);
-        const guestResults = this.state.guestResults.concat(this.state);
+        if(localStorage.token){
+        fetch('http://localhost:3000/api/v1/vaccineform', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify({vaccination_record: {
+            user_id: this.state.currentUser.id,
+            tetanus: condition1 === "yes" ? true : false,
+            flu: condition2 === "yes" ? true : false,
+            pneumonia: condition3 === "yes" ? true : false,
+            shingles: condition4 === "yes" ? true : false
+            }})
+        })
+        .then(resp => resp.json())
+        .then(console.log)
         this.setState({
             age: '',
             condition1: null,
             condition2: null,
             condition3: null,
             condition4: null,
-            condition5: null,
-            guestResults
-        })
-    }
-
-    feedback = () => {
-        const age = parseInt(this.state.age, 10);
-        if(age < 120){
-            this.state.guestResults.map(result => {
-            return <p>{result.age}</p>
-            }) 
-        } else if(age > 120 && age < 151){
-            return "OK"
-        } else if(age > 152 && age < 200){
-            return "BAD"
+            condition5: null
+        })}
+        else{
+            this.renderFeedback()
         }
-    }
+    };
 
-    // vaccineInfo = ( vaccineResults) => {
-    //     fetch('http://localhost:3000/api/v1/vaccinationrecords', {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Authorization: `Bearer ${localStorage.token}`
-    //         },
-    //         body: JSON.stringify(vaccineResults)
-    //     })
-    //     .then(resp => resp.json())
-    //     .then(console.log)
-    // }
+    handleDisplay = () => {
+        this.setState({
+            display: !this.state.display
+        });
+    };
+    
+    clearForm = () => {
+        this.setState({
+            age: '',
+            condition1: null,
+            condition2: null,
+            condition3: null,
+            condition4: null,
+            condition5: null
+        })
+    };
+
+    renderFeedback = () => {
+        return (
+            <div className='feedback-div'>
+                {this.state.condition1 === 'yes' 
+                ? 
+                <div>Congrats, your covered!</div> 
+                :
+                <div>Go protect yourself!</div>}
+
+                {this.state.condition2 === 'yes' 
+                ? 
+                <div>Congrats, your covered!</div> 
+                :
+                <div>Go protect yourself!</div>}
+
+                
+                {this.state.condition3 === 'yes' 
+                ? 
+                <div>Congrats, your covered!</div> 
+                :
+                <div>Go protect yourself!</div>}
+
+                
+                {this.state.age > 64 && this.state.condition4 === 'yes'
+                ? 
+                <div>Congrats, your covered!</div> 
+                :
+                <div>Go protect yourself!</div>}
+
+                {this.state.age > 64 && this.state.condition5 === 'yes' 
+                ? <div>Congrats, your covered!</div> 
+                :
+                <div>Go protect yourself!</div>}
+
+                <Button variant="contained" onClick={this.clearForm}>Clear form</Button>
+            </div>)
+    };
 
     render() {
         const currentAge = parseInt(this.state.age, 10);
@@ -106,7 +121,7 @@ export default class VaccineForm extends Component {
             <React.Fragment>
             <div className='vaccine-form-container'>
                 <div className='vaccine-form-div'>
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
                         <h3 className='vaccine-form-title'>Vaccine History</h3>
                         <div className="age-value">
                             <label htmlFor='age'>Age: </label>
@@ -227,7 +242,7 @@ export default class VaccineForm extends Component {
                         {currentAge > 50 && this.state.condition4 === 'yes' ?
                         <div className="vaccine-question5">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition5'>Did you get the shingles vaccine on 2 different days? </label></div>
+                                <label htmlFor='condition5'>Was shingles vaccine on 2 different days? </label></div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
@@ -251,14 +266,17 @@ export default class VaccineForm extends Component {
                         </div>
                         : null}
 
-                        <button type="submit">Check status</button>
+                        <Button variant="contained" color="secondary" type="submit" onClick={this.handleDisplay} disabled={this.state.display}>
+                            Check status
+                        </Button>
+
                     </form>
                 </div>
             </div>
-        
-        {this.state.guestResults.length >= 0 ? 
-        this.feedback() 
-        : null}
+            {this.state.display && 
+            <div className='feedback-div2'>
+                {this.renderFeedback()}
+            </div>}
         </React.Fragment>
         )
     }

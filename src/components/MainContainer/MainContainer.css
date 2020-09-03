@@ -5,6 +5,7 @@
   display:flex;
   align-items: center;
   padding: 3px;
+  color:white;
 }
 
 .main-row-1 {
@@ -24,7 +25,7 @@
   margin: 3px;
   border: 2px solid;
   border-color: rgb(58, 161, 196);
-  background-color: #78CAE8;
+  background-color: lightskyblue;
   box-shadow:  -1px 0px 1px 1px black
 }
 
