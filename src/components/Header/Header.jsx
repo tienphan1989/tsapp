@@ -31,20 +31,25 @@ const Header = (props) => {
               <NavLink to="/info" className='nav-link' color="white">Learn More</NavLink>
             </Button>
 
-            {!props.loggedIn ? 
+            {!props.loggedIn 
+            ? 
             <Button className="top-button">
               <NavLink to="/register" className='nav-link' color="white">Register</NavLink>
             </Button>
-            : null}
+            : 
+            null
+            }
 
-            {props.loggedIn ? 
+            {props.loggedIn 
+            ? 
             <Button className="top-button" onClick={props.logOut}>
               <NavLink to="/" className='nav-link' color="white">Logout</NavLink>
             </Button> 
             :
             <Button className="top-button">
               <NavLink to="/login" className='nav-link' color="white">Login</NavLink>
-            </Button>}
+            </Button>
+            }
             
           </div>
         </Toolbar>

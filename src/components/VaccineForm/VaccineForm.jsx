@@ -6,64 +6,83 @@ export default class VaccineForm extends Component {
     state = {
         currentUser: {},
         age: '',
-        display: false
+        condition1: null,
+        condition2: null,
+        condition3: null,
+        condition4: null,
+        condition5: null,
+        display: false,
+        editing: false,
+        formErrors: {},
+        open: false
     };
 
     componentDidMount() {
-        (localStorage.token && localStorage.token !== undefined)  &&
+        (localStorage.token && 
         fetch(`http://localhost:3000/api/v1/users/${localStorage.userID}`)
         .then(response => response.json())
-        .then(user => this.setState({
-            currentUser: user
+        .then((user) => {
+            this.setState({
+                currentUser: user,
+                age: user.age,
+                condition1: user.vaccination_record.tetanus ?  "yes" : 'no',
+                condition2: user.vaccination_record.flu ?  "yes" : 'no',
+                condition3: user.vaccination_record.tetanus ?  "yes" : 'no',
+                condition4: user.vaccination_record.pneumonia ?  "yes" : 'no',
+                editing: true,
+                formValid: false,
+                formErrors: {}     
+            })
         }))
     };
 
 
     handleChange = (event) => {
+        debugger
+        //event.preventDefault()
         this.setState({
             [event.target.name]: event.target.value
-        });
+        }, this.validateForm);
     };
 
     handleSubmit = (event, record) => {
-        console.log(record)
+        //const { condition1, condition2, condition3, condition4 } = this.state;
+        const method = this.state.editing ? 'PATCH' : 'POST';
         debugger
-        const { condition1, condition2, condition3, condition4 } = record;
-        event.preventDefault();
-        if(localStorage.token){
-        fetch('http://localhost:3000/api/v1/vaccineform', {
-            method: "POST",
+        const url = this.state.editing ? `http://localhost:3000/api/v1/vaccination_records/${this.state.currentUser.vaccination_record.id}` : 'http://localhost:3000/api/v1/vaccination_records'
+        //if(localStorage.token){
+        fetch(url, {
+            method: method,
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${localStorage.token}`
             },
             body: JSON.stringify({vaccination_record: {
             user_id: this.state.currentUser.id,
-            tetanus: condition1 === "yes" ? true : false,
-            flu: condition2 === "yes" ? true : false,
-            pneumonia: condition3 === "yes" ? true : false,
-            shingles: condition4 === "yes" ? true : false
+            tetanus: this.state.condition1 === "yes" ? true : false,
+            flu: this.state.condition2 === "yes" ? true : false,
+            pneumonia: this.state.condition3 === "yes" ? true : false,
+            shingles: this.state.condition4 === "yes" ? true : false
             }})
         })
         .then(resp => resp.json())
-        .then(console.log)
-        this.setState({
-            age: '',
-            condition1: null,
-            condition2: null,
-            condition3: null,
-            condition4: null,
-            condition5: null
-        })}
-        else{
-            this.renderFeedback()
-        }
+        .then(this.clearForm())
+        .catch(error => {
+            this.setState({formErrors: error.response.data, formValid: false})
+        })
     };
 
-    handleDisplay = () => {
+    handleClickOpen = (event) => {
+        event.preventDefault();
         this.setState({
-            display: !this.state.display
-        });
+            open: true
+        }, this.handleSubmit)
+    };
+
+    handleClose = () => {
+        this.setState({
+            open: false
+        })
     };
     
     clearForm = () => {
@@ -76,6 +95,28 @@ export default class VaccineForm extends Component {
             condition5: null
         })
     };
+
+    resetFormErrors = () => {
+        this.setState({formErrors: {}})
+    }
+
+    validateForm = () => {
+        let formErrors = {}
+        let formValid = true
+        if(this.state.age <= 17) {
+            formErrors.age = ["must be at least 18 years of age"]
+            formValid = false
+        }
+        if(parseInt(this.state.systolic_pressure, 10) <= 49) {
+            formErrors.systolic_pressure = ["please enter valid number"]
+            formValid = false
+        }
+        else if(parseInt(this.state.diastolic_pressure, 10) <= 29) {
+            formErrors.diastolic_pressure = ["please enter valid number"]
+            formValid = false
+        }
+        this.setState({formValid: formValid, formErrors: formErrors})
+    }
 
     renderFeedback = () => {
         return (
@@ -121,8 +162,8 @@ export default class VaccineForm extends Component {
             <React.Fragment>
             <div className='vaccine-form-container'>
                 <div className='vaccine-form-div'>
-                    <form onSubmit={(e) => this.handleSubmit(e, this.state)}>
-                        <h3 className='vaccine-form-title'>Vaccine History</h3>
+                    <form onSubmit={this.handleClickOpen}>
+                        <h3 className='vaccine-form-title'>{this.state.editing ? "Update vaccine record" : "Vaccine history"}</h3>
                         <div className="age-value">
                             <label htmlFor='age'>Age: </label>
                                 <input
@@ -138,7 +179,7 @@ export default class VaccineForm extends Component {
                         
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition1'>Tetanus shot within the last 10 years? </label></div>
+                                <label htmlFor='condition1'>Have you received a Tetanus shot within the last 10 years? </label></div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
@@ -163,7 +204,7 @@ export default class VaccineForm extends Component {
 
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition2'>Have you ever had a Pneumonia vaccine? </label></div>
+                                <label htmlFor='condition2'>Have you ever received a Pneumonia vaccine? </label></div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
@@ -188,8 +229,8 @@ export default class VaccineForm extends Component {
 
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                {currentAge > 64 ? <label htmlFor='condition1'>Did you get a High-dose flu-shot this year? </label> :
-                                <label htmlFor='condition3'>Did you get a flu-shot this year? </label>}</div>
+                                {currentAge >= 65 ? <label htmlFor='condition1'>Have you received a High-dose flu-shot this year? </label> :
+                                <label htmlFor='condition3'>Have you received a flu-shot this year? </label>}</div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
@@ -212,10 +253,10 @@ export default class VaccineForm extends Component {
                                 </div>
                         </div>
 
-                        {currentAge > 50 ?
+                        {currentAge >= 50 ?
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition4'>Recieved a shingles vaccine? </label></div>
+                                <label htmlFor='condition4'>Have you ever received a shingles vaccine? </label></div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
@@ -266,8 +307,8 @@ export default class VaccineForm extends Component {
                         </div>
                         : null}
 
-                        <Button variant="contained" color="secondary" type="submit" onClick={this.handleDisplay} disabled={this.state.display}>
-                            Check status
+                        <Button variant="contained" color="secondary" type="submit" disabled={this.state.display}>
+                            {this.state.editing ? "Update record" : "Create vaccination record"}
                         </Button>
 
                     </form>

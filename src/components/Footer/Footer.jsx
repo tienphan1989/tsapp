@@ -14,7 +14,7 @@ export default class Footer extends Component {
 
                 <div>
                     <a href='https://www.linkedin.com/in/tien-phan-dc/' target="_blank" rel="noopener noreferrer" className='made-by'>
-                    <p className='made-by'>©2020 HealthCheckr, Made by Tien Phan</p></a>
+                    <p className='made-by'>©2020 Health Check, Made by Tien Phan</p></a>
                 </div>
 
                 <div > 

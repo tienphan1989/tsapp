@@ -14,10 +14,8 @@ import UserHome from "./components/UserHome/UserHome.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import configObj from "./helpers/configObj.js";
-import SugarFeedback from './components/SugarForm/SugarFeedback';
 
 class App extends React.Component {
-
   state = {
     currentUser: {},
     loggedIn: false,
@@ -77,29 +75,44 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <CssBaseline/>
-          <Header loggedIn={this.state.loggedIn} logOut={this.logOut} />
+          <Header loggedIn={this.state.loggedIn} logOut={this.logOut}/>
           <Switch>
 
-            <Route exact path="/login" render={(routeProps) => (this.state.loggedIn) ? <Redirect to='/home'/> :
-            <Login handleLogin={this.handleLogin} {...routeProps} />} 
-            />
+          {/* <Route path="/">
+            <Header loggedIn={this.state.loggedIn} logOut={this.logOut} />
+          </Route> */}
 
-            <Route path="/register" render={(routeProps) => (this.state.loggedIn) ? <Redirect to='/home' /> :
-            <Register handleRegister={this.handleRegister} {...routeProps} />}
-            />
+            <Route exact path="/login" render={(routeProps) => (this.state.loggedIn) 
+            ? 
+            <Redirect to='/home'/> 
+            :
+            <Login handleLogin={this.handleLogin} {...routeProps}/>}/>
+
+            <Route exact path="/register" render={(routeProps) => (this.state.loggedIn) 
+            ? 
+            <Redirect to='/home'/>
+            :
+            <Register handleRegister={this.handleRegister} {...routeProps} />}/>
             
-            <Route exact path="/home" render={(routeProps) => (this.state.loggedIn) ? <UserHome logOut={this.logOut} {...routeProps} /> :
-            <Redirect to='/login' /> } />
+            <Route exact path="/home" render={(routeProps) => (this.state.loggedIn) 
+            ? 
+            <UserHome logOut={this.logOut} {...routeProps}/> 
+            :
+            <Redirect to='/login' /> }/>
+
+            <Route exact path="/vaccineform/:id/edit" render={routeProps => (
+              <VaccineForm {...routeProps} />
+            )} />
             
             <Route exact path="/" component={HeroContainer}/>
-            <Route path="/bpscreen" component={BloodPressureForm}/>
-            <Route path="/sugarscreen" component={SugarForm}/>
-            <Route path="/vaccinescreen" component={VaccineForm}/>
-            <Route path="/main" component={MainContainer}/>
-            <Route path="/info" component={InformationContainer}/>
+            <Route exact path="/bpscreen" component={BloodPressureForm}/>
+            <Route exact path="/sugarscreen" component={SugarForm}/>
+            <Route exact path="/vaccinescreen" component={VaccineForm}/>
+            <Route exact path="/main" component={MainContainer}/>
+            <Route exact path="/info" component={InformationContainer}/>
 
           </Switch>
-          <Footer/>
+            <Footer/>
         </div>
       </BrowserRouter>
     );

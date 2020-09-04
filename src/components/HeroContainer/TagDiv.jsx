@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 const TagDiv = () => {
     return (
         <div className="demo-button">
-            {localStorage.token ? 
+            {localStorage.token 
+            ? 
             <div>
                 <Button variant="contained">
                     <NavLink to="/home">View profile</NavLink>

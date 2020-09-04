@@ -44,10 +44,10 @@ In addition to doing stand-ups every morning, you’ll be taking part in a retro
 
 Day 5 will also be the first of your mandatory check-ins with your assigned project manager. You’ll have two of these leading up to your MVP presentation. After that, office hours will be available to sign-up for, but will not be mandatory. -->
 
-Week 2
+<!-- Week 2
 Day 3 - MVP Presentations
 
-You will present your completed MVP to your project manager and a lead instructor. You should have all the functionality that you promised during your project proposal, as well as a plan of attack for the next week.
+You will present your completed MVP to your project manager and a lead instructor. You should have all the functionality that you promised during your project proposal, as well as a plan of attack for the next week. -->
 
 Week 3
 Day 3 - Projects Complete

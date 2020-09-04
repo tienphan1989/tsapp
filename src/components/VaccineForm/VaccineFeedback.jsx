@@ -4,10 +4,8 @@ import "./SugarForm.css";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import { Button } from "@material-ui/core";
-//Click to see your score in terms of A1C
-//Learn more diabetes habits Redirect to diabetes info page
-//Learn more dietary habits Redirect to diet
-export default function SugarFeedback(props) {
+
+export default function VaccineFeedback(props) {
     const { onClose, open, clearForm, result } = props;
     const sugarResult = parseInt(result, 10);
 
@@ -58,7 +56,7 @@ return (
     );
 }
 
-SugarFeedback.propTypes = {
+VaccineFeedback.propTypes = {
     onClose: PropTypes.func.isRequired,
     clearForm: PropTypes.func.isRequired,
     open: PropTypes.bool.isRequired,

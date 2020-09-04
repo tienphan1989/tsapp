@@ -77,3 +77,16 @@
     background: lightskyblue;
     width: 500px;
 }
+
+.modal-paper {
+    border: 2px solid #000;
+    padding: 2px;
+    background-color: #424242;
+    color: white;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

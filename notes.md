@@ -1,18 +1,17 @@
 Problems:
 -when browser is shrunk sideways, the nav icons overlap the title
 
-## Capstone title(s): HealthChecker/Sweet Care/SmartSugr/Health Smart/Health Screener
+## Capstone title(s): Health Check
 
 Purpose: Provide users with an app that provides feedback(or advice?) regarding their sugar level(s)/blood pressure reading(s) in a supportive manner to promote good health habits and better self-knowledge of self endocrine response in relation to variables {good vs. bad elements of diet or lifestyle}. Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.  Can also request dietary practices and bookmark diets.  Can access exercises. Can create goals todo like in user home page.
 
 ## Color Palette
-main color: #78CAE8
-CuriousBlue: #22ADE2
-AquaSpring: #EDFAFA
-Seagull: #78CAE8
-PictonBlue: #50C4EA
-Botticelli: #C8D7E0
-secondaryGray: #57797f
+P: #81d4fa
+P — Light: #b6ffff
+P — Dark: #4ba3c7
+S: #f48fb1
+S — Light: #ffc1e3
+S — Dark: #bf5f82
 secondaryRed: #f50057
 
 ## Fonts
@@ -115,24 +114,6 @@ this.props.history.push("/paintings")
 <Link to="/paintings">
 HOME
 </Link>
-
-## Code below will get user.bpResults
-
-getBpResults = () => {
-fetch("http://localhost:3000/api/v1/paintings",{
-method: "GET",
-headers: {
-Authorization: `Bearer ${localStorage.token}` // send token back to server
-}
-})
-.then(res => res.json())
-.then(data => {
-console.log(data)
-this.setState({
-paintings: data
-})
-})
-}
 
 1- Start postrgres server -> /home/linuxbrew/.linuxbrew/Cellar/postgresql/12.4/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
 stop to end server

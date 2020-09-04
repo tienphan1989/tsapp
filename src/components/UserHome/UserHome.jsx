@@ -2,6 +2,7 @@ import React from 'react';
 import "./UserHome.css";
 import UserGoals from "./UserGoals.jsx";
 import Table from './Table';
+import LineGraph from './LineGraph';
 
 class UserHome extends React.Component {
     state = {
@@ -62,7 +63,7 @@ class UserHome extends React.Component {
 
                                 {this.state.value === 'bp' 
                                 ?   <div className='sample-div'>
-                                        <h4>Blood Pressure data(mmHg)</h4> 
+                                        <h4>Blood Pressure data (mmHg)</h4> 
                                         {this.state.currentUser.bp_screens.map(screen => 
                                         <li>{screen.systolic_pressure} / {screen.diastolic_pressure} </li>)}                                                        
                                     </div> 
@@ -85,8 +86,8 @@ class UserHome extends React.Component {
                                         <p>Shingles: {this.state.currentUser.vaccination_record.shingles ? "Covered" : "Not covered"}</p>
                                     </div>
                                 : null}
-                                <Table displayData={this.displayData()}/>
-
+                                <Table displayData={this.displayData()}/> 
+                                <LineGraph displayData={this.displayData()}/>
                             </div>
                         </div>
                     </div>
