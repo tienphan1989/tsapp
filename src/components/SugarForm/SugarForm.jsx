@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from "@material-ui/core";
 import "./SugarForm.css";
 import SugarFeedback from './SugarFeedback';
+import FormErrors from '../../helpers/FormErrors';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Grow from '@material-ui/core/Grow';
@@ -9,16 +10,22 @@ import Grow from '@material-ui/core/Grow';
 export default class SugarForm extends Component {
     state = {
         currentUser: {},
+        age: '',
         result: '',
         open: false,
-        modalOpen: false
+        modalOpen: false,
+        formErrors: {},
+        formValid: false,
+        TermsConditions: false
     };
 
     componentDidMount() {
+        localStorage.token &&
         fetch(`http://localhost:3000/api/v1/users/${localStorage.userID}`)
         .then(response => response.json())
         .then(user => this.setState({
-            currentUser: user
+            currentUser: user,
+            age: user.age
         }))
     };
 
@@ -26,7 +33,7 @@ export default class SugarForm extends Component {
         const input = event.target;
         const name = input.name;
         const value = input.type === 'checkbox' ? input.checked : input.value;
-        this.setState({ [name]: value });
+        this.setState({[name]:value}, this.validateForm);
     };
 
     handleSubmit = () => {
@@ -44,13 +51,7 @@ export default class SugarForm extends Component {
             }})
         })
         .then(resp => resp.json())
-        .then(console.log)
-        this.setState({
-            age: '',
-            fasting: null,
-            TermsConditions: false,
-            setOpen: false
-        })}
+        .then(this.resetFormErrors())}
         else{
             return;
         }
@@ -62,7 +63,7 @@ export default class SugarForm extends Component {
             result: '',
             fasting: null,
             TermsConditions: false,
-            display: false
+            open: false
         })
     };
 
@@ -90,6 +91,28 @@ export default class SugarForm extends Component {
             modalOpen: false
         })
     };
+
+    resetFormErrors = () => {
+        this.setState({formErrors: {}})
+    };
+
+    validateForm = () => {
+        let formErrors = {}
+        let formValid = true
+        if(this.state.age <= 17) {
+            formErrors.age = ["User must be at least 18 years of age"]
+            formValid = false
+        }
+        else if(parseInt(this.state.result, 10) <= 40) {
+            formErrors.result = ["requires valid number"]
+            formValid = false
+        }
+        else if(this.state.result === '') {
+            formErrors.result = ["requires valid number"]
+            formValid = false
+        }
+        this.setState({formValid: formValid, formErrors: formErrors})
+    }
 
     render() {
     return (
@@ -160,16 +183,17 @@ export default class SugarForm extends Component {
                     />
                 </div>}
 
+                <FormErrors formErrors = {this.state.formErrors}/>
                 <div className="sugar-submit-button">
-                    <Button variant="contained" color="secondary" type="submit">
+                    <Button variant="contained" color="secondary" type="submit" disabled={!this.state.formValid}>
                         Submit
                     </Button>
                 </div> 
 
                 <div className='sugar-query-div'>
-                    <p className='sugar-query-p' onClick={this.handleModalOpen}>
-                        Wondering how to get your blood sugar tested?
-                    </p>
+                    <Button className='sugar-query-p' onClick={this.handleModalOpen}>
+                        Click here to learn how to test blood sugar
+                    </Button>
                     <Modal
                         className='modal'
                         aria-labelledby="transition-modal-title"
@@ -184,9 +208,9 @@ export default class SugarForm extends Component {
                     >
                         <Grow in={this.state.modalOpen}>
                             <div className='modal-paper'>
-                                <p id="transition-modal-title">Visit your local pharmacy for point of care testing (it's usually free!)</p>
-                                <p id="transition-modal-description">or you can purchase a blood sugar monitor to check your status in the comfort of your own home. Your doctor will also have </p>
-                                <p id="transition-modal-description">more accurate tests on hand to let you know your status!</p>
+                                <p id="transition-modal-title">1) Visit your local pharmacy for point of care testing (it's usually free!)</p>
+                                <p id="transition-modal-description">2) Purchase a blood sugar monitor to check your status in the comfort of your own home. </p>
+                                <p id="transition-modal-description">3) Your doctor will also have more in-depth tests to let you know your status!</p>
                             </div>
                         </Grow>
                     </Modal>
@@ -196,8 +220,13 @@ export default class SugarForm extends Component {
             clearForm={this.clearForm} 
             open={this.state.open} 
             onClose={this.handleClose} 
-            result={this.state.result}/>
+            result={this.state.result}
+            />
         </div>
     </div>
     </React.Fragment>
 )}}
+
+SugarForm.defaultProps = {
+    TermsConditions: false
+}

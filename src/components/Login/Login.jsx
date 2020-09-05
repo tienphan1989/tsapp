@@ -18,7 +18,7 @@ const Login = (props) => {
             <p className="login-header">Login page</p>
             <form onSubmit={(e) => login(e)}>
               <div className="field">
-                <label className="login">Username</label>
+                <label className="login" htmlFor='username'>Username</label>
                 <div className="control">
                   <input
                     className="login"
@@ -31,7 +31,7 @@ const Login = (props) => {
                 </div>
               </div>
               <div className="field">
-                <label className="login">Password</label>
+                <label className="login" htmlFor='password'>Password</label>
                 <div className="control">
                   <input
                     className="login"
@@ -46,9 +46,9 @@ const Login = (props) => {
               <button type="submit" className="login submit-button">
                 Login
               </button>
-              <button>
-                Want to register? <Link to='/register'>Sign Up</Link>
-              </button>
+                <Link to='/register'>
+                  <button>Want to register?</button>
+                </Link>
             </form>
           </div>
         </div>

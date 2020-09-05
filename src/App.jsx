@@ -77,10 +77,12 @@ class App extends React.Component {
           <CssBaseline/>
           <Header loggedIn={this.state.loggedIn} logOut={this.logOut}/>
           <Switch>
-
-          {/* <Route path="/">
-            <Header loggedIn={this.state.loggedIn} logOut={this.logOut} />
-          </Route> */}
+            <Route exact path="/" component={HeroContainer}/>
+            <Route exact path="/bpscreen" component={BloodPressureForm}/>
+            <Route exact path="/sugarscreen" component={SugarForm}/>
+            <Route exact path="/vaccinescreen" component={VaccineForm}/>
+            <Route exact path="/main" component={MainContainer}/>
+            <Route exact path="/info" component={InformationContainer}/>
 
             <Route exact path="/login" render={(routeProps) => (this.state.loggedIn) 
             ? 
@@ -100,17 +102,10 @@ class App extends React.Component {
             :
             <Redirect to='/login' /> }/>
 
-            <Route exact path="/vaccineform/:id/edit" render={routeProps => (
+            <Route exact path="/vaccination_records/id/" render={routeProps => (
               <VaccineForm {...routeProps} />
             )} />
             
-            <Route exact path="/" component={HeroContainer}/>
-            <Route exact path="/bpscreen" component={BloodPressureForm}/>
-            <Route exact path="/sugarscreen" component={SugarForm}/>
-            <Route exact path="/vaccinescreen" component={VaccineForm}/>
-            <Route exact path="/main" component={MainContainer}/>
-            <Route exact path="/info" component={InformationContainer}/>
-
           </Switch>
             <Footer/>
         </div>

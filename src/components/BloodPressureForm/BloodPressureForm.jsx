@@ -50,9 +50,11 @@ export default class BloodPressureForm extends Component {
 
     clearForm = () => {
         this.setState({
+            age: '',
             systolic_pressure: '',
             diastolic_pressure: '',
-            TermsConditions: false
+            TermsConditions: false,
+            open: false
         })
     };
 
@@ -137,7 +139,7 @@ export default class BloodPressureForm extends Component {
 
                     {!localStorage.token &&
                     <div className="terms-condition">
-                        <label htmlFor="TermsConditions">By clicking, I agree to the T.O.S.</label>
+                        <label htmlFor="TermsConditions">By clicking, I agree to the terms & conditions</label>
                         <input
                             type="checkbox"
                             placeholder="By clicking, I agree to the T.O.S. "

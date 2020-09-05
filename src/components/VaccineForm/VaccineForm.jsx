@@ -1,56 +1,57 @@
 import React, { Component } from 'react';
 import "./VaccineForm.css";
 import { Button } from "@material-ui/core";
+import VaccineFeedback from './VaccineFeedback';
+import FormErrors from '../../helpers/FormErrors';
 
 export default class VaccineForm extends Component {
     state = {
         currentUser: {},
         age: '',
-        condition1: null,
-        condition2: null,
-        condition3: null,
-        condition4: null,
-        condition5: null,
-        display: false,
+        tetanus: null,
+        flu: null,
+        pneumonia: null,
+        shingles: null,
+        shinglesTwoDay: null,
         editing: false,
         formErrors: {},
-        open: false
+        open: false,
+        formValid: false
     };
 
     componentDidMount() {
-        (localStorage.token && 
+        if(localStorage.token){
         fetch(`http://localhost:3000/api/v1/users/${localStorage.userID}`)
         .then(response => response.json())
         .then((user) => {
             this.setState({
                 currentUser: user,
                 age: user.age,
-                condition1: user.vaccination_record.tetanus ?  "yes" : 'no',
-                condition2: user.vaccination_record.flu ?  "yes" : 'no',
-                condition3: user.vaccination_record.tetanus ?  "yes" : 'no',
-                condition4: user.vaccination_record.pneumonia ?  "yes" : 'no',
+                tetanus: user.vaccination_record.tetanus ?  "yes" : 'no',
+                flu: user.vaccination_record.flu ?  "yes" : 'no',
+                pneumonia: user.vaccination_record.pneumonia ?  "yes" : 'no',
+                shingles: user.vaccination_record.shingles ?  "yes" : 'no',
                 editing: true,
-                formValid: false,
+                formValid: true,
                 formErrors: {}     
             })
-        }))
-    };
-
+        })
+    }};
 
     handleChange = (event) => {
-        debugger
-        //event.preventDefault()
         this.setState({
             [event.target.name]: event.target.value
         }, this.validateForm);
     };
 
-    handleSubmit = (event, record) => {
-        //const { condition1, condition2, condition3, condition4 } = this.state;
+    handleSubmit = () => {
+        if(localStorage.token){
         const method = this.state.editing ? 'PATCH' : 'POST';
-        debugger
-        const url = this.state.editing ? `http://localhost:3000/api/v1/vaccination_records/${this.state.currentUser.vaccination_record.id}` : 'http://localhost:3000/api/v1/vaccination_records'
-        //if(localStorage.token){
+        const url = this.state.editing 
+        ? 
+        `http://localhost:3000/api/v1/vaccination_records/${this.state.currentUser.vaccination_record.id}` 
+        : 
+        'http://localhost:3000/api/v1/vaccination_records'
         fetch(url, {
             method: method,
             headers: {
@@ -59,17 +60,18 @@ export default class VaccineForm extends Component {
             },
             body: JSON.stringify({vaccination_record: {
             user_id: this.state.currentUser.id,
-            tetanus: this.state.condition1 === "yes" ? true : false,
-            flu: this.state.condition2 === "yes" ? true : false,
-            pneumonia: this.state.condition3 === "yes" ? true : false,
-            shingles: this.state.condition4 === "yes" ? true : false
+            tetanus: this.state.tetanus === "yes" ? true : false,
+            flu: this.state.flu === "yes" ? true : false,
+            pneumonia: this.state.pneumonia === "yes" ? true : false,
+            shingles: this.state.shingles === "yes" ? true : false
             }})
         })
         .then(resp => resp.json())
-        .then(this.clearForm())
-        .catch(error => {
-            this.setState({formErrors: error.response.data, formValid: false})
-        })
+        .then(this.resetFormErrors())
+        .catch(console.log)}
+        else{
+            this.resetFormErrors();
+        }
     };
 
     handleClickOpen = (event) => {
@@ -79,20 +81,15 @@ export default class VaccineForm extends Component {
         }, this.handleSubmit)
     };
 
-    handleClose = () => {
-        this.setState({
-            open: false
-        })
-    };
-    
     clearForm = () => {
         this.setState({
+            open: false,
             age: '',
-            condition1: null,
-            condition2: null,
-            condition3: null,
-            condition4: null,
-            condition5: null
+            tetanus: null,
+            flu: null,
+            pneumonia: null,
+            shingles: null,
+            shinglesTwoDay: null
         })
     };
 
@@ -107,54 +104,20 @@ export default class VaccineForm extends Component {
             formErrors.age = ["must be at least 18 years of age"]
             formValid = false
         }
-        if(parseInt(this.state.systolic_pressure, 10) <= 49) {
-            formErrors.systolic_pressure = ["please enter valid number"]
+        if(this.state.tetanus === null) {
+            formErrors.tetanus = ["question requires reply"]
             formValid = false
         }
-        else if(parseInt(this.state.diastolic_pressure, 10) <= 29) {
-            formErrors.diastolic_pressure = ["please enter valid number"]
+        if(this.state.pneumonia === null) {
+            formErrors.pneumonia = ["question requires reply"]
+            formValid = false
+        }
+        else if(this.state.flu === null) {
+            formErrors.flu = ["question requires reply"]
             formValid = false
         }
         this.setState({formValid: formValid, formErrors: formErrors})
     }
-
-    renderFeedback = () => {
-        return (
-            <div className='feedback-div'>
-                {this.state.condition1 === 'yes' 
-                ? 
-                <div>Congrats, your covered!</div> 
-                :
-                <div>Go protect yourself!</div>}
-
-                {this.state.condition2 === 'yes' 
-                ? 
-                <div>Congrats, your covered!</div> 
-                :
-                <div>Go protect yourself!</div>}
-
-                
-                {this.state.condition3 === 'yes' 
-                ? 
-                <div>Congrats, your covered!</div> 
-                :
-                <div>Go protect yourself!</div>}
-
-                
-                {this.state.age > 64 && this.state.condition4 === 'yes'
-                ? 
-                <div>Congrats, your covered!</div> 
-                :
-                <div>Go protect yourself!</div>}
-
-                {this.state.age > 64 && this.state.condition5 === 'yes' 
-                ? <div>Congrats, your covered!</div> 
-                :
-                <div>Go protect yourself!</div>}
-
-                <Button variant="contained" onClick={this.clearForm}>Clear form</Button>
-            </div>)
-    };
 
     render() {
         const currentAge = parseInt(this.state.age, 10);
@@ -179,24 +142,25 @@ export default class VaccineForm extends Component {
                         
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition1'>Have you received a Tetanus shot within the last 10 years? </label></div>
+                                <label htmlFor='tetanus'>Have you received a Tetanus shot within the last 10 years? </label>
+                                </div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
                                             type="radio"
-                                            name='condition1'
+                                            name='tetanus'
                                             value="yes"
-                                            id='condition1'
-                                            checked={this.state.condition1 === "yes"}
+                                            id='tetanus'
+                                            checked={this.state.tetanus === "yes"}
                                             onChange={this.handleChange}
                                         />
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
-                                            name='condition1'
+                                            name='tetanus'
                                             value="no"
-                                            id='condition1'
-                                            checked={this.state.condition1 === "no"}
+                                            id='tetanus'
+                                            checked={this.state.tetanus === "no"}
                                             onChange={this.handleChange}
                                         />                                   
                                 </div>
@@ -204,24 +168,26 @@ export default class VaccineForm extends Component {
 
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition2'>Have you ever received a Pneumonia vaccine? </label></div>
+                            {currentAge >= 65 ? <label htmlFor='flu'>Have you received a <strong>High-dose</strong> flu-shot this year? </label> :
+                                <label htmlFor='flu'>Have you received a flu-shot this year? </label>}
+                                </div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
                                             type="radio"
-                                            name='condition2'
+                                            name='flu'
                                             value="yes"
-                                            id='condition2'
-                                            checked={this.state.condition2 === "yes"}
+                                            id='flu'
+                                            checked={this.state.flu === "yes"}
                                             onChange={this.handleChange}
                                         />
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
-                                            name='condition2'
+                                            name='flu'
                                             value="no"
-                                            id='condition2'
-                                            checked={this.state.condition2 === "no"}
+                                            id='flu'
+                                            checked={this.state.flu === "no"}
                                             onChange={this.handleChange}
                                         />                                  
                                 </div>
@@ -229,95 +195,100 @@ export default class VaccineForm extends Component {
 
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                {currentAge >= 65 ? <label htmlFor='condition1'>Have you received a High-dose flu-shot this year? </label> :
-                                <label htmlFor='condition3'>Have you received a flu-shot this year? </label>}</div>
+                                <label htmlFor='pneumonia'>Have you ever received a Pneumonia vaccine? </label>
+                                </div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
                                             type="radio"
-                                            name='condition3'
+                                            name='pneumonia'
                                             value="yes"
-                                            id='condition3'
-                                            checked={this.state.condition3 === "yes"}
+                                            id='pneumonia'
+                                            checked={this.state.pneumonia === "yes"}
                                             onChange={this.handleChange}
                                         />
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
-                                            name='condition3'
+                                            name='pneumonia'
                                             value="no"
-                                            id='condition3'
-                                            checked={this.state.condition3 === "no"}
+                                            id='pneumonia'
+                                            checked={this.state.pneumonia === "no"}
                                             onChange={this.handleChange}
                                         />                                  
                                 </div>
                         </div>
 
-                        {currentAge >= 50 ?
+                        {currentAge >= 50 &&
                         <div className="vaccine-question1">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition4'>Have you ever received a shingles vaccine? </label></div>
+                                <label htmlFor='shingles'>Have you ever received a shingles vaccine? </label>
+                                </div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
                                             type="radio"
-                                            name='condition4'
+                                            name='shingles'
                                             value="yes"
-                                            id='condition4'
-                                            checked={this.state.condition4 === "yes"}
+                                            id='shingles'
+                                            checked={this.state.shingles === "yes"}
                                             onChange={this.handleChange}
                                         />
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
-                                            name='condition4'
+                                            name='shingles'
                                             value="no"
-                                            id='condition4'
-                                            checked={this.state.condition4 === "no"}
+                                            id='shingles'
+                                            checked={this.state.shingles === "no"}
                                             onChange={this.handleChange}
                                         />                                  
                                 </div>
-                        </div>
-                        : null}
+                        </div>}
 
-                        {currentAge > 50 && this.state.condition4 === 'yes' ?
+                        {currentAge >= 50 && this.state.shingles === 'yes' &&
                         <div className="vaccine-question5">
                             <div className='vaccine-question-column'>
-                                <label htmlFor='condition5'>Was shingles vaccine on 2 different days? </label></div>
+                                <label htmlFor='shinglesTwoDay'>Was shingles vaccine on 2 different days? </label></div>
                                 <div className="vaccine1-radio">
                                     <label>Yes</label>
                                         <input
                                             type="radio"
-                                            name='condition5'
+                                            name='shinglesTwoDay'
                                             value="yes"
-                                            id='condition5'
-                                            checked={this.state.condition5 === "yes"}
+                                            id='shinglesTwoDay'
+                                            checked={this.state.shinglesTwoDay === "yes"}
                                             onChange={this.handleChange}
                                         />
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
-                                            name='condition5'
+                                            name='shinglesTwoDay'
                                             value="no"
-                                            id='condition5'
-                                            checked={this.state.condition5 === "no"}
+                                            id='shinglesTwoDay'
+                                            checked={this.state.shinglesTwoDay === "no"}
                                             onChange={this.handleChange}
                                         />                                  
                                 </div>
-                        </div>
-                        : null}
-
-                        <Button variant="contained" color="secondary" type="submit" disabled={this.state.display}>
+                        </div>}
+                        <FormErrors formErrors = {this.state.formErrors}/>
+                        <Button variant="contained" color="secondary" type="submit" disabled={!this.state.formValid}>
                             {this.state.editing ? "Update record" : "Create vaccination record"}
                         </Button>
-
                     </form>
+                    <VaccineFeedback 
+                    age={this.state.age}
+                    open={this.state.open} 
+                    onClose={this.handleClose} 
+                    clearForm={this.clearForm}
+                    tetanus={this.state.tetanus}
+                    flu={this.state.flu}
+                    pneumonia={this.state.pneumonia}
+                    shingles={this.state.shingles}
+                    shinglesTwoDay={this.state.shinglesTwoDay}
+                    />
                 </div>
             </div>
-            {this.state.display && 
-            <div className='feedback-div2'>
-                {this.renderFeedback()}
-            </div>}
         </React.Fragment>
         )
     }

@@ -1,9 +1,11 @@
 Problems:
 -when browser is shrunk sideways, the nav icons overlap the title
+-vaccine patches but does not auto populate after. Maybe redirect?
+-snackbar goes too fast
 
 ## Capstone title(s): Health Check
 
-Purpose: Provide users with an app that provides feedback(or advice?) regarding their sugar level(s)/blood pressure reading(s) in a supportive manner to promote good health habits and better self-knowledge of self endocrine response in relation to variables {good vs. bad elements of diet or lifestyle}. Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.  Can also request dietary practices and bookmark diets.  Can access exercises. Can create goals todo like in user home page.
+Purpose: Provide users with a app that aims to educate and provides direct feedback to the user regarding their blood sugar level/blood pressure/vaccination status. Identify {good vs. bad elements of diet or lifestyle}. Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.  Users can also request dietary practices and bookmark diets.  Can see data displayed in a easy to understand graph that highlights ideal and out of range values.
 
 ## Color Palette
 P: #81d4fa
@@ -19,11 +21,11 @@ raleway (BIG fonts)
 Work Sans (small fonts)
 
 ## User Stories
--As a user, I want to have the landing page display on load
+<!-- -As a user, I want to have the landing page display on load
 -As a user, I want to be able to sign up and login
 -As a user, I want to be able to enter a single sugar reading into the input field and receive immediate feedback based off value
 -As a user, I want to be able to enter a single blood pressure reading into the input field and receive immediate feedback based off value
--As a user, I want to be able to submit a form and see if vaccinations are complete/incomplete
+-As a user, I want to be able to submit a form and see if vaccinations are complete/incomplete -->
 -As a user, I would like to login, go to user homepage and see graphical data showing previous inputs
 -As a user, I would like to click more resources and have dietary and/or physical education resources to consume
 -As a user, I would like to create a goals section and check off those when accomplished
@@ -102,18 +104,6 @@ belongs to vaccine
             	  └── Privacy Policy & Terms/Conditions/ Copyright 2020 HealthCheckr
                 └── Made By (Tien Phan) Github linkedinlink
 
-## ROUTER INFO
-
-## Code below will create link to home/page
-
-import {Link} from 'react-router-dom'
-goHome = () => {
-this.props.history.push("/paintings")
-}
-
-<Link to="/paintings">
-HOME
-</Link>
 
 1- Start postrgres server -> /home/linuxbrew/.linuxbrew/Cellar/postgresql/12.4/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start
 stop to end server

@@ -3,11 +3,12 @@ import "./BloodPressureForm.css";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import { Button } from "@material-ui/core";
+import { Link } from 'react-router-dom';
 
 export default function BpFeedback(props) {
-    const { onClose, open, systolic_pressure, clearForm } = props;
+    const { open, systolic_pressure, clearForm } = props;
 
-    let feedback = () => {
+    const feedback = () => {
         if(systolic_pressure < 120){
             return (<div className='feedback-div'>
                         <div>
@@ -16,7 +17,6 @@ export default function BpFeedback(props) {
                             <p>Check out our dietary tips for more useful knowledge!</p>
                             <Button variant="contained" onClick={clearForm}>Done</Button>
                         </div>
-                            <p>Want to track your results? Click here to register</p>
                     </div>)
         } else if(systolic_pressure <= 130){
             return (
@@ -28,9 +28,7 @@ export default function BpFeedback(props) {
                             <p>Check out our dietary tips for even more useful knowledge!</p>
                             <Button variant="contained" onClick={clearForm}>close</Button>
                             </div>
-                            <p>Want to track your results? Click here to register</p>
-                        </div>
-            )
+                        </div>)
         } else if(systolic_pressure <= 140){
             return (<div className='feedback-div'>
                         <div>
@@ -41,8 +39,7 @@ export default function BpFeedback(props) {
                             <p>Check out some dietary tips for tools to enhance your health.</p>
                             <Button variant="contained" onClick={clearForm}>close</Button>
                         </div>
-                            <p>Want to track your results? Click here to register</p>
-                    </div>)
+                        </div>)
         } else if(systolic_pressure <= 179){
             return (<div className='feedback-div'>
                         <div>
@@ -53,7 +50,6 @@ export default function BpFeedback(props) {
                             <p>Focus on your health and check out some dietary tips for even more tools to enhance your health.</p>
                             <Button variant="contained" onClick={clearForm}>close</Button>
                         </div>
-                            <p>Want to track your results? Click here to register</p>
                         </div>)
         } else if(systolic_pressure >= 180){
             return (<div className='feedback-div'>
@@ -65,18 +61,22 @@ export default function BpFeedback(props) {
                             <p>Learn about heart health and dietary tips for more tools to improve your health.</p>
                             <Button variant="contained" onClick={clearForm}>close</Button>
                         </div>
-                            <p>Want to track your results? Click here to register</p>
                         </div>)
         }
 }
 
 return (
-    <Dialog onClick={() => onClose()} aria-labelledby="simple-dialog-title" open={open}>
+    <Dialog onClick={() => clearForm()} aria-labelledby="simple-dialog-title" open={open}>
         <DialogTitle id="simple-dialog-title">
             <div className='feedback-div2'>
                 {feedback()}
+                {!localStorage.token ? <Link to='/register'><Button>Want to track your results? Click here to register</Button></Link> : null}
             </div>
         </DialogTitle>
     </Dialog>
     );
+}
+
+BpFeedback.defaultProps = {
+    systolic_pressure: 110
 }
