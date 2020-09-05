@@ -5,7 +5,7 @@
     width: 600px;
     font-size: 18px;
     margin: auto;
-    color:white;
+    color: black;
 }
 
 .sugar-form-title {
@@ -20,12 +20,12 @@
     display: flex;
     border-width: 1px;
     border-style: solid;
-    background: lightskyblue;
+    background: #81d4fa;
     font-size: 18px;
     font-weight: 500;
 }
 
-.age-input{
+.age-input {
     width: 75px;
 }
 
@@ -57,11 +57,11 @@
     padding: 5px;
 }
 
-.sugar-query-div{
+.sugar-query-div {
     padding-top: 5px;
 }
 
-.sugar-query-p{
+.sugar-query-p {
     font-size: 14px;
     margin: 0;
 }
@@ -74,7 +74,7 @@
     align-self: end;
     padding: 20px;
     margin: 10px;
-    background: lightskyblue;
+    background: #81d4fa;
     width: 500px;
 }
 
@@ -82,7 +82,7 @@
     border: 2px solid #000;
     padding: 2px;
     background-color: #424242;
-    color: white;
+    color: black;
 }
 
 .modal {

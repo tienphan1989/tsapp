@@ -4,7 +4,7 @@
 
 .bp-container {
     font-family: 'Raleway', sans-serif;
-    color: white;
+    color: black;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -12,12 +12,12 @@
     padding: 30px;
 }
 
-.form-div  {
+.form-div {
     padding: 20px;
     margin: 20px;
     border-width: 1px;
     border-style: solid;
-    background: lightskyblue;
+    background: #81d4fa;
 }
 
 .bp-form-title {

@@ -2,10 +2,10 @@
 .box-main {
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
-  display:flex;
+  display: flex;
   align-items: center;
   padding: 3px;
-  color:white;
+  color: black;
 }
 
 .main-row-1 {
@@ -18,15 +18,17 @@
   flex: 50%;
   padding: 3px;
 }
-  
-.bp-box, .sugar-box, .vaccine-box {  
+
+.bp-box,
+.sugar-box,
+.vaccine-box {
   text-align: center;
   padding: 6px;
   margin: 3px;
   border: 2px solid;
   border-color: rgb(58, 161, 196);
-  background-color: lightskyblue;
-  box-shadow:  -1px 0px 1px 1px black
+  background-color: #81d4fa;
+  box-shadow: -1px 0px 1px 1px black
 }
 
 .info-images {
@@ -38,13 +40,13 @@
 }
 
 .bp-screen {
-  color:white;
-} 
+  color: black;
+}
 
 .sugar-screen {
-  color:white;
-} 
+  color: black;
+}
 
 .vaccine-screen {
-  color:white;
-} 
+  color: black;
+}

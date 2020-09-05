@@ -6,9 +6,9 @@
     padding: 10px;
     margin: 8%;
     box-shadow: -1px 0px 1px 1px black;
-    background: linear-gradient(60deg, #22ADE2, lightskyblue, #50C4EA);
+    background: linear-gradient(60deg, #22ADE2, #81d4fa, #50C4EA);
     position: relative;
-    color: white;
+    color: black;
 }
 
 .features-inside {

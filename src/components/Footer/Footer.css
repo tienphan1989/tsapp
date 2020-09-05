@@ -1,16 +1,16 @@
 /* footer */
 
 .footer {
-    position:absolute;
-    bottom:0;
+    position: absolute;
+    bottom: 0;
     width: 100%;
     font-family: 'Work Sans', sans-serif;
-    color:white;
-    background-color: lightskyblue;
+    color: black;
+    background-color: #81d4fa;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow:  -2px 0px 2px 2px black
+    box-shadow: -2px 0px 2px 2px black
 }
 
 .privacy-statement {
@@ -20,12 +20,12 @@
 
 .made-by:link {
     font-size: 18px;
-    color:white!important;
+    color: black !important;
     text-decoration: none;
 }
 
 .made-by:visited {
     font-size: 18px;
-    color:white!important;
+    color: black !important;
     text-decoration: none;
 }

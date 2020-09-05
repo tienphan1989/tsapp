@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./MainContainer.css";
 import vaccine from "./profession.svg";
 import Button from '@material-ui/core/Button';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class VaccineContainer extends Component {
     render() {
@@ -16,7 +16,7 @@ export default class VaccineContainer extends Component {
                     if you are up to date on your vaccines so you can stay protected! 
                 </p>
                 <Button variant="contained" color="secondary">
-                    <NavLink to="/vaccinescreen" className='vaccine-screen'>Click to start</NavLink>
+                    <Link to="/vaccinescreen" className='vaccine-screen'>Click to start</Link>
                 </Button> 
             </section>
         )

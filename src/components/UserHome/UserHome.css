@@ -5,26 +5,26 @@
 }
 
 .welcome-container {
-    color:white;
+    color: black;
     font: bold;
 }
 
 .sidebar-listings-div {
     display: flex;
     justify-content: space-evenly;
-    color:white;
+    color: black;
     font-size: 18px;
 }
 
 .sidebar-div {
-    background: lightskyblue;
+    background: #81d4fa;
     box-shadow: -1px 0px 3px 1px black;
     width: 30%;
     padding: 5px;
 }
 
 .listings-div {
-    background: lightskyblue;
+    background: #81d4fa;
     box-shadow: -1px 0px 3px 1px black;
     width: 65%;
     padding: 5px;

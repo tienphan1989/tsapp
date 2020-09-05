@@ -3,7 +3,7 @@ Problems:
 -vaccine patches but does not auto populate after. Maybe redirect?
 -snackbar goes too fast
 
-## Capstone title(s): Health Check
+## Capstone: Health Check
 
 Purpose: Provide users with a app that aims to educate and provides direct feedback to the user regarding their blood sugar level/blood pressure/vaccination status. Identify {good vs. bad elements of diet or lifestyle}. Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.  Users can also request dietary practices and bookmark diets.  Can see data displayed in a easy to understand graph that highlights ideal and out of range values.
 
@@ -11,9 +11,9 @@ Purpose: Provide users with a app that aims to educate and provides direct feedb
 P: #81d4fa
 P — Light: #b6ffff
 P — Dark: #4ba3c7
-S: #f48fb1
-S — Light: #ffc1e3
-S — Dark: #bf5f82
+S: #ff80ab
+S — Light: #ffb2dd
+S — Dark: #c94f7c
 secondaryRed: #f50057
 
 ## Fonts
