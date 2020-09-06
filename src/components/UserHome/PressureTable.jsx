@@ -6,13 +6,25 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 import { green, yellow, lightGreen, red } from '@material-ui/core/colors';
 
 function createData(Date, Systolic, Diastolic, Grade) {
   return { Date, Systolic, Diastolic, Grade };
 }
 
-export default function SimpleTable(props) {
+const useStyles = makeStyles({
+  root: {
+    width: '65%',
+    margin: 'auto'
+  },
+  table: {
+    minWidth: 650,
+  },
+});
+
+export default function PressureTable(props) {
+  const classes = useStyles();
 
   let colorData = (num) => {
     if(num < 120 && num <= 129){
@@ -29,14 +41,14 @@ export default function SimpleTable(props) {
   const newRows = props.bpData.map(screen => createData(screen.created_at, screen.systolic_pressure, screen.diastolic_pressure, <div style={{backgroundColor: `${colorData(screen.systolic_pressure)}`}}>.</div>))
 
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="simple table">
+    <TableContainer component={Paper} className={classes.root}>
+      <Table aria-label="simple table" >
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell>Systolic</TableCell>
-            <TableCell>Diastolic</TableCell>
-            <TableCell>Grade</TableCell>
+            <TableCell align="right">Systolic</TableCell>
+            <TableCell align="right">Diastolic</TableCell>
+            <TableCell align="right">Grade</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -45,9 +57,9 @@ export default function SimpleTable(props) {
               <TableCell component="th" scope="row">
                 {row.Date}
               </TableCell>
-              <TableCell>{row.Systolic}</TableCell>
-              <TableCell>{row.Diastolic}</TableCell>
-              <TableCell>{row.Grade}</TableCell>
+              <TableCell align="right">{row.Systolic}</TableCell>
+              <TableCell align="right">{row.Diastolic}</TableCell>
+              <TableCell align="right">{row.Grade}</TableCell>
             </TableRow>
           ))}
         </TableBody>

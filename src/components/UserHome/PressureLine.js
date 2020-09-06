@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 
-export default class LineGraph extends Component {
+export default class PressureLine extends Component {
     render() {
       const data2 = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
           {
-            label: 'My First dataset',
+            label: '= test results',
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(75,192,192,0.4)',
@@ -25,14 +25,14 @@ export default class LineGraph extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: this.props.displayData
+            data: this.props.bpData
           }
         ]
       };
 
         return (
         <div>
-            <h2>Line Example</h2>
+            <h2>Blood pressure data</h2>
             <Line data={data2}/>
         </div>
         );

@@ -1,78 +1,70 @@
-import React from 'react';
-import {Bar} from 'react-chartjs-2';
-import color from 'rcolor';
+// import React, { Component } from 'react';
+// import {Line} from 'react-chartjs-2';
 
-const initialState = {
+// export default class RandomPressureLine extends Component {
 
-	labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  	datasets: [
-    {
-		label: 'My First dataset',
-		backgroundColor: 'rgba(255,99,132,0.2)',
-		borderColor: 'rgba(255,99,132,1)',
-		borderWidth: 1,
-		hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-		hoverBorderColor: 'rgba(255,99,132,1)',
-		data: [65, 59, 80, 81, 56, 55, 40]
-    }]
-};
+//   setInitialState = () => {
+//     let initialState = {
+//       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+//       datasets: [
+//         {
+//           label: 'My First dataset',
+//           fill: false,
+//           lineTension: 0.1,
+//           backgroundColor: 'rgba(75,192,192,0.4)',
+//           borderColor: 'rgba(75,192,192,1)',
+//           borderCapStyle: 'butt',
+//           borderDash: [],
+//           borderDashOffset: 0.0,
+//           borderJoinStyle: 'miter',
+//           pointBorderColor: 'rgba(75,192,192,1)',
+//           pointBackgroundColor: '#fff',
+//           pointBorderWidth: 1,
+//           pointHoverRadius: 5,
+//           pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+//           pointHoverBorderColor: 'rgba(220,220,220,1)',
+//           pointHoverBorderWidth: 2,
+//           pointRadius: 1,
+//           pointHitRadius: 10,
+//           data: this.props.sugarData
+//         }
+//       ]
+//     };
+//     return initialState;
+//   }
 
+// 	componentWillMount(){
+//     this.setState(this.setInitialState());
+//   };
+  
+// 	componentDidMount(){
+// 		setInterval(function(){
+// 			var oldDataSet = this.state.datasets[0];
+// 			var newData = [];
 
+// 			for(var x=0; x< this.state.labels.length; x++){
+// 				newData.push(Math.floor(Math.random() * 100));
+// 			}
 
-const Graph = React.createClass({
-	displayName: 'Graph',
-	componentWillMount(){
-		this.setState(initialState);
-	},
-	componentDidMount(){
+// 			var newDataSet = {
+// 				...oldDataSet
+// 			};
 
-		var _this = this;
+// 			newDataSet.data = newData;
 
-		setInterval(function(){
-			var oldDataSet = _this.state.datasets[0];
-			var newData = [];
+// 			var newState = {
+// 				...this.setInitialState(),
+// 				datasets: [newDataSet]
+// 			};
 
-			for(var x=0; x< _this.state.labels.length; x++){
-				newData.push(Math.floor(Math.random() * 100));
-			}
+// 			this.setState(newState);
+// 		}, 5000);
+//   };
 
-			var newDataSet = {
-				...oldDataSet
-			};
+// 	render() {
 
-			newDataSet.data = newData;
-			newDataSet.backgroundColor = color();
-			newDataSet.borderColor = color();
-			newDataSet.hoverBackgroundColor = color();
-			newDataSet.hoverBorderColor = color();
-
-			var newState = {
-				...initialState,
-				datasets: [newDataSet]
-			};
-
-			_this.setState(newState);
-		}, 5000);
-	},
-	render() {
-		return (
-			<Bar data={this.state} />
-		);
-	}
-});
-
-
-
-
-export default React.createClass({
-	displayName: 'Crazy Random Graph',
-
-	render() {
-		return (
-		<div>
-			<h2>You can even make crazy graphs like this!</h2>
-			<Graph />
-		</div>
-		);
-	}
-});
+// 		return (
+// 			<Line data={this.state}/>
+// 		);
+// 	}
+// };
