@@ -82,7 +82,7 @@ class App extends React.Component {
             <Route exact path="/sugarscreen" component={SugarForm}/>
             <Route exact path="/vaccinescreen" component={VaccineForm}/>
             <Route exact path="/main" component={MainContainer}/>
-            <Route exact path="/info" component={InformationContainer}/>
+            <Route exact path="/resources" component={InformationContainer}/>
 
             <Route exact path="/login" render={(routeProps) => (this.state.loggedIn) 
             ? 

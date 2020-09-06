@@ -7,15 +7,9 @@ import PressureLine from './PressureLine';
 import SugarLine from './SugarLine';
 import SugarBar from './SugarBar';
 import PressureBar from './PressureBar';
-import DynamicPressureLine from './DynamicPressureLine';
-import DynamicSugarLine from './DynamicSugarLine';
-import DynamicSugarBar from'./DynamicSugarBar';
-import DynamicPressureBar from'./DynamicPressureBar';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import StateTabs from './StateTabs';
-import HomeIcon from '@material-ui/icons/Home';
 
 class UserHome extends React.Component {
     state = {
@@ -26,7 +20,7 @@ class UserHome extends React.Component {
             vaccination_record: ''
         },
         index: 0
-    }
+    };
 
     componentDidMount() {
         fetch(`http://localhost:3000/api/v1/users/${localStorage.userID}`)
@@ -46,6 +40,10 @@ class UserHome extends React.Component {
 
     userSugarData = () => {
         return this.state.currentUser.sugar_screens.map(screen => screen.result)
+    }
+
+    userAllSugar = () => {
+        return this.state.currentUser.sugar_screens.map(screen => {return {date: screen.created_at, result: screen.result}})
     }
 
     handleTab = (event, newValue) => {
@@ -96,8 +94,6 @@ class UserHome extends React.Component {
                                         {this.state.index === 0 && <PressureTable bpData={this.state.currentUser.bp_screens}/>}
                                         {this.state.index === 1 && <PressureLine bpData={this.userSystolicData()}/>}
                                         {this.state.index === 2 && <PressureBar bpData={this.userSystolicData()}/>}
-                                        {/* <DynamicPressureLine bpData={this.userSystolicData()}/> */}
-                                        {/* <DynamicPressureBar bpData={this.userSystolicData()}/> */}
                                     </div>)}
 
                                 {this.state.value === 'sugar' && (
@@ -106,8 +102,6 @@ class UserHome extends React.Component {
                                         {this.state.index === 0 && <SugarTable sugarData={this.state.currentUser.sugar_screens}/>}
                                         {this.state.index === 1 && <SugarLine sugarData={this.userSugarData()}/>}
                                         {this.state.index === 2 && <SugarBar sugarData={this.userSugarData()}/>}
-                                        {/* <DynamicSugarLine sugarData={this.userSugarData()}/> */}
-                                        {/* <DynamicSugarBar sugarData={this.userSugarData()}/> */} 
                                     </div>)}
 
                                 {this.state.value === 'vaccine' && (

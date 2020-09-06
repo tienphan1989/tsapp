@@ -208,8 +208,8 @@ export default class SugarForm extends Component {
                     >
                         <Grow in={this.state.modalOpen}>
                             <div className='modal-paper'>
-                                <p id="transition-modal-title">1) Visit your local pharmacy for point of care testing (it's usually free!)</p>
-                                <p id="transition-modal-description">2) Purchase a blood sugar monitor to check your status in the comfort of your own home. </p>
+                                <p id="transition-modal-title">1) Visit your pharmacy for point of care testing (it's usually free!)</p>
+                                <p id="transition-modal-description">2) Purchase a blood sugar monitor to check your status in the comfort of your own home.</p>
                                 <p id="transition-modal-description">3) Your doctor will also have more in-depth tests to let you know your status!</p>
                             </div>
                         </Grow>

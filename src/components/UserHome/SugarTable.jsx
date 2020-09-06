@@ -38,7 +38,7 @@ export default function SugarTable(props) {
     }
   }
 
-  const newRows = props.sugarData.map(screen => createData(screen.created_at, screen.result, <div style={{backgroundColor: `${colorData(screen.result)}`}}>.</div>))
+  const newRows = props.sugarData.map(screen => createData(screen.created_at, screen.result, <div style={{backgroundColor: `${colorData(screen.result)}`}}> </div>))
 
   return (
     <TableContainer component={Paper} className={classes.root}>

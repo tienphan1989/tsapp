@@ -27,7 +27,7 @@ const Header = (props) => {
           </Button>
 
           <Button className="top-button">
-            <NavLink to="/info" className="nav-link" color="black">
+            <NavLink to="/resources" className="nav-link" color="black">
               Learn More
             </NavLink>
           </Button>

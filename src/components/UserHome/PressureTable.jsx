@@ -38,7 +38,7 @@ export default function PressureTable(props) {
     }
   }
 
-  const newRows = props.bpData.map(screen => createData(screen.created_at, screen.systolic_pressure, screen.diastolic_pressure, <div style={{backgroundColor: `${colorData(screen.systolic_pressure)}`}}>.</div>))
+  const newRows = props.bpData.map(screen => createData(screen.created_at, screen.systolic_pressure, screen.diastolic_pressure, <div style={{backgroundColor: `${colorData(screen.systolic_pressure)}`}}> </div>))
 
   return (
     <TableContainer component={Paper} className={classes.root}>

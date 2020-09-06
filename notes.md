@@ -26,9 +26,8 @@ Work Sans (small fonts)
 -As a user, I want to be able to enter a single sugar reading into the input field and receive immediate feedback based off value
 -As a user, I want to be able to enter a single blood pressure reading into the input field and receive immediate feedback based off value
 -As a user, I want to be able to submit a form and see if vaccinations are complete/incomplete -->
--As a user, I would like to login, go to user homepage and see graphical data showing previous inputs
+<!-- -As a user, I would like to login, go to user homepage and see graphical data showing previous inputs -->
 -As a user, I would like to click more resources and have dietary and/or physical education resources to consume
--As a user, I would like to create a goals section and check off those when accomplished
 
 ## Stretch Goals
 -mobile friendly

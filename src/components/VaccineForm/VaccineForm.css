@@ -53,10 +53,87 @@
     display: grid;
 }
 
-.feedback-div {
+.great-feedback-div {
+    padding: 10px;
+    margin: 8px;
+    background-image:
+    linear-gradient(rgb(64, 243, 64), rgba(94, 248, 114, 0.993)),
+    linear-gradient(270deg, #5bf159, #57ec6b 50%, #6ef08e 100%);
+    background-repeat: no-repeat;
+    background-origin: padding-box, border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.good-feedback-div {
+    padding: 10px;
+    margin: 8px;
+    background-image:
+    linear-gradient(rgb(156, 243, 156), rgba(139, 243, 153, 0.993)),
+    linear-gradient(270deg, #a0db9f, #e9f3b1 50%, #93e5a8 100%);
+    background-repeat: no-repeat;
+    background-origin: padding-box, border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.average-feedback-div {
+    padding: 10px;
+    margin: 8px;
+    background-image:
+    linear-gradient(rgb(212, 223, 150), rgba(204, 251, 142, 0.993)),
+    linear-gradient(270deg, #e4e144, #ceeb2e 50%, #cff10a 100%);
+    background-repeat: no-repeat;
+    background-origin: padding-box, border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.below-feedback-div {
+    padding: 10px;
+    margin: 8px;
+    background-image:
+    linear-gradient(rgb(253, 250, 87), rgba(245, 133, 118, 0.911)),
+    linear-gradient(270deg, #eec788, #f19c8c 50%, #e9c1a9 100%);
+    background-repeat: no-repeat;
+    background-origin: padding-box, border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.bad-feedback-div {
+    padding: 10px;
+    margin: 8px;
+    background-image:
+    linear-gradient(rgb(246, 117, 100), rgba(241, 193, 186, 0.911)),
+    linear-gradient(270deg, #ee6c68, #f19c8c 50%, #e9c1a9 100%);
+    background-repeat: no-repeat;
+    background-origin: padding-box, border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.feedback-text {
+    display: grid;
+}
+
+.animate {
+    background-image:
+    linear-gradient(white, white),
+    linear-gradient(180deg, rgb(205, 243, 198), rgb(184, 247, 159) 50%, rgb(97, 241, 141));
+    background-repeat: no-repeat;
+    background-size: 100% 100%, 100% 200%;
+    background-position: 0 0, 0 100%;
+    background-origin: padding-box, border-box;
+    animation: highlight 1s infinite alternate;
+}
+
+@keyframes highlight {
+    100% {
+        background-position: 0 0, 0 0;
+    }
+}
+
+.vaccine-feedback-div {
     align-self: end;
-    padding: 20px;
-    margin: 10px;
-    background: #81d4fa;
-    width: 500px;
 }

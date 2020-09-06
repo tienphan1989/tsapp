@@ -273,7 +273,7 @@ export default class VaccineForm extends Component {
                         </div>}
                         <FormErrors formErrors = {this.state.formErrors}/>
                         <Button variant="contained" color="secondary" type="submit" disabled={!this.state.formValid}>
-                            {this.state.editing ? "Update record" : "Create vaccination record"}
+                            {this.state.editing ? "Update vaccinvation record" : "Check vaccincation status"}
                         </Button>
                     </form>
                     <VaccineFeedback 

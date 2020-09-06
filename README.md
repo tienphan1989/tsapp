@@ -61,3 +61,53 @@ This is the day that you’ll be showing off your projects to the rest of the sc
 Day 5 - Graduation
 
 You made it! Today you get your final survey, a free bagel/muffin/coffee breakfast and you get to take part in the graduation ceremony. Get hype! Graduation will be over by noon. Because campus space is limited we do ask that you gather all of your belongings and clean up your workspace by 1:00pm so that the incoming Mod 5 class will be able to settle into the space.
+
+//--Chart Style Options--//
+Chart.defaults.global.defaultFontFamily = "'PT Sans', sans-serif"
+Chart.defaults.global.legend.display = false;
+Chart.defaults.global.elements.line.tension = 0;
+//--Chart Style Options--//
+options: {
+  //Customize chart options
+  responsive: true,
+  maintainAspectRatio: false,
+    layout: {
+      padding: {
+          top: 5,
+          left: 15,
+          right: 15,
+          bottom: 15
+      }
+  },
+  scales: {
+      xAxes: [{
+          ticks: { display: false },
+          gridLines: {
+              display: false,
+              drawBorder: false
+          }
+      }],
+      yAxes: [{
+          ticks: { display: false },
+          gridLines: {
+              display: false,
+              drawBorder: false
+          }
+      }]
+  }
+}
+let gradientLine = canvas.createLinearGradient(x0, y0, x1, y1);
+const {width: graphWidth} = myChartRef.canvas;
+
+let gradientLine = myChartRef
+    .createLinearGradient(0, 0, graphWidth * 2, 0);
+gradientLine.addColorStop(0, "#FF006E");
+gradientLine.addColorStop(1, "#F46036");
+
+const {height: graphHeight} = myChartRef.canvas;
+
+let gradientLine = myChartRef
+    .createLinearGradient(0, 0, 0, graphHeight);
+gradientLine.addColorStop(0, "rgb(255, 0, 110, 0.2)");
+gradientLine.addColorStop(0.5, "rgb(255, 0, 110, 0.35)");
+gradientLine.addColorStop(1, "rgb(255, 0, 110, 0.7)");

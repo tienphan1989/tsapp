@@ -4,6 +4,7 @@ import { Line } from 'react-chartjs-2';
 export default class SugarLine extends Component {
     render() {
         const data2 = {
+        //labels: labels.length === data2.length ? labels : new Array(data2.length).fill("Data2")
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
