@@ -9,16 +9,20 @@ const TagDiv = () => {
             {localStorage.token 
             ? 
             <div>
-                <Button variant="contained" color="primary">
-                    <NavLink to="/home">View profile</NavLink>
-                </Button>
+                <NavLink to="/home">
+                    <Button variant="contained" color="secondary">
+                    View profile
+                    </Button>
+                </NavLink>
             </div>
             :
             <div className="tagline-div">
                 <p>No registration required!</p>
-                <Button variant="contained" color='#90caf9'>
-                    <NavLink to="/main">Start</NavLink>
-                </Button>
+                <NavLink to="/main">
+                    <Button variant="contained" color='primary'>
+                    Start
+                    </Button>
+                </NavLink>
             </div>}   
         </div>
     )

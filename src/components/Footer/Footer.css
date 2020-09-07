@@ -6,16 +6,15 @@
     width: 100%;
     font-family: 'Work Sans', sans-serif;
     color: black;
-    background-color: #81d4fa;
+    background-color: #90caf9;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: -2px 0px 2px 2px black
 }
 
 .privacy-statement {
     align-items: baseline;
-    margin-left: 3px;
+    margin-left: 10px;
 }
 
 .made-by:link {

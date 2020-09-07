@@ -8,13 +8,13 @@ export default class BpContainer extends Component {
     render() {
         return (
             <section className='bp-box'>
+                <h2>Blood Pressure Screening</h2>
                 <div>
                     <img src={heart} alt="heart" className="info-images"/>
                 </div>
-                <h2>Blood Pressure Screening</h2>
-                <p>Submit a blood pressure reading & I'll let you know how your doing!</p>
+                <p>Submit a blood pressure reading <br/>& get instant feedback!</p>
                 <Button variant="contained" color="secondary">
-                    <Link to="/bpscreen" className='bp-screen'>Click to start</Link>
+                    <Link to="/bpscreen" className='bp-screen'>Start</Link>
                 </Button> 
             </section>
         )

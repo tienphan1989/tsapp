@@ -8,7 +8,7 @@ Problems:
 Purpose: Provide users with a app that aims to educate and provides direct feedback to the user regarding their blood sugar level/blood pressure/vaccination status. Identify {good vs. bad elements of diet or lifestyle}. Can intake user input and let user know if vaccinations are imcomplete or missing according to guidelines.  Users can also request dietary practices and bookmark diets.  Can see data displayed in a easy to understand graph that highlights ideal and out of range values.
 
 ## Color Palette
-P: #81d4fa
+P: #90caf9
 P — Light: #b6ffff
 P — Dark: #4ba3c7
 S: #ff80ab

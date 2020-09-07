@@ -51,13 +51,3 @@ body {
 body {
   background-image: linear-gradient(to top, #81d4fa 0%, #dffffe 100%);
 }
-
-/* Material UI Custom */
-
-.MuiToolbar-root {
-  background-color: #81d4fa;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow:  -2px 0px 2px 2px black
-}

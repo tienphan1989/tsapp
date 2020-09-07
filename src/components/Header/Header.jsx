@@ -1,61 +1,123 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { AppBar, IconButton, Toolbar, Button } from "@material-ui/core";
+import HomeIcon from '@material-ui/icons/Home';
 import logo from "./logo.png";
-import mainLogo from "./logo4.png";
+import { makeStyles } from '@material-ui/core/styles';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import { blue } from "@material-ui/core/colors";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
 const Header = (props) => {
+  const classes = useStyles();
+  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const newBlue = blue['200']
+
   return (
+    <React.Fragment>
+    {/* <FormGroup>
+        <FormControlLabel
+          control={<Switch checked={props.loggedIn} onChange={handleChange} aria-label="login switch" />}
+          label={auth ? 'Logout' : 'Login'}
+        />
+      </FormGroup> */}
     <AppBar position="sticky" className="header-a">
-      <Toolbar className="nav-container">
-        <IconButton>
+      <Toolbar className="nav-container" style={{justifyContent: 'space-between', backgroundColor: newBlue}}>
+        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <NavLink to="/">
-            <img src={logo} alt="logo" className="main-logo" />
+            <HomeIcon fontSize="large"/>
           </NavLink>
         </IconButton>
+          <img src={logo} alt="logo" className="title" style={{height: '50px', width: 'auto'}}/>
+            <div>
+              {!props.loggedIn && (
+              <Button className="top-button">
+                <NavLink to="/register" className="nav-link" color="black">
+                  Register
+                </NavLink>
+              </Button>
+              )}
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+                
+              >
+                <AccountCircle fontSize="large"/>
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                {!props.loggedIn && <NavLink to="/login">
+                  <MenuItem onClick={handleClose}>Login</MenuItem>
+                  </NavLink>}
 
-        <div className="title-div">
-          <img src={mainLogo} alt="logo" className="title" />
-        </div>
+                  {props.loggedIn && <NavLink to="/userhome">
+                  <MenuItem onClick={handleClose}>My profile</MenuItem>
+                  </NavLink>}
 
-        <div>
-          <Button className="top-button">
-            <NavLink to="/main" className="nav-link" color="black">
-              Screenings
-            </NavLink>
-          </Button>
+                <NavLink to="/resources">
+                  <MenuItem onClick={handleClose}>Resources</MenuItem>
+                  </NavLink>
 
-          <Button className="top-button">
-            <NavLink to="/resources" className="nav-link" color="black">
-              Learn More
-            </NavLink>
-          </Button>
+                <NavLink to="/main">
+                  <MenuItem onClick={handleClose}>Screenings</MenuItem>
+                  </NavLink>
 
-          {!props.loggedIn ? (
-            <Button className="top-button">
-              <NavLink to="/register" className="nav-link" color="black">
-                Register
-              </NavLink>
-            </Button>
-          ) : null}
-
-          {props.loggedIn ? (
-            <Button className="top-button" onClick={props.logOut}>
-              <NavLink to="/" className="nav-link" color="black">
-                Logout
-              </NavLink>
-            </Button>
-          ) : (
-            <Button className="top-button">
-              <NavLink to="/login" className="nav-link" color="black">
-                Login
-              </NavLink>
-            </Button>
-          )}
-        </div>
+                  {props.loggedIn && <NavLink to="/">
+                  <MenuItem onClick={props.logOut}>Logout</MenuItem>
+                  </NavLink>}
+              </Menu>
+            </div>
       </Toolbar>
     </AppBar>
+    </React.Fragment>
   );
 };
 

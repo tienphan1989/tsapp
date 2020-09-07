@@ -27,18 +27,18 @@ export default function PressureTable(props) {
   const classes = useStyles();
 
   let colorData = (num) => {
-    if(num < 120 && num <= 129){
+    if(num <= 129){
       return green['A700']
-    } else if(num <= 130 && num <= 139){
+    } else if(num >= 130 && num <= 139){
       return lightGreen['A400']
-    } else if(num <= 140 && num <= 179){
+    } else if(num >= 140 && num <= 179){
       return yellow['500']
-    } else if(num <= 180){
+    } else if(num >= 180){
       return red['A700']
     }
   }
 
-  const newRows = props.bpData.map(screen => createData(screen.created_at, screen.systolic_pressure, screen.diastolic_pressure, <div style={{backgroundColor: `${colorData(screen.systolic_pressure)}`}}> </div>))
+  const newRows = props.bpData.map(screen => createData(screen.created_date, screen.systolic_pressure, screen.diastolic_pressure, <div style={{backgroundColor: `${colorData(screen.systolic_pressure)}`}}> </div>))
 
   return (
     <TableContainer component={Paper} className={classes.root}>

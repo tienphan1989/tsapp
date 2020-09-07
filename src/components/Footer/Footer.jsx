@@ -11,23 +11,20 @@ export default class Footer extends Component {
                 <div className='privacy-statement'>
                     <p>All rights reserved; Privacy Statement</p>
                 </div>
-
                 <div>
                     <a href='https://www.linkedin.com/in/tien-phan-dc/' target="_blank" rel="noopener noreferrer" className='made-by'>
-                    <p className='made-by'>©2020 Health Check, Made by Tien Phan</p></a>
+                    ©2020 Health Check, Made by Tien Phan</a>
                 </div>
-
                 <div > 
                     <IconButton>
                         <a href='https://www.linkedin.com/in/tien-phan-dc/' target="_blank" rel="noopener noreferrer" className='made-by'>
                         <LinkedInIcon fontSize="large"/></a>
                     </IconButton>
                     <IconButton>
-                        <a href='https://github.com/tienphan1989' target="_blank" rel="noopener noreferrer" className='made-by'>
+                        <a href='https://github.com/tienphandev' target="_blank" rel="noopener noreferrer" className='made-by'>
                         <GitHubIcon fontSize="large"/></a>
                     </IconButton>
                 </div>
-
             </div>
         )
     }

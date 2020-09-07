@@ -6,6 +6,7 @@ import FormErrors from '../../helpers/FormErrors';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Grow from '@material-ui/core/Grow';
+import TextField from '@material-ui/core/TextField';
 
 export default class SugarForm extends Component {
     state = {
@@ -16,7 +17,8 @@ export default class SugarForm extends Component {
         modalOpen: false,
         formErrors: {},
         formValid: false,
-        TermsConditions: false
+        TermsConditions: false,
+        date: ''
     };
 
     componentDidMount() {
@@ -37,6 +39,7 @@ export default class SugarForm extends Component {
     };
 
     handleSubmit = () => {
+        const dateData = this.state.date.toLocaleDateString();
         const sugarResult = parseInt(this.state.result, 10);
         if(localStorage.token){
         fetch('http://localhost:3000/api/v1/sugarscreen', {
@@ -47,7 +50,8 @@ export default class SugarForm extends Component {
             },
             body: JSON.stringify({sugar: {
             user_id: this.state.currentUser.id,
-            result: sugarResult
+            result: sugarResult,
+            date: dateData
             }})
         })
         .then(resp => resp.json())
@@ -59,11 +63,11 @@ export default class SugarForm extends Component {
 
     clearForm = () => {
         this.setState({
-            age: '',
             result: '',
             fasting: null,
             TermsConditions: false,
-            open: false
+            open: false,
+            date: ''
         })
     };
 
@@ -99,14 +103,14 @@ export default class SugarForm extends Component {
     validateForm = () => {
         let formErrors = {}
         let formValid = true
-        if(this.state.age <= 17) {
-            formErrors.age = ["User must be at least 18 years of age"]
-            formValid = false
-        }
-        else if(parseInt(this.state.result, 10) <= 40) {
+        if(parseInt(this.state.result, 10) <= 40) {
             formErrors.result = ["requires valid number"]
             formValid = false
         }
+        else if(this.state.age <= 17) {
+            formErrors.age = ["User must be at least 18 years of age"]
+            formValid = false
+        } 
         else if(this.state.result === '') {
             formErrors.result = ["requires valid number"]
             formValid = false
@@ -114,13 +118,47 @@ export default class SugarForm extends Component {
         this.setState({formValid: formValid, formErrors: formErrors})
     }
 
+    formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+      
+        return [
+          year,
+          month < 10 ? `0${month}` : month,
+          day < 10 ? `0${day}` : day
+        ].join('-');
+    }
+
+    handleDateChange = (e) => {
+        this.setState({
+            date: new Date(`${e.target.value}T00:00:00`)
+        })
+    };
+
     render() {
+    const DatePicker = ({ date, ...props }) => (
+        <TextField
+            value={date instanceof Date ? this.formatDate(date) : date}
+            type="date"
+            InputLabelProps={{
+                shrink: true
+            }}
+            {...props}
+        />
+    );  
     return (
     <React.Fragment>
     <div className="sugar-container">
         <div className='sugar-form-div'>
             <form onSubmit={this.handleClickOpen}>
                 <h3 className='sugar-form-title'>Sugar Screen</h3>
+                <DatePicker
+                    date={this.state.date}
+                    onChange={this.handleDateChange}
+                    label="My Date"
+                    //className={classes.textField}
+                />
                 {!localStorage.token &&
                 <div className="age-value">
                     <label htmlFor='age'>Age: </label>
@@ -189,6 +227,7 @@ export default class SugarForm extends Component {
                         Submit
                     </Button>
                 </div> 
+                
 
                 <div className='sugar-query-div'>
                     <Button className='sugar-query-p' onClick={this.handleModalOpen}>
