@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./InformationContainer.css"
-import ScrollablePanelContent from './ScrollablePanelContent'
+import StatefulExpansionPanels from './StatefulExpansionPanels'
 
 export default class InformationContainer extends Component {
   render() {
     return (
-      <ScrollablePanelContent/>
+      <StatefulExpansionPanels/>
     );
   }
 }

@@ -2,44 +2,116 @@
     display: block;
     justify-content: center;
     font-family: 'Raleway', sans-serif;
-}
-
-.welcome-container {
-    color: black;
-    font: bold;
+    padding: 2px;
+    background: #90caf9;
 }
 
 .sidebar-listings-div {
-    display: flex;
+    font-family: 'Work Sans', sans-serif;
     justify-content: space-evenly;
-    color: black;
-    font-size: 18px;
-}
-
-.sidebar-div {
-    background: #90caf9;
-    box-shadow: -1px 0px 3px 1px black;
-    width: 30%;
-    padding: 5px;
+    height: 90vh;
 }
 
 .listings-div {
-    background: #90caf9;
-    box-shadow: -1px 0px 3px 1px black;
-    width: 65%;
+    width:100%;
     padding: 5px;
+    background-color: white;
 }
+
 
 .sample-div {
-    border-color: black;
-    padding: 1px;
-    margin: 1px;
-}
-
-.listings.filter {
-    margin: 0;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .paper-tabs {
     flex-grow: 1;
+}
+
+.graph-div {
+    margin: auto;
+    position: relative;
+    height: 60vh;
+    width:75%;
+}
+
+.pagination {
+    display: flex;
+    list-style-type:none;
+}
+
+ul.pagination li {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: lightskyblue;
+    padding: 0.7em 1em 0.7em 1em;
+    border: 1.5px solid #FFFFFF;
+    border-radius: 10px;
+    text-decoration: none;
+    font-Family: "Lato";
+}
+
+ul.pagination li a {
+    padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+ul.pagination li a:hover {
+    padding: 0.25em 0.5em 0.25em 0.5em;
+}
+
+.listings-filter {
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    float: right;
+}
+
+.graph-listings-filter {
+    display: flex;
+}
+
+li.active {
+    border: 3px solid #FFFFFF;
+    border-radius: 5px;
+    background-color: #dd417f;
+}
+
+.add-new-result {
+    display: flex;
+}
+
+.user-homepage {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin-top: 5px;
+    padding: 1px;
+    align-items: center;
+    text-align: center;
+}
+
+.user-paper {
+    text-align: center;
+    background-color: wheat;
+}
+
+.user-column-1 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.user-column-2 {
+    height: 100%;
+}
+
+.user-api {
+    height: 100%;
+}
+
+.user-api-1 {
+    height: 50%;
+}
+.user-api-2 {
+    height: 50%;
 }

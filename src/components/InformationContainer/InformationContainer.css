@@ -23,3 +23,14 @@
     margin: 3px;
     border-style: bold;
 }
+
+.panel {
+    flex-direction: column;
+    height: 170px;
+    overflow: scroll;
+}
+
+.panel-image {
+    height: 150px;
+    margin-right: 15px;
+}

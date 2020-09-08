@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "./Login.css";
 import useForm from "./useForm";
 import { Link } from 'react-router-dom';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const Login = (props) => {
   const { values, handleChange } = useForm({ username: "", password: "" }, login);
 
   function login(event) {
-    props.handleLogin(event, values);
+      props.handleLogin(event, values);
   }
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+      setOpen(true);
+  };
+
+  const handleClose = (reason) => {
+      if (reason === 'clickaway') {
+      return;
+  }
+
+  setOpen(false);
+  };
 
   return (
     <div className="login">
@@ -43,12 +63,17 @@ const Login = (props) => {
                   />
                 </div>
               </div>
-              <button type="submit" className="login submit-button">
+              <button type="submit" className="login submit-button" onClick={handleClick}>
                 Login
               </button>
                 <Link to='/register'>
                   <button>Want to register?</button>
                 </Link>
+                <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
+                  <Alert onClose={handleClose} severity="success">
+                    Welcome back {values.username}!
+                  </Alert>
+                </Snackbar>
             </form>
           </div>
         </div>

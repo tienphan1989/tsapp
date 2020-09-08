@@ -7,11 +7,10 @@ import logo from "./logo.png";
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { blue } from "@material-ui/core/colors";
+import ImageAvatars from './Avatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,7 +76,7 @@ const Header = (props) => {
                 color="inherit"
                 
               >
-                <AccountCircle fontSize="large"/>
+              {!props.loggedIn ? <AccountCircle fontSize="large"/> : <ImageAvatars fontSize="large"/>}
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -102,16 +101,17 @@ const Header = (props) => {
                   <MenuItem onClick={handleClose}>My profile</MenuItem>
                   </NavLink>}
 
-                <NavLink to="/resources">
-                  <MenuItem onClick={handleClose}>Resources</MenuItem>
+                  <NavLink to="/resources">
+                    <MenuItem onClick={handleClose}>Resources</MenuItem>
                   </NavLink>
 
-                <NavLink to="/main">
-                  <MenuItem onClick={handleClose}>Screenings</MenuItem>
+                  <NavLink to="/main">
+                    <MenuItem onClick={handleClose}>Screenings</MenuItem>
                   </NavLink>
 
-                  {props.loggedIn && <NavLink to="/">
-                  <MenuItem onClick={props.logOut}>Logout</MenuItem>
+                  {props.loggedIn && 
+                  <NavLink to="/" onClick={handleClose}>
+                    <MenuItem onClick={props.logOut} >Logout</MenuItem>
                   </NavLink>}
               </Menu>
             </div>

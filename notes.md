@@ -32,6 +32,7 @@ Work Sans (small fonts)
 ## Stretch Goals
 -mobile friendly
 -testimonials
+-sortable columns
 
 ## Models/Associations
 Users: {
@@ -109,6 +110,15 @@ stop to end server
 2- pg_ctl -D /home/linuxbrew/.linuxbrew/var/postgres start
 3-a)sudo service postgresql start
 b)sudo /etc/init.d/postgresql restart
+
+Step one: git checkout -b name (makes the new branch)
+Step two: do work (what ever your work is)
+Step three: git add .
+Step four: git commit -m “msg”
+Step five: git checkout master
+Step six: git merge name of your other branch
+Step seven: git push 
+
 
 
 

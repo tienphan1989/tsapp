@@ -14,6 +14,7 @@ import UserHome from "./components/UserHome/UserHome.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import configObj from "./helpers/configObj.js";
+import AbstractingContainersAndItems from './components/UserHome/AbstractingContainersAndItems'
 
 class App extends React.Component {
   state = {
@@ -45,12 +46,9 @@ class App extends React.Component {
   };
 
   handleRegister = (event, newUser) => {
-
-    const newUserAge = parseInt(newUser.age, 10);
     event.preventDefault();
-    const { username, password, email } = newUser;
-
-    fetch('http://localhost:3000/api/v1/register', configObj("POST", true, {user: { username, password, newUserAge, email }}))
+    const { username, password, email, age } = newUser;
+    fetch('http://localhost:3000/api/v1/register', configObj("POST", true, {user: { username, password, age, email }}))
     .then((response) => response.json())
     .then((data) => {
       localStorage.token = data.token
@@ -71,7 +69,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('state:', this.state.loggedIn)
     return (
       <BrowserRouter>
         <div className="App">
@@ -84,6 +81,7 @@ class App extends React.Component {
             <Route exact path="/vaccinescreen" component={VaccineForm}/>
             <Route exact path="/main" component={MainContainer}/>
             <Route exact path="/resources" component={InformationContainer}/>
+            <Route exact path="/box" component={AbstractingContainersAndItems}/>
 
             <Route exact path="/login" render={(routeProps) => (this.state.loggedIn) 
             ? 

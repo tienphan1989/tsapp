@@ -21,7 +21,7 @@ export default class Footer extends Component {
                         <LinkedInIcon fontSize="large"/></a>
                     </IconButton>
                     <IconButton>
-                        <a href='https://github.com/tienphandev' target="_blank" rel="noopener noreferrer" className='made-by'>
+                        <a href='https://github.com/TienPhanDev' target="_blank" rel="noopener noreferrer" className='made-by'>
                         <GitHubIcon fontSize="large"/></a>
                     </IconButton>
                 </div>
