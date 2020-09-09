@@ -3,6 +3,8 @@ import "./MainContainer.css";
 import vaccine from "./profession.svg";
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import HelpAction from './HelpAction'
+
 
 export default class VaccineContainer extends Component {
     render() {
@@ -18,6 +20,7 @@ export default class VaccineContainer extends Component {
                 <Button variant="contained" color="secondary">
                     <Link to="/vaccinescreen" className='vaccine-screen'>Start</Link>
                 </Button> 
+                <HelpAction fontSize='small'/>
             </section>
         )
     }

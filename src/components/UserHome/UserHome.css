@@ -30,13 +30,15 @@
 .graph-div {
     margin: auto;
     position: relative;
-    height: 60vh;
+    height: 74vh;
     width:75%;
 }
 
 .pagination {
     display: flex;
     list-style-type:none;
+    justify-content: flex-end;
+    margin-right:33.2%;
 }
 
 ul.pagination li {
@@ -97,7 +99,6 @@ li.active {
 
 .user-column-1 {
     height: 100%;
-    display: flex;
     justify-content: center;
 }
 
@@ -114,4 +115,36 @@ li.active {
 }
 .user-api-2 {
     height: 50%;
+}
+
+.api-response-container {
+    padding: 2px;
+    margin: 3px;
+    justify-content: center;
+}
+
+.api-response-question {
+    display: flex; 
+}
+
+.profile-card {
+    font-family: 'Raleway', sans-serif;
+    max-width: 400px;
+    margin: 0.5px;
+    padding: 1px;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.pressure-line-parent {
+    width: 46.5vw;
+    margin-left: -100px;
+    height: 65vh;
+}
+
+.sugar-line-parent {
+    width: 46.5vw;
+    margin-left: -100px;
+    height: 65vh;
 }

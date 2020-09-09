@@ -3,6 +3,8 @@ import "./MainContainer.css";
 import glucometer from "./diabetes (1).svg";
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import HelpAction from './HelpAction'
+
 
 export default class SugarContainer extends Component {
 
@@ -19,6 +21,7 @@ export default class SugarContainer extends Component {
                 <Button variant="contained" color="secondary">
                     <Link to="/sugarscreen" className='sugar-screen'>Start</Link>
                 </Button> 
+                <HelpAction fontSize='small'/>
             </section>
         )
     }

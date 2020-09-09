@@ -14,7 +14,7 @@ import UserHome from "./components/UserHome/UserHome.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import configObj from "./helpers/configObj.js";
-import AbstractingContainersAndItems from './components/UserHome/AbstractingContainersAndItems'
+import HelpAction from './components/MainContainer/HelpAction'
 
 class App extends React.Component {
   state = {
@@ -81,7 +81,6 @@ class App extends React.Component {
             <Route exact path="/vaccinescreen" component={VaccineForm}/>
             <Route exact path="/main" component={MainContainer}/>
             <Route exact path="/resources" component={InformationContainer}/>
-            <Route exact path="/box" component={AbstractingContainersAndItems}/>
 
             <Route exact path="/login" render={(routeProps) => (this.state.loggedIn) 
             ? 
@@ -104,8 +103,8 @@ class App extends React.Component {
             <Route exact path="/vaccination_records/id/" render={routeProps => (
               <VaccineForm {...routeProps} />
             )} />
-            
           </Switch>
+            <HelpAction fontSize='small'/>
             <Footer/>
         </div>
       </BrowserRouter>

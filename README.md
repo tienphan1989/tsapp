@@ -111,3 +111,15 @@ let gradientLine = myChartRef
 gradientLine.addColorStop(0, "rgb(255, 0, 110, 0.2)");
 gradientLine.addColorStop(0.5, "rgb(255, 0, 110, 0.35)");
 gradientLine.addColorStop(1, "rgb(255, 0, 110, 0.7)");
+
+Life of the Party?(Never too early for happy hour): Luis F.
+Driver/navigation award(Best All-Around Team Player?): Tie between Mike "Moose" Jester and Andy with 4 votes each
+Comedian award(To the person with the most humor & wit): Luis F.
+The Fire Extinguisher(Code base on fire?— slack the class fire extinguisher.): Tie between Mike "Moose" Jester and Andy with 3 votes each
+Consistency award(Most improvement since Day 1): Issa Sangare
+Grit award(Most likely to survive the Hunger Games): Danny Cooper
+Thinks in Emoji/gif. award(Ready with the perfect emoji/gif. reaction to everything): Luis F.
+Sunshine award (Most Likely To Brighten Your Day?): Danny Cooper
+Sunshine award: Artistry award (For the best skills in styling (CSS, colors, features,. etc.)): Marcos 
+
+Shoutout to Dave Frame, who amassed a ton of votes, but didn't take home any awards. We see ya buddy!

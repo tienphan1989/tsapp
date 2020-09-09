@@ -1,9 +1,10 @@
 import React from 'react';
 import "./Register.css";
 import useForm from "./useForm";
-import { Link } from 'react-router-dom';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import Button from '@material-ui/core/Button';
+
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -30,8 +31,7 @@ const Register = (props) => {
     const handleClose = (reason) => {
       if (reason === 'clickaway') {
       return;
-    }
-
+      }
     setOpen(false);
     };
 
@@ -78,7 +78,7 @@ const Register = (props) => {
                 </Snackbar>
                 <button>
 
-                  Already a member? <Link to='/login'>Login Page</Link>
+                  Already a member? <Button href='/login'>Login Page</Button>
                 </button>
               </form>
             </div>

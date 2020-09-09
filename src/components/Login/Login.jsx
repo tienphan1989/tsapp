@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import "./Login.css";
 import useForm from "./useForm";
 import { Link } from 'react-router-dom';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import Button from '@material-ui/core/Button';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -67,7 +69,7 @@ const Login = (props) => {
                 Login
               </button>
                 <Link to='/register'>
-                  <button>Want to register?</button>
+                  <Button>Want to register?</Button>
                 </Link>
                 <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
                   <Alert onClose={handleClose} severity="success">

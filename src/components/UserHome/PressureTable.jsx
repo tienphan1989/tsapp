@@ -74,9 +74,9 @@ export default function PressureTable(props) {
   return (
     <React.Fragment>
     <div className={classes.root}>
-      <div className="listings-filter">
+      {/* <div className="listings-filter">
         <div className='pressure-pagination-div'>
-          {paginationElement}
+          
         </div>
         <div className='add-new-result'>
           <h4 style={{ marginRight: '5px'}}>Blood pressure data (mmHg) </h4>
@@ -94,9 +94,9 @@ export default function PressureTable(props) {
             </select>
           </form>
         </div>
-      </div>
+      </div> */}
       
-      
+      {paginationElement}
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>

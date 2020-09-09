@@ -14,11 +14,19 @@ import ListIcon from "@material-ui/icons/List";
 import EditIcon from "@material-ui/icons/Edit";
 import ShowChartIcon from "@material-ui/icons/ShowChart";
 import Grid from "@material-ui/core/Grid";
+import UserPanels from "./UserPanels.jsx";
+import ApiPanels from "./ApiPanels.jsx";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Divider from '@material-ui/core/Divider';
 
 class UserHome extends React.Component {
   state = {
     value: "bp",
     index: 0,
+    open: false,
     currentUser: {
       sugar_screens: [],
       bp_screens: [],
@@ -35,6 +43,18 @@ class UserHome extends React.Component {
     currentSugarPage: 0,
     pressurePageCount: 0,
     sugarPageCount: 0,
+  };
+
+  handleClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
+  handleOpen = () => {
+    this.setState({
+      open: true,
+    });
   };
 
   componentDidMount() {
@@ -93,7 +113,11 @@ class UserHome extends React.Component {
 
   userAllSugar = () => {
     return this.state.currentUser.sugar_screens.map((screen) => {
-      return { date: screen.date, result: screen.result };
+      return {
+        created_date: screen.created_date,
+        date: screen.date,
+        result: screen.result,
+      };
     });
   };
 
@@ -176,65 +200,91 @@ class UserHome extends React.Component {
           style={{ width: "100%" }}
         >
           <Grid item xs>
-            <Paper className="user-column-1 user-paper" elevation={1}>
-              <div className="sample-div">
-                <h4>Vaccine status</h4>
-                <p>
-                  Tetanus:{" "}
-                  {this.state.currentUser.vaccination_record.tetanus
-                    ? "Covered"
-                    : "Not covered"}
-                </p>
-                <p>
-                  Flu:{" "}
-                  {this.state.currentUser.vaccination_record.flu
-                    ? "Covered"
-                    : "Not covered"}
-                </p>
-                <p>
-                  Pneumonia:{" "}
-                  {this.state.currentUser.vaccination_record.pneumonia
-                    ? "Covered"
-                    : "Not covered"}
-                </p>
-                <p>
-                  Shingles:{" "}
-                  {this.state.currentUser.vaccination_record.shingles
-                    ? "Covered"
-                    : "Not covered"}
-                </p>
-              </div>
+            <Paper className="user-column-1 user-paper" elevation={2}>
+              <UserPanels currentUser={this.state.currentUser} />
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper className="user-column-2 user-paper" elevation={3}>
+            <Paper className="user-column-2 user-paper" elevation={1}>
               <div className="paper-tabs">
                 <Tabs
+                aria-labelledby='history view edit'
                   value={this.state.index}
                   onChange={this.handleTab}
                   indicatorColor="primary"
                   textColor="primary"
                   centered
+                  aria-label="simple tabs"
                 >
                   <Tab
+                  id='history'
+                  aria-label="history"
                     icon={<ListIcon />}
                     label="History"
                     disabled={this.state.value === "vaccine" ? true : false}
                   />
+                  
                   <Tab
+                  aria-label="View"
+                  id='view'
                     icon={<ShowChartIcon />}
                     label="View"
                     disabled={this.state.value === "vaccine" ? true : false}
                   />
+
+                  
                   <Tab
+                  aria-label="edit"
+                  id='edit'
                     icon={<EditIcon />}
                     label="Edit"
                     disabled={this.state.value === "vaccine" ? true : false}
                   />
                 </Tabs>
               </div>
+              <div>
+                <div className="listings-filter">
+                  <div className="line-filter">
+                    <form>
+                      {/* <label>Category: </label>
+              <select
+                value={this.state.value}
+                onChange={this.handleChange}
+              >
+                <option>select</option>
+                <option value="bp">Blood pressure</option>
+                <option value="sugar">Blood sugar</option>
+                {/* <option value="vaccine">Vaccine status</option> */}
+                      {/* </select> */}
+                      <FormControl>
+                        <InputLabel id="demo-controlled-open-select-label">
+                          select
+                        </InputLabel>
+                        <Select
+                          labelId="demo-controlled-open-select-label"
+                          id="demo-controlled-open-select"
+                          open={this.state.open}
+                          onClose={this.handleClose}
+                          onOpen={this.handleOpen}
+                          value={this.state.value}
+                          onChange={this.handleChange}
+                          variant="standard"
+                          color='default'
+                          margin='dense'
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value="bp">Blood pressure</MenuItem>
+                          <MenuItem value="sugar">Blood sugar</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </form>
+                  </div>
+                </div>
+              </div>
               {this.state.value === "bp" && (
-                <Paper elevation={1}>
+                <Paper>
                   {this.state.index === 0 && (
                     <PressureTable
                       value={this.state.value}
@@ -295,10 +345,7 @@ class UserHome extends React.Component {
           </Grid>
           <Grid item xs>
             <Paper className="user-api user-paper" elevation={1}>
-              <Paper className="user-api-1 user-paper" elevation={2}>
-                generate meal plan
-              </Paper>
-              <Paper className="user-api-2 user-paper" elevation={2}>recipe nutrition</Paper>
+              <ApiPanels />
             </Paper>
           </Grid>
         </Grid>
@@ -308,153 +355,3 @@ class UserHome extends React.Component {
 }
 
 export default UserHome;
-
-// return (
-// <div className="user-home-container">
-//   <div>
-//     <div className="sidebar-listings-div">
-//       <Paper className="listings-div" elevation={3} variant="outlined">
-//           <Paper className="api-box">
-//               <Paper className="api-box1">
-//                   Generate meal plan
-//               </Paper>
-//               <Paper className="api-box2">
-//                   Match Recipes to Daily Calories
-//               </Paper>
-//           </Paper>
-
-// <div className="paper-tabs">
-//   <Tabs
-//     value={this.state.index}
-//     onChange={this.handleTab}
-//     indicatorColor="primary"
-//     textColor="primary"
-//     centered
-//   >
-//     <Tab
-//       icon={<ListIcon />}
-//       label="History"
-//       disabled={this.state.value === "vaccine" ? true : false}
-//     />
-//     <Tab
-//       icon={<ShowChartIcon />}
-//       label="View"
-//       disabled={this.state.value === "vaccine" ? true : false}
-//     />
-//     <Tab
-//       icon={<EditIcon />}
-//       label="Edit"
-//       disabled={this.state.value === "vaccine" ? true : false}
-//     />
-//   </Tabs>
-// </div>
-
-// {this.state.value === "bp" && (
-//   <Paper elevation={1} className='three-column'>
-//     {this.state.index === 0 && (
-//       <PressureTable
-//         value={this.state.value}
-//         handleChange={this.handleChange}
-//         onPressureChange={this.handlePressureClick}
-//         forcePage={this.state.currentPressurePage}
-//         pageCount={this.state.pressurePageCount}
-//         pressureElements={this.state.pressureElements}
-//       />
-//     )}
-//     {this.state.index === 1 && (
-//       <PressureLine
-//         bpData={this.userAllPressure()}
-//         value={this.state.value}
-//         handleChange={this.handleChange}
-//       />
-//     )}
-//     {this.state.index === 2 && (
-//       <PressureBar
-//         bpData={this.userAllPressure()}
-//         value={this.state.value}
-//         handleChange={this.handleChange}
-//       />
-//     )}
-//   </Paper>
-// )}
-
-// {this.state.value === "sugar" && (
-//   <div className="sample-div">
-//     {this.state.index === 0 && (
-//       <SugarTable
-//         sugarData={this.state.currentUser.sugar_screens}
-//         value={this.state.value}
-//         handleChange={this.handleChange}
-//         onPageChange={this.handleSugarClick}
-//         forcePage={this.state.currentSugarPage}
-//         pageCount={this.state.sugarPageCount}
-//         sugarElements={this.state.sugarElements}
-//       />
-//     )}
-//     {this.state.index === 1 && (
-//       <SugarLine
-//         sugarData={this.userAllSugar()}
-//         value={this.state.value}
-//         handleChange={this.handleChange}
-//       />
-//     )}
-//     {this.state.index === 2 && (
-//       <SugarBar
-//         sugarData={this.userSugarData()}
-//         value={this.state.value}
-//         handleChange={this.handleChange}
-//       />
-//     )}
-//   </div>
-// )}
-
-//             {this.state.value === "vaccine" && (
-//               <div className="sample-div" >
-//                 <div className="listings-filter">
-//                 <div className="vaccine-filter">
-//                   <form>
-//                     <label>Category: </label>
-//                     <select
-//                       value={this.state.value}
-//                       onChange={this.handleChange}
-//                     >
-//                       <option>select</option>
-//                       <option value="bp">Blood pressure</option>
-//                       <option value="sugar">Blood sugar</option>
-//                       <option value="vaccine">Vaccine status</option>
-//                     </select>
-//                   </form>
-//                   </div>
-//                 </div>
-//                 <h4>Vaccine status</h4>
-//                 <p>
-//                   Tetanus:{" "}
-//                   {this.state.currentUser.vaccination_record.tetanus
-//                     ? "Covered"
-//                     : "Not covered"}
-//                 </p>
-//                 <p>
-//                   Flu:{" "}
-//                   {this.state.currentUser.vaccination_record.flu
-//                     ? "Covered"
-//                     : "Not covered"}
-//                 </p>
-//                 <p>
-//                   Pneumonia:{" "}
-//                   {this.state.currentUser.vaccination_record.pneumonia
-//                     ? "Covered"
-//                     : "Not covered"}
-//                 </p>
-//                 <p>
-//                   Shingles:{" "}
-//                   {this.state.currentUser.vaccination_record.shingles
-//                     ? "Covered"
-//                     : "Not covered"}
-//                 </p>
-//               </div>
-//             )}
-//           </Paper>
-//         </div>
-//       </div>
-//     </div>
-//   );

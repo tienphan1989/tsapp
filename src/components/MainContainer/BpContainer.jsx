@@ -3,6 +3,8 @@ import "./MainContainer.css";
 import heart from "./cardiology.svg";
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import HelpAction from './HelpAction'
+
 
 export default class BpContainer extends Component {
     render() {
@@ -16,6 +18,7 @@ export default class BpContainer extends Component {
                 <Button variant="contained" color="secondary">
                     <Link to="/bpscreen" className='bp-screen'>Start</Link>
                 </Button> 
+                <HelpAction fontSize='small'/>
             </section>
         )
     }

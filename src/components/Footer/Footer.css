@@ -18,13 +18,22 @@
 }
 
 .made-by:link {
-    font-size: 18px;
+    font-size: 16px;
     color: black !important;
     text-decoration: none;
 }
 
 .made-by:visited {
-    font-size: 18px;
+    font-size: 16px;
     color: black !important;
     text-decoration: none;
+}
+
+.center-footer {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.profile-div {
+    margin-left: 1.5%;
 }

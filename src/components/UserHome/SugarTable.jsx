@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -68,9 +69,9 @@ export default function SugarTable(props) {
   return (
     <React.Fragment>
     <div className={classes.root}>
-      <div className="listings-filter">
+      {/* <div className="listings-filter">
         <div className='pressure-pagination-div'>
-          {paginationElement}
+          
         </div>
         <div className='add-new-result'>
           <h4 style={{ marginRight: '5px'}}>Sugar data (mg/dL)</h4>
@@ -88,8 +89,8 @@ export default function SugarTable(props) {
           </select>
         </form>
       </div>
-      </div>
-
+      </div> */}
+{paginationElement}
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>

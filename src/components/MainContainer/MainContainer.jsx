@@ -4,6 +4,7 @@ import BpContainer from "./BpContainer.jsx";
 import SugarContainer from "./SugarContainer.jsx";
 import VaccineContainer from "./VaccineContainer.jsx";
 import "./MainContainer.css"
+import HelpAction from './HelpAction'
 
 export default class MainContainer extends Component {
     render() {
@@ -15,6 +16,7 @@ export default class MainContainer extends Component {
                         <div className='main-column-1'><SugarContainer/></div>
                         <div className='main-column-1'><VaccineContainer/></div>
                     </div>
+                    <HelpAction fontSize='small'/>
                 </Box>
             </>
         )

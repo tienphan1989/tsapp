@@ -2,15 +2,13 @@ import React from 'react';
 
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-
-const styles = theme => ({
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';const styles = theme => ({
   fab: {
     margin: 0,
     top: 'auto',
     left: 'auto',
-    bottom: 20,
-    right: 20,
+    bottom: 70,
+    right: 10,
     position: 'fixed'
   }
 });
@@ -29,11 +27,11 @@ const ExtendedFab = withStyles(styles)(({ classes, ...props }) => {
   );
 });
 
-const FloatingActions = ({ fabColor }) => (
-  <ExtendedFab color={fabColor}>
-    Add
-    <AddIcon />
+const HelpAction = ({ fabColor }) => (
+  <ExtendedFab color={fabColor} size='small' color="primary">
+    Help
+    <HelpOutlineIcon/>
   </ExtendedFab>
 );
 
-export default FloatingActions;
+export default HelpAction;
