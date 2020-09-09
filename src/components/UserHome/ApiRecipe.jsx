@@ -22,7 +22,7 @@ export const ApiRecipe = () => {
   });
 
   const [open, setOpen] = useState(false);
-  const [dialogContent, createDialogContent] = useState({});
+  const [dialogContent, setDialogContent] = useState({results: [{title: null, servings: null, image: null, readyInMinutes: null, sourceUrl: null }]});
 
   const styles = (theme) => ({
     root: {
@@ -92,11 +92,24 @@ export const ApiRecipe = () => {
     )
       .then((response) => response.json())
       .then((resp) => {
-        createDialogContent(resp);
+        setDialogContent(resp);
         handleClickOpen();
       })
       .catch((error) => console.log(error));
   };
+
+  const showRecipe = () => {
+    console.log('dialogCONTENT:', dialogContent.results)
+    return dialogContent.results.map(recipe => 
+    <div>
+      <h3>Result</h3>
+      
+      <h3>Recipe for {recipe.title}</h3>
+      <img src={recipe.image} alt=''></img>
+      <p>Makes: {recipe.servings} servings</p>
+      <p>Total preparation time: {recipe.readyInMinutes}</p>
+      <p><a href='{recipe.sourceUrl}'>Click for more details:</a></p>
+    </div>)}
 
   return (
     <React.Fragment>
@@ -189,14 +202,15 @@ export const ApiRecipe = () => {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          {dialogContent.calories}
+          
         </DialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>{dialogContent}</Typography>
-          <Typography gutterBottom>{dialogContent}</Typography>
-          <Typography gutterBottom>{dialogContent}</Typography>
-        </DialogContent>
-        <DialogActions>
+  <Typography gutterBottom></Typography>
+          {/* <Typography gutterBottom>{dialogContent}</Typography>
+          <Typography gutterBottom>{dialogContent}</Typography> */}
+          {showRecipe()}
+          </DialogContent>
+          <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
             Save changes
           </Button>
@@ -206,11 +220,7 @@ export const ApiRecipe = () => {
   );
 };
 
-// {dialogContent.image}
-// {dialogContent.readyInMinutes}
-// {dialogContent.servings}
-// {dialogContent.title}
-// {dialogContent.sourceUrl}
+
 
 // {results: Array(25), baseUri: "https://spoonacular.com/recipeImages/", offset: 0, number: 25, totalResults: 96701, …}
 // baseUri: "https://spoonacular.com/recipeImages/"
@@ -252,4 +262,3 @@ export const ApiRecipe = () => {
 //   "readyInMinutes":20
 //   "image":"Cajun-Spiced-Black-Bean-and-Sweet-Potato-Burgers-227961.jpg"
 //   "imageUrls":[...]1 item
-//   }

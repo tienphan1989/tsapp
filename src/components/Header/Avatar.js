@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import Will from './will.jpg'
+import Lego from './0.jpg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,7 +17,7 @@ export default function ImageAvatars() {
 
   return (
     <div className={classes.root}>
-      <Avatar alt="Remy Sharp" src={Will}/>
+      <Avatar alt="Remy Sharp" src={Lego}/>
     </div>
   );
 }

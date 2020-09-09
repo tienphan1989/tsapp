@@ -49,10 +49,10 @@ Day 3 - MVP Presentations
 
 You will present your completed MVP to your project manager and a lead instructor. You should have all the functionality that you promised during your project proposal, as well as a plan of attack for the next week. -->
 
-Week 3
+<!-- Week 3
 Day 3 - Projects Complete
 
-By week three, day three, you should have your project done. There’ll still be time to work on it before science fair, but this should be styling and minor bug fixes only - you should be done with all the core functionality.
+By week three, day three, you should have your project done. There’ll still be time to work on it before science fair, but this should be styling and minor bug fixes only - you should be done with all the core functionality. -->
 
 Day 4 - Science Fair
 
@@ -112,14 +112,39 @@ gradientLine.addColorStop(0, "rgb(255, 0, 110, 0.2)");
 gradientLine.addColorStop(0.5, "rgb(255, 0, 110, 0.35)");
 gradientLine.addColorStop(1, "rgb(255, 0, 110, 0.7)");
 
-Life of the Party?(Never too early for happy hour): Luis F.
-Driver/navigation award(Best All-Around Team Player?): Tie between Mike "Moose" Jester and Andy with 4 votes each
-Comedian award(To the person with the most humor & wit): Luis F.
-The Fire Extinguisher(Code base on fire?— slack the class fire extinguisher.): Tie between Mike "Moose" Jester and Andy with 3 votes each
-Consistency award(Most improvement since Day 1): Issa Sangare
-Grit award(Most likely to survive the Hunger Games): Danny Cooper
-Thinks in Emoji/gif. award(Ready with the perfect emoji/gif. reaction to everything): Luis F.
-Sunshine award (Most Likely To Brighten Your Day?): Danny Cooper
-Sunshine award: Artistry award (For the best skills in styling (CSS, colors, features,. etc.)): Marcos 
+<div class="typewriter">
+  <h1>The cat and the hat.</h1>
+</div>
+/* GLOBAL STYLES */
+body {
+  background: #333;
+  padding-top: 5em;
+  display: flex;
+  justify-content: center;
+}
 
-Shoutout to Dave Frame, who amassed a ton of votes, but didn't take home any awards. We see ya buddy!
+/* DEMO-SPECIFIC STYLES */
+.typewriter h1 {
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}

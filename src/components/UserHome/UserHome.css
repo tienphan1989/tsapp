@@ -44,7 +44,6 @@
 ul.pagination li {
     text-align: center;
     text-transform: uppercase;
-    background-color: lightskyblue;
     padding: 0.7em 1em 0.7em 1em;
     border: 1.5px solid #FFFFFF;
     border-radius: 10px;
@@ -75,7 +74,7 @@ ul.pagination li a:hover {
 li.active {
     border: 3px solid #FFFFFF;
     border-radius: 5px;
-    background-color: #dd417f;
+    background-color: #daf562;
 }
 
 .add-new-result {
@@ -147,4 +146,61 @@ li.active {
     width: 46.5vw;
     margin-left: -100px;
     height: 65vh;
+}
+
+table.timecard {
+	margin: auto;
+	width: 450px;
+	border-collapse: collapse;
+	border: 1px solid #fff;
+	border-style: hidden;
+}
+
+table.timecard caption {
+	background-color: #90caf9;
+	color: #fff;
+	font-size: x-large;
+	font-weight: bold;
+	letter-spacing: .3em;
+}
+
+table.timecard thead th {
+	padding: 8px;
+	background-color: #90caf9;
+	font-size: large;
+}
+
+table.timecard thead th#thDay {
+	width: 40%;	
+}
+
+table.timecard thead th#thRegular, table.timecard thead th#thOvertime, table.timecard thead th#thTotal {
+	width: 20%;
+}
+
+table.timecard th, table.timecard td {
+	padding: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #90caf9 #ccc;
+}
+
+table.timecard td {
+	text-align: right;
+}
+
+table.timecard tbody th {
+	text-align: left;
+	font-weight: normal;
+}
+
+table.timecard tfoot {
+	font-weight: bold;
+	font-size: large;
+	background-color: #687886;
+	color: #fff;
+}
+
+table.timecard tr.even {
+	background-color: #90caf9;
 }

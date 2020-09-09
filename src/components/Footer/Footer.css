@@ -1,7 +1,8 @@
 /* footer */
 
 .footer {
-    position: absolute;
+    position: relative;
+    height: 12.85vh;
     bottom: 0;
     width: 100%;
     font-family: 'Work Sans', sans-serif;

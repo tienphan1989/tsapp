@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { Paper } from "@material-ui/core";
-import UserGoals from './UserGoals'
 
 export default class UserProfile extends Component {
   state = {
@@ -29,7 +28,6 @@ export default class UserProfile extends Component {
         <Button variant="contained" color="secondary" size="small" style={{ padding: '0.5px', marginBottom:'5px'}}>
           Delete account
         </Button>
-        <UserGoals/>
       </Paper>
     );
   }

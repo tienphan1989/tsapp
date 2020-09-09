@@ -6,7 +6,6 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 
-
 export default class Footer extends Component {
     render() {
         return (
