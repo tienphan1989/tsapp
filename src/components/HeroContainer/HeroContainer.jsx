@@ -10,6 +10,7 @@ export default class HeroContainer extends Component {
                 <>
                     <IntroDiv/>
                     <TagDiv/>
+                    
                 </>
             </div>
         )

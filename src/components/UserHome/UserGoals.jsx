@@ -35,7 +35,7 @@ export default class UserGoals extends Component {
       return (
         <div>
             {this.createUI()}
-      {this.state.goals.length === 0 && <><p>"No goals...yet"</p> <Button onClick={this.addClick} variant = 'contained' size = 'small' value='add goal'>add goal</Button> </>}
+      {this.state.goals.length === 0 && <><p>No goals...yet</p> <Button onClick={this.addClick} variant = 'contained' size = 'small' value='add goal' color='primary'>add goal</Button> </>}
       {/* :<Button onClick={this.addClick} variant = 'contained' size = 'small' value='add goal'>add goal</Button>} */}
         </div>
       );

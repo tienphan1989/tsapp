@@ -19,14 +19,9 @@ export default class UserProfile extends Component {
   render() {
     return (
       <Paper className="profile-card">
-        <h4>Name: {this.state.currentUser.username}<br/>
-        age: {this.state.currentUser.age}</h4>
-        <Button variant="contained" color="secondary" size="small" style={{ padding: '0.5px'}}>
-          Edit account
-        </Button>
-        <br />
-        <Button variant="contained" color="secondary" size="small" style={{ padding: '0.5px', marginBottom:'5px'}}>
-          Delete account
+        <h4>Name: {this.state.currentUser.username}</h4>
+        <Button variant="contained" color="primary" size="small" style={{ padding: '1px'}}>
+          edit account
         </Button>
       </Paper>
     );

@@ -8,7 +8,17 @@ export default class VaccinePanel extends Component {
     },
   };
 
-  componentDidMount() {
+  // componentDidMount() {
+  //   fetch(`http://localhost:3000/api/v1/users/${localStorage.userID}`)
+  //     .then((response) => response.json())
+  //     .then((user) =>
+  //       this.setState({
+  //         currentUser: user,
+  //       })
+  //     );
+  // }
+  
+  fetchVaccines = () => {
     fetch(`http://localhost:3000/api/v1/users/${localStorage.userID}`)
       .then((response) => response.json())
       .then((user) =>
@@ -18,10 +28,14 @@ export default class VaccinePanel extends Component {
       );
   }
 
+
   render() {
     return (
       <React.Fragment>
-        {this.state.currentUser.vaccination_record !== null ? (
+        <Button variant="outlined" color="secondary" href="/vaccinescreen" onClick={this.fetchVaccines}>
+            update record
+          </Button>
+        {this.state.currentUser.vaccination_record !== null && (
           <div className="sample-div">
             <h2>Vaccine status <PrintIcon style={{float: 'right'}}/></h2>
             
@@ -49,14 +63,7 @@ export default class VaccinePanel extends Component {
                 ? "Covered"
                 : "Not covered"}
             </p>
-            <Button variant="contained" color="default" href="/vaccinescreen">
-              update record
-            </Button>
           </div>
-        ) : (
-          <Button variant="contained" color="secondary" href="/vaccinescreen">
-            Create new record
-          </Button>
         )}
       </React.Fragment>
     );

@@ -40,7 +40,7 @@ export default function PressureTable(props) {
 
   const newRows = props.pressureElements.map((screen) =>
     createData(
-      screen.created_date,
+      screen.display_date,
       screen.systolic_pressure,
       screen.diastolic_pressure,
       <div style={{ backgroundColor: `${colorData(screen.systolic_pressure)}` }}> </div>
@@ -73,7 +73,7 @@ export default function PressureTable(props) {
 
   return (
     <React.Fragment>
-    <div className={classes.root}>
+    <div>
       {/* <div className="listings-filter">
         <div className='pressure-pagination-div'>
           
@@ -95,12 +95,12 @@ export default function PressureTable(props) {
           </form>
         </div>
       </div> */}
+      <div className='pagination-container'>{paginationElement}</div>
       
-      {paginationElement}
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
+            <TableCell>Date <AddCircleIcon/></TableCell>
             <TableCell align="right">Systolic</TableCell>
             <TableCell align="right">Diastolic</TableCell>
             <TableCell align="right">Grade</TableCell>

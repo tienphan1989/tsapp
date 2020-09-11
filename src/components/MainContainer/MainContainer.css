@@ -9,6 +9,7 @@
 }
 
 .main-row-1 {
+  margin-top:5%;
   display: flex;
   justify-content: space-around;
 }

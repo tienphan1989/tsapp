@@ -3,7 +3,7 @@ import {Bar} from 'react-chartjs-2';
 
 export default class PressureBar extends React.Component {
   bpDates = () => {
-    let datesArray = this.props.bpData.map((data) => data.created_date);
+    let datesArray = this.props.bpData.map((data) => data.display_date);
     return datesArray.sort((a, b) => a - b);
   };
 
@@ -28,12 +28,11 @@ export default class PressureBar extends React.Component {
     };
 
     return (
-      <div>
-        <h2>Blood pressure results</h2>
+      <div className='pressure-bar'>
           <Bar
             data={data}
             width={100}
-            height={100}
+            height={530}
             options={{
               maintainAspectRatio: false
             }}

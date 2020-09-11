@@ -35,10 +35,13 @@ export default function BpFeedback(props) {
       return (
         <div className="good-feedback-div">
           <div className="feedback-text">
-            <p>Your result is just a tiny bit higher than it should be.<br/>
-            A goal of under 120/80 would be perfect!</p>
             <p>
-              Don't worry. This could be due to recent exercise or even factors like stress.
+              Your result is just a tiny bit higher than it should be.
+              <br />A goal of under 120/80 would be perfect!
+            </p>
+            <p>
+              Don't worry. This could be due to recent exercise or even factors
+              like stress.
             </p>
             <Link to="/resources">
               <p>Check out our dietary tips!</p>
@@ -59,12 +62,17 @@ export default function BpFeedback(props) {
         <div className="average-feedback-div">
           <div className="feedback-text">
             <p>
-              Your result is just a little higher than ideal...<br/>aim
-              for 129.<br/>
-            Relax and check back later (at least 15 minutes)</p>
+              Your result is just a little higher than ideal...
+              <br />
+              aim for 129.
+              <br />
+              Relax and check back later (at least 15 minutes)
+            </p>
             <p>
               If you continue to have results like this, consider asking your
-              doctor for feedback. <br/>Testing can help you improve your health quicker.</p>
+              doctor for feedback. <br />
+              Testing can help you improve your health quicker.
+            </p>
             <Link to="/resources">
               <p>see diet tips!</p>
             </Link>
@@ -83,15 +91,14 @@ export default function BpFeedback(props) {
       return (
         <div className="below-feedback-div">
           <div className="feedback-text">
-            <p>
-              Oh my!...we are aiming for at least 140.
-            </p>
+            <p>Oh my!...we are aiming for at least 140.</p>
             <p>
               Try and relax, and try again later (at least 15 minutes) to see
               how you are doing.
             </p>
             <p>
-              If results continue like this, take action and ask your doctor for guidance.
+              If results continue like this, take action and ask your doctor for
+              guidance.
             </p>
             <Link to="/resources">
               <p>see dietary section for advice</p>
@@ -101,9 +108,7 @@ export default function BpFeedback(props) {
             </Button>
             {!localStorage.token && (
               <Link to="/register">
-                <Button>
-                Click to register & track results
-                </Button>
+                <Button>Click to register & track results</Button>
               </Link>
             )}
           </div>
@@ -114,8 +119,11 @@ export default function BpFeedback(props) {
         <div className="bad-feedback-div">
           <div className="feedback-text">
             <p>Results are NOT good. Do you feel alright?</p>
-            <p>Consider asking your doctor for further testing.<br/>
-            Remember to take your medicine as directed by your doctor.</p>
+            <p>
+              Consider asking your doctor for further testing.
+              <br />
+              Remember to take your medicine as directed by your doctor.
+            </p>
             <p>This score is very alarming so take action today.</p>
             <Link to="/resources">
               <p>check dietary tips & recipes</p>
@@ -125,9 +133,7 @@ export default function BpFeedback(props) {
             </Button>
             {!localStorage.token && (
               <Link to="/register">
-                <Button>
-                  Click to register & track results
-                </Button>
+                <Button>Click to register & track results</Button>
               </Link>
             )}
           </div>

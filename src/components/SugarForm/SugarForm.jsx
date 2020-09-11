@@ -153,12 +153,13 @@ export default class SugarForm extends Component {
         <div className='sugar-form-div'>
             <form onSubmit={this.handleClickOpen}>
                 <h3 className='sugar-form-title'>Sugar Screen</h3>
-                <DatePicker
+                <div className='date-picker'><DatePicker
                     date={this.state.date}
                     onChange={this.handleDateChange}
-                    label="My Date"
-                    //className={classes.textField}
-                />
+                    label="Date"
+                    
+                /></div>
+                
                 {!localStorage.token &&
                 <div className="age-value">
                     <label htmlFor='age'>Age: </label>
@@ -187,7 +188,7 @@ export default class SugarForm extends Component {
                 </div>
 
                 <div className="sugar-fasting">
-                    <label htmlFor='fasting'>Did you eat anything in the last 12 hours? </label>
+                    <label htmlFor='fasting'>Eat anything in the last 12 hours? </label>
                         <label>Yes</label>
                             <input
                             type="radio"
@@ -228,7 +229,7 @@ export default class SugarForm extends Component {
                     </Button>
                 </div> 
                 
-
+                    {!localStorage.token &&
                 <div className='sugar-query-div'>
                     <Button className='sugar-query-p' onClick={this.handleModalOpen}>
                         Click here to learn how to test blood sugar
@@ -253,7 +254,7 @@ export default class SugarForm extends Component {
                             </div>
                         </Grow>
                     </Modal>
-                </div>
+                </div>}
             </form>
             <SugarFeedback 
             clearForm={this.clearForm} 

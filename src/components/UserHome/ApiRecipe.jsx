@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useState } from "react";
 import configObj from "../../helpers/configObj.js";
@@ -14,7 +15,11 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
 
-export const ApiRecipe = () => {
+export const ApiRecipe = (props) => {
+  ApiRecipe.defaultProps = {
+    image: 'https://www.budgetbytes.com/wp-content/uploads/2013/07/Creamy-Spinach-Tomato-Pasta-bowl.jpg'
+  }
+
   const [values, setValues] = useState({
     foodQuery: "",
     diet: "",
@@ -22,7 +27,17 @@ export const ApiRecipe = () => {
   });
 
   const [open, setOpen] = useState(false);
-  const [dialogContent, setDialogContent] = useState({results: [{title: null, servings: null, image: null, readyInMinutes: null, sourceUrl: null }]});
+  const [dialogContent, setDialogContent] = useState({
+    results: [
+      {
+        title: null,
+        servings: null,
+        image: null,
+        readyInMinutes: null,
+        sourceUrl: null,
+      },
+    ],
+  });
 
   const styles = (theme) => ({
     root: {
@@ -98,18 +113,42 @@ export const ApiRecipe = () => {
       .catch((error) => console.log(error));
   };
 
+  //image, title, prep time, servings, url. POST to users backend.  User has many recipes, recipe belongs user
   const showRecipe = () => {
-    console.log('dialogCONTENT:', dialogContent.results)
-    return dialogContent.results.map(recipe => 
-    <div>
-      <h3>Result</h3>
-      
-      <h3>Recipe for {recipe.title}</h3>
-      <img src={recipe.image} alt=''></img>
-      <p>Makes: {recipe.servings} servings</p>
-      <p>Total preparation time: {recipe.readyInMinutes}</p>
-      <p><a href='{recipe.sourceUrl}'>Click for more details:</a></p>
-    </div>)}
+    return dialogContent.results.map((recipe) => (
+      <React.Fragment>
+        <div
+          class="card everything"
+          style={{
+            background:
+              "https://spoonacular.com/recipeImages/" +
+              recipe.id +
+              "-480x360.jpg",
+          }}
+        >
+          <h3 class="food">{recipe.title}</h3>
+          <img
+            src={
+              "https://spoonacular.com/recipeImages/" +
+              recipe.id +
+              "-480x360.jpg"
+            }
+            alt=""
+          />
+          Total preparation time: {recipe.readyInMinutes} minutes
+          <br />
+          <i class="fa fa-users">Serves {recipe.servings}</i><br/>
+              <Button href={recipe.sourceUrl}  color='primary' size='small' variant='contained'>Click here for details!</Button><br/>
+              <Button color='primary' variant='contained' size='small' onClick={saveRecipe}>Save recipe</Button>
+            <div class="card-shadow"></div>
+        </div>
+      </React.Fragment>
+    ));
+  };
+
+  const saveRecipe = () => {
+    
+  }
 
   return (
     <React.Fragment>
@@ -201,16 +240,17 @@ export const ApiRecipe = () => {
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          
-        </DialogTitle>
+        <DialogTitle
+          id="customized-dialog-title"
+          onClose={handleClose}
+        ></DialogTitle>
         <DialogContent dividers>
-  <Typography gutterBottom></Typography>
+          <Typography gutterBottom></Typography>
           {/* <Typography gutterBottom>{dialogContent}</Typography>
           <Typography gutterBottom>{dialogContent}</Typography> */}
           {showRecipe()}
-          </DialogContent>
-          <DialogActions>
+        </DialogContent>
+        <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
             Save changes
           </Button>
@@ -219,46 +259,3 @@ export const ApiRecipe = () => {
     </React.Fragment>
   );
 };
-
-
-
-// {results: Array(25), baseUri: "https://spoonacular.com/recipeImages/", offset: 0, number: 25, totalResults: 96701, …}
-// baseUri: "https://spoonacular.com/recipeImages/"
-// expires: 1599857715367
-// number: 25
-// offset: 0
-// processingTimeMs: 515
-// results: Array(25)
-// 0:
-// id: 723984
-// image: "cabbage-salad-with-peanuts-723984.jpg"
-// openLicense: 0
-// readyInMinutes: 15
-// servings: 2
-// sourceUrl: "http://naturallyella.com/cabbage-salad-with-peanuts/"
-// title: "Cabbage Salad with Peanuts"
-// __proto__: Object
-// 1:
-// id: 584549
-// image: "Stuffed-Sweet-Potato-with-Spinach--Hummus---Feta-584549.jpg"
-// openLicense: 0
-// readyInMinutes: 16
-// servings: 1
-// sourceUrl: "http://www.cookincanuck.com/2013/09/stuffed-sweet-potato-recipe-with-spinach-hummus-feta/"
-// title: "Stuffed Sweet Potato with Spinach, Hummus & Feta"
-// "results":[10 items
-//   0:{5 items
-//   "id":262682
-//   "title":"Thai Sweet Potato Veggie Burgers with Spicy Peanut Sauce"
-//   "readyInMinutes":75
-//   "image":"thai-sweet-potato-veggie-burgers-with-spicy-peanut-sauce-262682.jpg"
-//   "imageUrls":[1 item
-//   0:"thai-sweet-potato-veggie-burgers-with-spicy-peanut-sauce-262682.jpg"
-//   ]
-//   }
-//   1:{5 items
-//   "id":227961
-//   "title":"Cajun Spiced Black Bean and Sweet Potato Burgers"
-//   "readyInMinutes":20
-//   "image":"Cajun-Spiced-Black-Bean-and-Sweet-Potato-Burgers-227961.jpg"
-//   "imageUrls":[...]1 item

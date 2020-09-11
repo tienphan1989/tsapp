@@ -1,8 +1,8 @@
 /* footer */
 
 .footer {
-    position: relative;
-    height: 12.85vh;
+    position: absolute;
+    /* height: 13.5vh; */
     bottom: 0;
     width: 100%;
     font-family: 'Work Sans', sans-serif;
@@ -30,11 +30,39 @@
     text-decoration: none;
 }
 
-.center-footer {
-    display:flex;
-    justify-content: space-evenly;
-}
 
 .profile-div {
-    margin-left: 1.5%;
+    margin-left: 0.7%;
+    font-size:14px;
+    align-items: baseline;
+    padding:3px;
+    text-align: left;
+}
+
+.social-media-div {
+    padding: 1px;
+    margin: 1px;
+}
+
+.email-social-div {
+    display: block;
+}
+
+.company-title-div {
+    margin-top: 2px;
+}
+        
+.center-footer {
+    display:grid;
+    justify-content: space-around;
+    margin-right:3%;
+}
+
+.left-footer-column {
+    margin-left:2%;
+    display:flex;
+}
+
+.footer-links {
+    display:grid;
 }

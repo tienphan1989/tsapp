@@ -15,7 +15,7 @@ export default class BpContainer extends Component {
                     <img src={heart} alt="heart" className="info-images"/>
                 </div>
                 <p>Submit a blood pressure reading <br/>& get instant feedback!</p>
-                <Button variant="contained" color="secondary">
+                <Button variant="contained" color="primary">
                     <Link to="/bpscreen" className='bp-screen'>Start</Link>
                 </Button> 
                 <HelpAction fontSize='small'/>

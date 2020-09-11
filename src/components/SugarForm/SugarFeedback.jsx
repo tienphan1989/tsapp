@@ -15,13 +15,13 @@ export default function SugarFeedback(props) {
         <div className="average-feedback-div">
           <div className="feedback-text">
             <p>Your result is TOO low.<br/>
-            This could be due to fasting or any other health changes.</p>
+            This could be due to fasting or any health changes.</p>
             <p>
               Do you feel dizzy or weak? If so, possibly request help.
             </p>
             <p>DID YOU KNOW?...more 1/3 of Americans have prediabetes.</p>
             <Link to="/resources">
-              <p>see diet tips for more knowledge</p>
+              <p>see diet tips</p>
             </Link>
             <Button variant="contained" onClick={clearForm}>
               close
@@ -41,7 +41,7 @@ export default function SugarFeedback(props) {
         <div className="great-feedback-div">
           <div className="feedback-text">
             <p>
-              Fantastic job! Your blood sugar is right where it should be.<br/>
+              Fantastic job! Your blood sugar is where it should be.<br/>
             Keep it up and continue to take care of your body.</p>
             <p>
               DID YOU KNOW?...8/10 adults with prediabetes don't know they have
@@ -77,7 +77,7 @@ export default function SugarFeedback(props) {
               incidence of diabetes by 58%.
             </p>
             <Link to="/resources">
-              <p>check out some dietary tips</p>
+              <p>check out dietary tips</p>
             </Link>
             <Button variant="contained" onClick={clearForm}>
               close
@@ -100,16 +100,12 @@ export default function SugarFeedback(props) {
               Oh no! the result is much higher than ideal...aim
               for under 180.
             </p>
-            <p>Try and relax, and try again later to see how you are doing.<br/>
-              If you continue to have results like this, consider asking your
-              doctor for more testing.
-            </p>
-            <p>
-              If you are more than 2 hours after a meal, consider this a
-              possible sign of poor health.
+            <p>Breathe and relax, and try again later to see how you are doing.
+              If you continue to have results like this <br/>& more than 2 hours after a meal, consider asking your
+              doctor for more testing because this can be a possible sign of poor health.
             </p>
             <Link to="/resources">
-              <p>Check out dietary tips</p>
+              <p>view dietary tips</p>
             </Link>
             <Button variant="contained" onClick={clearForm}>
               close

@@ -6,6 +6,8 @@
     font-size: 18px;
     margin: auto;
     color: black;
+    text-align: justify;
+    padding-top:5%;
 }
 
 .sugar-form-title {
@@ -26,6 +28,7 @@
 }
 
 .age-input {
+    margin-top:1%;
     width: 75px;
 }
 
@@ -35,12 +38,12 @@
 }
 
 .sugar-fasting {
-    margin: 10px;
+    margin-top:1%;
     padding: 5px;
 }
 
 .sugar-value {
-    margin: 10px;
+    margin-top:1%;
     padding: 5px;
 }
 
@@ -50,7 +53,13 @@
 }
 
 .sugar-submit-button {
-    padding: 10px;
+    margin-left: 38%;
+    
+}
+
+.pressure-submit-button {
+    padding: 5px;
+    margin-left: 34%;  
 }
 
 .terms-condition {
@@ -58,10 +67,12 @@
 }
 
 .sugar-query-div {
+    margin-left:8%;
     padding-top: 5px;
 }
 
 .sugar-query-p {
+    
     font-size: 14px;
     margin: 0;
 }
@@ -73,6 +84,7 @@
 }
 
 .modal-paper {
+    
     border: 2px solid rgb(190, 152, 250);
     padding: 2px;
     background-color: #b5c9f6;
@@ -84,4 +96,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.date-picker {
+    margin-left: 16px;
 }

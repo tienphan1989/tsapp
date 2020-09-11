@@ -59,11 +59,12 @@ const Header = (props) => {
             <HomeIcon fontSize="large"/>
           </NavLink>
         </IconButton>
+      
           <img src={logo} alt="logo" className="title" style={{height: '50px', width: 'auto'}}/>
             <div>
               {!props.loggedIn && (
-              <Button className="top-button">
-                <NavLink to="/register" className="nav-link" color="black">
+              <Button className="register-button" color='default' variant='contained' size='small'>
+                <NavLink to="/register">
                   Register
                 </NavLink>
               </Button>
@@ -108,7 +109,9 @@ const Header = (props) => {
                   <NavLink to="/main">
                     <MenuItem onClick={handleClose}>Screenings</MenuItem>
                   </NavLink>
-
+                  <NavLink to="/main">
+                    <MenuItem onClick={handleClose}>Contact</MenuItem>
+                  </NavLink>
                   {props.loggedIn && 
                   <NavLink to="/" onClick={handleClose}>
                     <MenuItem onClick={props.logOut} >Logout</MenuItem>

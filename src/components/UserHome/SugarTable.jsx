@@ -39,7 +39,7 @@ export default function SugarTable(props) {
     }
   };
 
-  const newRows = props.sugarElements.map(screen => createData(screen.created_date, screen.result, <div style={{backgroundColor: `${colorData(screen.result)}`}}> </div>))
+  const newRows = props.sugarElements.map(screen => createData(screen.display_date, screen.result, <div style={{backgroundColor: `${colorData(screen.result)}`}}> </div>))
 
   let paginationElement;
     if (props.pageCount > 1) {
@@ -68,7 +68,7 @@ export default function SugarTable(props) {
 
   return (
     <React.Fragment>
-    <div className={classes.root}>
+    <div>
       {/* <div className="listings-filter">
         <div className='pressure-pagination-div'>
           
@@ -90,11 +90,11 @@ export default function SugarTable(props) {
         </form>
       </div>
       </div> */}
-{paginationElement}
-      <Table aria-label="simple table">
+<div className='pagination-container'>{paginationElement}</div>      
+<Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
+            <TableCell>Date <AddCircleIcon/></TableCell>
             <TableCell align="right">Sugar level</TableCell>
             <TableCell align="right">Grade</TableCell>
           </TableRow>

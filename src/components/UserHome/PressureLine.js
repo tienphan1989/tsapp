@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 
 export default class PressureLine extends Component {
   pressureDates = () => {
-      let datesArray = this.props.bpData.map(data => data.created_date)
+      let datesArray = this.props.bpData.map(data => data.display_date)
       return datesArray.sort((a, b) => a - b)
   }
 

@@ -14,10 +14,10 @@ export default class VaccineContainer extends Component {
                 <div>
                     <img src={vaccine} alt="nurse-emoji" className="info-images"/>
                 </div>
-                <p>Answer some easy questions and I'll let you know<br/>
+                <p>Answer some questions and I'll let you know<br/>
                     if you are up to date on your vaccines so you can stay protected! 
                 </p>
-                <Button variant="contained" color="secondary">
+                <Button variant="contained" color="primary">
                     <Link to="/vaccinescreen" className='vaccine-screen'>Start</Link>
                 </Button> 
                 <HelpAction fontSize='small'/>

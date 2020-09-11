@@ -5,6 +5,7 @@
     width: 750px;
     margin: auto;
     color: black;
+    padding-top:1.5%;
 }
 
 .vaccine-form-title {
@@ -115,6 +116,7 @@
 
 .feedback-text {
     display: grid;
+      font-family: 'Work Sans', sans-serif;
 }
 
 .animate {

@@ -5,65 +5,65 @@ export default class StatisticsPanel extends Component {
     return (
       <div id="main">
         <table className="timecard">
-          <caption>Measurables</caption>
+          <caption>History</caption>
           <thead>
             <tr>
-              <th id="thDay">Duration</th>
-              <th id="thRegular">Systolic pressure</th>
-              <th id="thOvertime">Diastolic pressure</th>
-              <th id="thTotal">Sugar levels</th>
+              <th id="thDay"></th>
+              <th id="thRegular">Systolic</th>
+              <th id="thOvertime">Diastolic</th>
+              <th id="thTotal">Sugar</th>
             </tr>
           </thead>
           <tbody>
             <tr className="odd">
-              <th>Last 365 days</th>
-              <td>8</td>
-              <td>0</td>
-              <td>8</td>
+              <th>Prior appointment</th>
+              <td>148.8</td>
+              <td>103.8</td>
+              <td>129</td>
             </tr>
             <tr className="even">
-              <th>Last 180 days</th>
-              <td>8</td>
-              <td>2.5</td>
-              <td>10.5</td>
+              <th>Last 30 days</th>
+              <td>146</td>
+              <td>103</td>
+              <td>131</td>
             </tr>
             <tr className="odd">
-              <th>Last 90 days</th>
-              <td>8</td>
-              <td>0</td>
-              <td>8</td>
+              <th>Last 7 days</th>
+              <td>137</td>
+              <td>98</td>
+              <td>127</td>
             </tr>
             <tr className="even">
-              <th>Below goal(%)</th>
-              <td>8</td>
-              <td>0</td>
-              <td>8</td>
+              <th>Results below goal</th>
+              <td>64%</td>
+              <td>67%</td>
+              <td>27%</td>
             </tr>
             <tr className="odd">
-              <th>Above goal(%)</th>
-              <td>8</td>
-              <td>0</td>
-              <td>8</td>
+              <th>Results above goal</th>
+              <td>35%</td>
+              <td>33%</td>
+              <td>73%</td>
             </tr>
             <tr className="even">
-              <th>Uppermost value</th>
-              <td>0</td>
-              <td>5</td>
-              <td>5</td>
+              <th>Highest value</th>
+              <td>212</td>
+              <td>118</td>
+              <td>181</td>
             </tr>
             <tr className="odd">
               <th>Lowest value</th>
-              <td>0</td>
-              <td>1</td>
-              <td>1</td>
+              <td>116</td>
+              <td>92</td>
+              <td>86</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <th>Average overall:</th>
-              <td>40</td>
-              <td>8.5</td>
-              <td>48.5</td>
+              <th>Current average:</th>
+              <td style={{background: 'green'}}>142.8</td>
+              <td style={{background: 'green'}}>102.8</td>
+              <td style={{background: 'lightgreen'}}>132</td>
             </tr>
           </tfoot>
         </table>

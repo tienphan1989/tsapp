@@ -16,9 +16,9 @@ export default class SugarContainer extends Component {
                     <img src={glucometer} alt="finger-sample" className="info-images"/>
                 </div>
                 <p>Answer some quick questions<br/>
-                    & I'll let you know how your doing! 
+                    & get your input analyzed!
                 </p>
-                <Button variant="contained" color="secondary">
+                <Button variant="contained" color="primary">
                     <Link to="/sugarscreen" className='sugar-screen'>Start</Link>
                 </Button> 
                 <HelpAction fontSize='small'/>

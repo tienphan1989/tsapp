@@ -1,0 +1,42 @@
+
+  .nutrition-label {
+    float:left;
+    width:23%;
+    padding:2px;
+    font-family: "Helvetica";
+    font-size: 12px;
+    border: 1px solid black;
+    margin-top:2px;
+  }
+  .nutrition-label table {
+    border-collapse: collapse;
+    width:100%;
+  }
+  .nutrition-label-td {
+    border-top: 1px solid black;
+  }
+  .nutrition-label-h2 {
+    margin:0;
+    font-size:29px;
+  }
+  .separator {
+    height:9px;
+    background-color: black;
+    margin-top:2px;
+  }
+  .align-text-right {
+    text-align:right;
+  }
+  .info {
+    border-top:1px solid black;
+    padding: 2px;
+    font-size:5px;
+  }
+
+  .nutrition {
+      display: inline-block;
+      border: 1px solid black;
+      background-color: white;
+      width: 250px;
+  }
+

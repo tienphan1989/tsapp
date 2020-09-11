@@ -153,7 +153,7 @@ export default class VaccineForm extends Component {
                                             id='tetanus'
                                             checked={this.state.tetanus === "yes"}
                                             onChange={this.handleChange}
-                                        />
+                                        /><br/>
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
@@ -180,7 +180,7 @@ export default class VaccineForm extends Component {
                                             id='flu'
                                             checked={this.state.flu === "yes"}
                                             onChange={this.handleChange}
-                                        />
+                                        /><br/>
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
@@ -206,7 +206,7 @@ export default class VaccineForm extends Component {
                                             id='pneumonia'
                                             checked={this.state.pneumonia === "yes"}
                                             onChange={this.handleChange}
-                                        />
+                                        /><br/>
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
@@ -233,7 +233,7 @@ export default class VaccineForm extends Component {
                                             id='shingles'
                                             checked={this.state.shingles === "yes"}
                                             onChange={this.handleChange}
-                                        />
+                                        /><br/>
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"
@@ -259,7 +259,7 @@ export default class VaccineForm extends Component {
                                             id='shinglesTwoDay'
                                             checked={this.state.shinglesTwoDay === "yes"}
                                             onChange={this.handleChange}
-                                        />
+                                        /><br/>
                                     <label>No/unsure</label>
                                         <input
                                             type="radio"

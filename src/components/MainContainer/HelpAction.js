@@ -7,7 +7,7 @@ import HelpOutlineIcon from '@material-ui/icons/HelpOutline';const styles = them
     margin: 0,
     top: 'auto',
     left: 'auto',
-    bottom: 70,
+    bottom: 140,
     right: 10,
     position: 'fixed'
   }
@@ -28,7 +28,7 @@ const ExtendedFab = withStyles(styles)(({ classes, ...props }) => {
 });
 
 const HelpAction = ({ fabColor }) => (
-  <ExtendedFab color={fabColor} size='small' color="primary">
+  <ExtendedFab size='small' color="primary">
     Help
     <HelpOutlineIcon/>
   </ExtendedFab>

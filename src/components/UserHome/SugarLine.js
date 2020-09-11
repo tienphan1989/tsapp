@@ -5,7 +5,7 @@ export default class SugarLine extends Component {
   //let msec = Date.parse("March 21, 2012");
   //let d = new Date(msec);
   sugarDates = () => {
-    let datesArray = this.props.sugarData.map((data) => data.created_date);
+    let datesArray = this.props.sugarData.map((data) => data.display_date);
     return datesArray.sort((a, b) => a - b);
   };
 

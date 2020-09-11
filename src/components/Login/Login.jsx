@@ -69,7 +69,7 @@ const Login = (props) => {
                 Login
               </button>
                 <Link to='/register'>
-                  <Button>Want to register?</Button>
+                  <Button variant='outlined' color='default'>Want to register?</Button>
                 </Link>
                 <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
                   <Alert onClose={handleClose} severity="success">

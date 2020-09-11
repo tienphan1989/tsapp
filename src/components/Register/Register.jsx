@@ -4,7 +4,7 @@ import useForm from "./useForm";
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import Button from '@material-ui/core/Button';
-
+import { Link } from 'react-router-dom';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -45,28 +45,28 @@ const Register = (props) => {
                 <div className="field">
                   <label className="login">Username</label>
                     <div className="control">
-                        <input placeholder="username..." type='text' name="username" onChange={handleChange} value={values.username} required/> 
+                        <input placeholder="username..." type='text' name="username" onChange={handleChange} value={values.username} /> 
                     </div>
                 </div>
 
                 <div className="field">
                   <label className="login">Email</label>
                   <div className="control">
-                  <input placeholder="email..." type='email' name="email" onChange={handleChange} value={values.email} required />
+                  <input placeholder="email..." type='email' name="email" onChange={handleChange} value={values.email}  />
                   </div>
                 </div>
 
                 <div className="field">
                   <label className="login">Password</label>
                   <div className="control">
-                  <input placeholder="password..." type='password' name="password" onChange={handleChange} value={values.password} required />
+                  <input placeholder="password..." type='password' name="password" onChange={handleChange} value={values.password} />
                   </div>
                 </div>
 
                 <div className="field">
                   <label className="login">Age: </label>
                     <div className="control">
-                        <input placeholder="age..." type='number' name="age" onChange={handleChange} value={values.age} required/> 
+                        <input placeholder="age..." type='number' name="age" onChange={handleChange} value={values.age}/> 
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ const Register = (props) => {
                 </Snackbar>
                 <button>
 
-                  Already a member? <Button href='/login'>Login Page</Button>
+                  <br/>Already a member? <br/><Button variant='outlined' size='small' color='secondary'><Link to='./login'>Login Page</Link></Button>
                 </button>
               </form>
             </div>

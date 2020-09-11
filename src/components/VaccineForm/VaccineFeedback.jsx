@@ -25,7 +25,7 @@ export default function VaccineFeedback(props) {
             {tetanus === "yes" ? (
               <div className='great-feedback-div'>
                 <p>
-                  Tetanus: Your covered! <br/>Remember, this is due once
+                  Tetanus: <em>COVERED</em> <br/>Remember, this is due once
                   every 10 years
                 </p>
                 <p>
@@ -34,10 +34,10 @@ export default function VaccineFeedback(props) {
                 </p>
               </div>
             ) : (
-              <div className='average-feedback-div'>
-                <p>RECOMMENDED: Tetanus</p>
+              <div className='bad-feedback-div'>
+                <p>Tetanus: RECOMMENDED</p>
                 <p>
-                  Did you know?..adults should receive a booster dose every 10
+                  DID YOU KNOW?..adults need a booster dose every 10
                   years
                 <br/>
                   or earlier in the case of a dirty wound or burn
@@ -60,10 +60,10 @@ export default function VaccineFeedback(props) {
           <div>
             {pneumonia === "yes" ? (
               <div className='great-feedback-div'>
-                <p>Pneumonia: Congrats, your covered!</p>
+                <p>Pneumonia: <em>COVERED</em></p>
                 <p>
                   This is due one time before 65 years of age and one time after
-                  turning 65
+                  turning 65.
                 </p>
                 <p>
                 FACT: There are two kinds of pneumococcal vaccines
@@ -101,17 +101,17 @@ export default function VaccineFeedback(props) {
           <div>
             {shingles === "yes" ? (
               <div className='great-feedback-div'>
-                <p>Shingles: Your covered!</p>
+                <p>Shingles: <em>COVERED</em></p>
                 <p>
                 FACT: 1/2 of people who reach age 85 will have had
                   shingles at some point
                 </p>
               </div>
             ) : (
-              <div className='average-feedback-div'>
-                <p>RECOMMENDED: Shingles</p>
+              <div className='bad-feedback-div'>
+                <p>Shingles: RECOMMENDED</p>
                 <p>
-                  Did you know...they are caused by the same virus, but shingles
+                  DID YOU KNOW?...they are caused by the same virus, but shingles
                   and chickenpox are NOT the same illness
                 </p>
                 <p>
@@ -144,15 +144,15 @@ export default function VaccineFeedback(props) {
         {flu === "yes" && currentAge >= 65 ? (
           <div className='great-feedback-div'>
             <p>
-              Flu: Good Job! <br/>You help protect everybody else too when you
+              Flu: <em>COVERED</em> <br/>You help protect everybody else too when you
               get vaccinated
             </p>
           </div>
         ) : (
           <div className='bad-feedback-div'>
-            <p>RECOMMENDED: Flu</p>
+            <p>Flu: RECOMMENDED</p>
             <p>
-              Did you know?..There are two main types of influenza virus: Types
+              DID YOU KNOW?..There are two main types of influenza virus: Types
               A and B
             </p>
             <p>
@@ -185,7 +185,7 @@ export default function VaccineFeedback(props) {
       <div>
         {shinglesTwoDay === "yes" && age >= 65 ? (
           <div className='great-feedback-div'>
-            <p>Shingles: Good news!</p>
+            <p>Shingles: <em>COVERED</em></p>
             <p>
             FACT: this vaccine can lower your chances by more than
               90%

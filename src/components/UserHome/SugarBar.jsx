@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 
 export default class SugarBar extends React.Component {
     sugarDates = () => {
-        let datesArray = this.props.sugarData.map((data) => data.created_date);
+        let datesArray = this.props.sugarData.map((data) => data.display_date);
         return datesArray.sort((a, b) => a - b);
       };
     
@@ -28,11 +28,10 @@ export default class SugarBar extends React.Component {
         };
         return (
         <div>
-            <h2>Blood sugar results</h2>
               <Bar
               data={data}
               width={100}
-              height={50}
+              height={530}
               options={{
                   maintainAspectRatio: false,
               }}

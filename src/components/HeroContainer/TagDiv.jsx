@@ -10,14 +10,14 @@ const TagDiv = () => {
             ? 
             <div>
                 <NavLink to="/home">
-                    <Button variant="contained" color="secondary">
+                    <Button variant="contained" color="primary">
                     View profile
                     </Button>
                 </NavLink>
             </div>
             :
             <div className="tagline-div">
-                <p>No registration required!</p>
+                <p>No registration required</p>
                 <NavLink to="/main">
                     <Button variant="contained" color='primary'>
                     Start

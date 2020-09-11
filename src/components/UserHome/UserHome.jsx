@@ -20,7 +20,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Divider from '@material-ui/core/Divider';
+import { IconButton, Button } from "@material-ui/core";
 
 class UserHome extends React.Component {
   state = {
@@ -99,6 +99,7 @@ class UserHome extends React.Component {
   userAllPressure = () => {
     return this.state.currentUser.bp_screens.map((screen) => {
       return {
+        display_date: screen.display_date,
         created_date: screen.created_date,
         date: screen.date,
         systolic_pressure: screen.systolic_pressure,
@@ -114,6 +115,7 @@ class UserHome extends React.Component {
   userAllSugar = () => {
     return this.state.currentUser.sugar_screens.map((screen) => {
       return {
+        display_date: screen.display_date,
         created_date: screen.created_date,
         date: screen.date,
         result: screen.result,
@@ -200,12 +202,12 @@ class UserHome extends React.Component {
           style={{ width: "100%" }}
         >
           <Grid item xs>
-            <Paper className="user-column-1 user-paper" elevation={2}>
+            <Paper className="user-column-1 user-paper" >
               <UserPanels currentUser={this.state.currentUser} />
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper className="user-column-2 user-paper" elevation={1}>
+            <Paper className="user-column-2 user-paper" >
               <div className="paper-tabs">
                 <Tabs
                 aria-labelledby='history view edit'
@@ -241,10 +243,14 @@ class UserHome extends React.Component {
                     disabled={this.state.value === "vaccine" ? true : false}
                   />
                 </Tabs>
+                
               </div>
               <div>
+                
                 <div className="listings-filter">
+                  
                   <div className="line-filter">
+                  
                     <form>
                       {/* <label>Category: </label>
               <select
@@ -283,6 +289,7 @@ class UserHome extends React.Component {
                   </div>
                 </div>
               </div>
+              
               {this.state.value === "bp" && (
                 <Paper>
                   {this.state.index === 0 && (
@@ -334,7 +341,7 @@ class UserHome extends React.Component {
                   )}
                   {this.state.index === 2 && (
                     <SugarBar
-                      sugarData={this.userSugarData()}
+                      sugarData={this.userAllSugar()}
                       value={this.state.value}
                       handleChange={this.handleChange}
                     />
@@ -344,7 +351,7 @@ class UserHome extends React.Component {
             </Paper>
           </Grid>
           <Grid item xs>
-            <Paper className="user-api user-paper" elevation={1}>
+            <Paper className="user-api user-paper">
               <ApiPanels />
             </Paper>
           </Grid>
