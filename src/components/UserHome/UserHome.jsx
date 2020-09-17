@@ -202,15 +202,15 @@ class UserHome extends React.Component {
           style={{ width: "100%" }}
         >
           <Grid item xs>
-            <Paper className="user-column-1 user-paper" >
+            <Paper className="user-column-1 user-paper">
               <UserPanels currentUser={this.state.currentUser} />
             </Paper>
           </Grid>
           <Grid item xs={6}>
-            <Paper className="user-column-2 user-paper" >
+            <Paper className="user-column-2 user-paper">
               <div className="paper-tabs">
                 <Tabs
-                aria-labelledby='history view edit'
+                  aria-labelledby="history view edit"
                   value={this.state.index}
                   onChange={this.handleTab}
                   indicatorColor="primary"
@@ -219,49 +219,34 @@ class UserHome extends React.Component {
                   aria-label="simple tabs"
                 >
                   <Tab
-                  id='history'
-                  aria-label="history"
+                    id="history"
+                    aria-label="history"
                     icon={<ListIcon />}
                     label="History"
                     disabled={this.state.value === "vaccine" ? true : false}
                   />
-                  
+
                   <Tab
-                  aria-label="View"
-                  id='view'
+                    aria-label="View"
+                    id="view"
                     icon={<ShowChartIcon />}
                     label="View"
                     disabled={this.state.value === "vaccine" ? true : false}
                   />
 
-                  
                   <Tab
-                  aria-label="edit"
-                  id='edit'
+                    aria-label="edit"
+                    id="edit"
                     icon={<EditIcon />}
                     label="Edit"
                     disabled={this.state.value === "vaccine" ? true : false}
                   />
                 </Tabs>
-                
               </div>
               <div>
-                
                 <div className="listings-filter">
-                  
                   <div className="line-filter">
-                  
                     <form>
-                      {/* <label>Category: </label>
-              <select
-                value={this.state.value}
-                onChange={this.handleChange}
-              >
-                <option>select</option>
-                <option value="bp">Blood pressure</option>
-                <option value="sugar">Blood sugar</option>
-                {/* <option value="vaccine">Vaccine status</option> */}
-                      {/* </select> */}
                       <FormControl>
                         <InputLabel id="demo-controlled-open-select-label">
                           select
@@ -275,8 +260,8 @@ class UserHome extends React.Component {
                           value={this.state.value}
                           onChange={this.handleChange}
                           variant="standard"
-                          color='default'
-                          margin='dense'
+                          color="default"
+                          margin="dense"
                         >
                           <MenuItem value="">
                             <em>None</em>
@@ -289,7 +274,7 @@ class UserHome extends React.Component {
                   </div>
                 </div>
               </div>
-              
+
               {this.state.value === "bp" && (
                 <Paper>
                   {this.state.index === 0 && (

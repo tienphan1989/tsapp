@@ -44,20 +44,7 @@ export default class PressureLine extends Component {
 
         return (
         <div className='graph-div'>
-          {/* <div className="listings-filter">
-            <div className="graph-listings-filter">
-            <form>
-              <label>Category: </label>
-              <select value={this.props.value} onChange={this.props.handleChange}>
-                <option>select</option>
-                <option value="bp">Blood pressure</option>
-                <option value="sugar">Blood sugar</option>
-                <option value="vaccine">Vaccine status</option>
-              </select>
-            </form>
-          </div>
-        </div> */}
-        <div className='pressure-line-parent'>
+          <div className='pressure-line-parent'>
 
             <Line data={data} options={{ maintainAspectRatio: false }}/>
             </div>

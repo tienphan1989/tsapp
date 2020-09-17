@@ -43,93 +43,90 @@ export default function PressureTable(props) {
       screen.display_date,
       screen.systolic_pressure,
       screen.diastolic_pressure,
-      <div style={{ backgroundColor: `${colorData(screen.systolic_pressure)}` }}> </div>
+      <div
+        style={{ backgroundColor: `${colorData(screen.systolic_pressure)}` }}
+      >
+         
+      </div>
     )
   );
 
   let paginationElement;
-    if (props.pageCount > 1) {
-      paginationElement = (
-        <ReactPaginate
-          pageCount={props.pageCount}
-          onPageChange={props.onPressureChange}
-          forcePage={props.forcePage}
-          previousLabel={"←"}
-          nextLabel={"→"}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
-          containerClassName={"pagination"}
-          subContainerClassName={'pages pagination'}
-          previousLinkClassName={"previous_page"}
-          nextLinkClassName={"next_page"}
-          disabledClassName={"disabled"}
-          activeClassName={"active"}
-          breakLinkClassName={'atagelement'}
-          pageRangeDisplayed={2}
-          marginPagesDisplayed={0}
-        />
-      );
+  if (props.pageCount > 1) {
+    paginationElement = (
+      <ReactPaginate
+        pageCount={props.pageCount}
+        onPageChange={props.onPressureChange}
+        forcePage={props.forcePage}
+        previousLabel={"←"}
+        nextLabel={"→"}
+        breakLabel={"..."}
+        breakClassName={"break-me"}
+        containerClassName={"pagination"}
+        subContainerClassName={"pages pagination"}
+        previousLinkClassName={"previous_page"}
+        nextLinkClassName={"next_page"}
+        disabledClassName={"disabled"}
+        activeClassName={"active"}
+        breakLinkClassName={"atagelement"}
+        pageRangeDisplayed={2}
+        marginPagesDisplayed={0}
+      />
+    );
   }
 
   return (
     <React.Fragment>
-    <div>
-      {/* <div className="listings-filter">
-        <div className='pressure-pagination-div'>
-          
-        </div>
-        <div className='add-new-result'>
-          <h4 style={{ marginRight: '5px'}}>Blood pressure data (mmHg) </h4>
-          <AddCircleIcon style={{ marginTop: '16px'}}/>
-        </div>
-        
-        <div className="graph-listings-filter">
-          <form>
-            <label>Category: </label>
-            <select value={props.value} onChange={props.handleChange}>
-              <option>select</option>
-              <option value="bp">Blood pressure</option>
-              <option value="sugar">Blood sugar</option>
-              <option value="vaccine">Vaccine status</option>
-            </select>
-          </form>
-        </div>
-      </div> */}
-      <div className='pagination-container'>{paginationElement}</div>
-      
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date <AddCircleIcon/></TableCell>
-            <TableCell align="right">Systolic</TableCell>
-            <TableCell align="right">Diastolic</TableCell>
-            <TableCell align="right">Grade</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {newRows.map((row) => (
-            <TableRow key={row.Date}>
-              <TableCell
-                component="th"
-                scope="row"
-                className={classes.tableCell}
-              >
-                {row.Date}
+      <div>
+        <div className="pagination-container">{paginationElement}</div>
+
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                Date <AddCircleIcon />
               </TableCell>
-              <TableCell align="right" className={classes.tableCell} key={row.Systolic}>
-                {row.Systolic}
-              </TableCell>
-              <TableCell align="right" className={classes.tableCell} key={row.Diastolic}>
-                {row.Diastolic}
-              </TableCell>
-              <TableCell align="right" className={classes.tableCell} key={row.Grade}>
-                {row.Grade}
-              </TableCell>
+              <TableCell align="right">Systolic</TableCell>
+              <TableCell align="right">Diastolic</TableCell>
+              <TableCell align="right">Grade</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+          </TableHead>
+          <TableBody>
+            {newRows.map((row) => (
+              <TableRow key={row.Date}>
+                <TableCell
+                  component="th"
+                  scope="row"
+                  className={classes.tableCell}
+                >
+                  {row.Date}
+                </TableCell>
+                <TableCell
+                  align="right"
+                  className={classes.tableCell}
+                  key={row.Systolic}
+                >
+                  {row.Systolic}
+                </TableCell>
+                <TableCell
+                  align="right"
+                  className={classes.tableCell}
+                  key={row.Diastolic}
+                >
+                  {row.Diastolic}
+                </TableCell>
+                <TableCell
+                  align="right"
+                  className={classes.tableCell}
+                  key={row.Grade}
+                >
+                  {row.Grade}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </React.Fragment>
   );
 }
