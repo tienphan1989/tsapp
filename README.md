@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Health Check 👋</h1>
+<h1 align="center">Welcome to Health Check 💖</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://choosealicense.com/licenses/mit/#" target="_blank">
@@ -10,7 +10,10 @@
 
 ### 🏠 [Homepage](https://github.com/TienPhanDev/HealthCheck)
 
-### ✨ [Demo](https://drive.google.com/file/d/1QWQ2N7pbbI0hBZ_ZMFgTwtNTPo5gS59G/view?usp=sharing)
+### ✨ [Full Showcase Demo](https://drive.google.com/file/d/1QWQ2N7pbbI0hBZ_ZMFgTwtNTPo5gS59G/view?usp=sharing)
+
+# DEMO
+![Health Check Demo](healthCheck_demo.gif)
 
 ## Install
 
@@ -32,7 +35,7 @@ npm run test
 
 ## Author
 
-👤 **Tien Phan**
+ 😁**Tien Phan**
 
 * Website: https://www.medicine2code.com
 * Github: [@TienPhanDev](https://github.com/TienPhanDev)
@@ -46,6 +49,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [Tien Phan](https://github.com/TienPhanDev).<br />
 This project is [MIT](https://choosealicense.com/licenses/mit/#) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
