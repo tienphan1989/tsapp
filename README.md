@@ -18,24 +18,18 @@
 ## Install
 
 ```sh
-npm install
+npm install OR yarn
 ```
 
 ## Usage
 
 ```sh
-npm run start
-```
-
-## Run tests
-
-```sh
-npm run test
+npm run start OR yarn start
 ```
 
 ## Author
 
- 😁**Tien Phan**
+**Tien Phan**👋
 
 * Website: https://www.medicine2code.com
 * Github: [@TienPhanDev](https://github.com/TienPhanDev)
